@@ -7,6 +7,7 @@ package main
 
 import (
 	"fmt"
+	"my-go-examples/example-methods/nestedstruct"
 	"my-go-examples/example-methods/pointerreceivers"
 	"my-go-examples/example-methods/samename"
 )
@@ -72,4 +73,19 @@ func main() {
 	newEmployee.ChangeNameWithGoShorcuts("Rachel Green")
 
 	fmt.Println("new employee after name change =", newEmployee.Name)
+
+	fmt.Println()
+	fmt.Println("Methods on nested struct")
+
+	employeeWithNestedStruct := nestedstruct.Employee{
+		Name:    "Ross Geller",
+		Salary:  1200,
+		Contact: nestedstruct.Contact{"011 8080 8080", "New Delhi, India"},
+	}
+
+	fmt.Println("employee with nested struct before phone change =", employeeWithNestedStruct)
+
+	employeeWithNestedStruct.ChangePhone("222 1010 1222")
+
+	fmt.Println("employee with nested struct after phone change =", employeeWithNestedStruct)
 }
