@@ -7,6 +7,7 @@ package main
 
 import (
 	"fmt"
+
 	"my-go-examples/example-interfaces/emptyinterface"
 	"my-go-examples/example-interfaces/mergeinterfaces"
 	"my-go-examples/example-interfaces/multiplesinterfaces"
@@ -111,4 +112,8 @@ func main() {
 
 	fmt.Println("Area of rectangle is", area)
 	fmt.Println("Perimeter of rectangle is", perimeter)
+
+	fmt.Println()
+	fmt.Println("Methods on nested struct")
+
 }
