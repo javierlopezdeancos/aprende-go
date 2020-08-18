@@ -2,7 +2,7 @@ package main
 
 /*
  * Take a look to the example source https://medium.com/rungo/anatomy-of-methods-in-go-f552aaa8ac4a
- * Implementing interfaces
+ * Anatomy of methods in Go
  */
 
 import (
