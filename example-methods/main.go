@@ -37,23 +37,31 @@ func main() {
 		lastName:  "Geller",
 	}
 
+	/***********************************/
+	/*      A simple function         */
+	/*********************************/
 	fmt.Println()
 	fmt.Println("A simple function")
 	fmt.Println(getFullNameFunction(ross.firstName, ross.lastName))
 
+	/***********************************/
+	/*      Switch to a method        */
+	/*********************************/
 	fmt.Println()
 	fmt.Println("Switch to a method")
 	fmt.Println(ross.getFullNameMethod())
 
+	/*******************************************/
+	/*      Methods with the same name       */
+	/****************************************/
 	rectangle := samename.Rectangle{5.0, 4.0}
 	circle := samename.Circle{5.0}
 	fmt.Printf("Area of rectangle is %0.2f\n", rectangle.Area())
 	fmt.Printf("Area of circle is %0.2f\n", circle.Area())
 
-	fmt.Println()
-	fmt.Println("Switch to a method")
-	fmt.Println(ross.getFullNameMethod())
-
+	/***********************************/
+	/*    Method pointer receiver     */
+	/*********************************/
 	fmt.Println()
 	fmt.Println("Method pointer receiver")
 
@@ -78,6 +86,9 @@ func main() {
 
 	fmt.Println("new employee after name change =", newEmployee.Name)
 
+	/***********************************/
+	/*   Methods on nested struct     */
+	/*********************************/
 	fmt.Println()
 	fmt.Println("Methods on nested struct")
 
@@ -103,6 +114,9 @@ func main() {
 
 	fmt.Println("employee with nested struct after phone change directly =", employeeWithNestedStruct)
 
+	/**********************************/
+	/*   Anonymously nested struct   */
+	/******************************* */
 	fmt.Println()
 	fmt.Println("Anonymously nested struct")
 
@@ -121,6 +135,9 @@ func main() {
 
 	fmt.Println("employee after phone change =", employeeWithNAnonymouslyNestedStruct)
 
+	/*************************/
+	/*   Promoted methods   */
+	/***********************/
 	fmt.Println()
 	fmt.Println("Promoted methods")
 
@@ -139,6 +156,9 @@ func main() {
 
 	fmt.Println("employee after phone change =", employeeWithPromotedMethod)
 
+	/**************************************************/
+	/*   Methods can accept both pointer and value   */
+	/************************************************/
 	fmt.Println()
 	fmt.Println("Methods can accept both pointer and value")
 
@@ -157,9 +177,11 @@ func main() {
 
 	fmt.Println("employee after change =", employeeAcceptingBothPointerAndValue)
 
+	/***********************************/
+	/*   Methods on non struct type   */
+	/*********************************/
 	fmt.Println()
 	fmt.Println("Methods on non struct type")
-
 	str := methodsonnonstructtype.MyString("Hello World")
 	fmt.Println(str.ToUpperCase())
 }
