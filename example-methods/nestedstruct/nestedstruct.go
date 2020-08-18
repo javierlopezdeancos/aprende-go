@@ -22,3 +22,8 @@ type Employee struct {
 func (e *Employee) ChangePhone(newPhone string) {
 	e.Contact.Phone = newPhone
 }
+
+// ChangePhone method with Contact nested structure receiver
+func (c *Contact) ChangePhone(newPhone string) {
+	c.Phone = newPhone
+}

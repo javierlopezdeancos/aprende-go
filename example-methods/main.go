@@ -7,8 +7,12 @@ package main
 
 import (
 	"fmt"
+	"my-go-examples/example-methods/acceptbothpointerandvalue"
+	"my-go-examples/example-methods/anonymouslynestedstruct"
+	"my-go-examples/example-methods/methodsonnonstructtype"
 	"my-go-examples/example-methods/nestedstruct"
 	"my-go-examples/example-methods/pointerreceivers"
+	"my-go-examples/example-methods/promotedmethods"
 	"my-go-examples/example-methods/samename"
 )
 
@@ -77,10 +81,15 @@ func main() {
 	fmt.Println()
 	fmt.Println("Methods on nested struct")
 
+	cotactEmployee := nestedstruct.Contact{
+		Phone:   "011 8080 8080",
+		Address: "New Delhi, India",
+	}
+
 	employeeWithNestedStruct := nestedstruct.Employee{
 		Name:    "Ross Geller",
 		Salary:  1200,
-		Contact: nestedstruct.Contact{"011 8080 8080", "New Delhi, India"},
+		Contact: cotactEmployee,
 	}
 
 	fmt.Println("employee with nested struct before phone change =", employeeWithNestedStruct)
@@ -88,4 +97,69 @@ func main() {
 	employeeWithNestedStruct.ChangePhone("222 1010 1222")
 
 	fmt.Println("employee with nested struct after phone change =", employeeWithNestedStruct)
+	fmt.Println("employee with nested struct before phone change directly =", employeeWithNestedStruct)
+
+	employeeWithNestedStruct.Contact.ChangePhone("333 6060 1333")
+
+	fmt.Println("employee with nested struct after phone change directly =", employeeWithNestedStruct)
+
+	fmt.Println()
+	fmt.Println("Anonymously nested struct")
+
+	employeeWithNAnonymouslyNestedStruct := anonymouslynestedstruct.Employee{
+		Name:   "Ross Geller",
+		Salary: 1200,
+		Contact: anonymouslynestedstruct.Contact{
+			Phone:   "011 8080 8080",
+			Address: "New Delhi, India",
+		},
+	}
+
+	fmt.Println("employee before phone change =", employeeWithNAnonymouslyNestedStruct)
+
+	employeeWithNAnonymouslyNestedStruct.ChangePhone("777 1313 1444")
+
+	fmt.Println("employee after phone change =", employeeWithNAnonymouslyNestedStruct)
+
+	fmt.Println()
+	fmt.Println("Promoted methods")
+
+	employeeWithPromotedMethod := promotedmethods.Employee{
+		Name:   "Ross Geller",
+		Salary: 1200,
+		Contact: promotedmethods.Contact{
+			Phone:   "011 8080 8080",
+			Address: "New Delhi, India",
+		},
+	}
+
+	fmt.Println("employee before phone change =", employeeWithPromotedMethod)
+
+	employeeWithPromotedMethod.ChangePhone("999 9393 1999")
+
+	fmt.Println("employee after phone change =", employeeWithPromotedMethod)
+
+	fmt.Println()
+	fmt.Println("Methods can accept both pointer and value")
+
+	employeeAcceptingBothPointerAndValue := acceptbothpointerandvalue.Employee{
+		Name:   "Ross Geller",
+		Salary: 1200,
+	}
+
+	fmt.Println("employee before change =", employeeAcceptingBothPointerAndValue)
+
+	// We call ChangeName over the value and not the pointer but go fix that under the hood
+	employeeAcceptingBothPointerAndValue.ChangeName("Monica Geller")
+
+	// We call ShowSalary over the pointer and not the value but go fix that under the hood
+	(&employeeAcceptingBothPointerAndValue).ShowSalary()
+
+	fmt.Println("employee after change =", employeeAcceptingBothPointerAndValue)
+
+	fmt.Println()
+	fmt.Println("Methods on non struct type")
+
+	str := methodsonnonstructtype.MyString("Hello World")
+	fmt.Println(str.ToUpperCase())
 }
