@@ -19,6 +19,6 @@ type Employee struct {
 }
 
 // ChangePhone method with Employee pointer receiver
-func (c *Contact) ChangePhone(newPhone string) {
+func (c *Employee) ChangePhone(newPhone string) {
 	c.Phone = newPhone
 }
