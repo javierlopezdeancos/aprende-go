@@ -21,5 +21,11 @@ Some go examples about tutorials and exercises
   * Function fields
   * Struct comparison
   * Struct field meta-data
+* [The anatomy of Functions in Go](https://medium.com/rungo/the-anatomy-of-functions-in-go-de56c050fe11)
+  * What is a function
+  * Function name convention
+  * Function parameters
+  * Return value
+  * Multiple return values
 * [Anatomy of methods in Go](https://medium.com/rungo/anatomy-of-methods-in-go-f552aaa8ac4a)
 * [Interfaces in Go](https://medium.com/rungo/interfaces-in-go-ab1601159b3a)
