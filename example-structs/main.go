@@ -235,10 +235,10 @@ func main() {
 	fmt.Println(sidi.FullName(sidi.FirstName, sidi.LastName))
 
 	/************************************/
-	/*      Function comparasion       */
+	/*       Struct comparasion        */
 	/**********************************/
 	fmt.Println()
-	fmt.Println("Function comparasion")
+	fmt.Println("Struct comparasion")
 
 	// Two structs are comparable if they belong to the same type and have the same field values.
 
