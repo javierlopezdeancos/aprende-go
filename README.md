@@ -6,6 +6,30 @@ Some go examples about tutorials and exercises
 
 ## Summary
 
+* [Anatomy of Conditional Statements and Loops in Go](https://medium.com/rungo/anatomy-of-conditional-statements-and-loops-in-go-aa84352cc34d)
+  * The if/else conditional statement
+    * The if condition
+    * The if-else condition
+    * The if-else if-else conditionInitial statement
+    * Initial statement
+    * Ternary condition
+  * The switch conditional statement
+    * The syntax of the switch statement
+    * The default case
+    * Multiple case values
+    * The initial statement
+    * Expressionless switch statement
+    * The fallthrough statement
+  * The for loops
+    * The for loop syntax
+    * Variants of the for loop
+      * Optional post statement
+      * Optional init statement
+      * Optional init and post statement
+      * Without all statements
+    * The break statement
+    * The continue statement
+    * The return statement
 * [Structures in Go (structs)](https://medium.com/rungo/structures-in-go-76377cc106a2)
   * Declaring a struct type
   * Creating a struct
