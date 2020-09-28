@@ -70,8 +70,8 @@ func main() {
 	/*      Methods with the same name       */
 	/*****************************************/
 
-	// One major difference between functions and methods is we can have multiple methods with same name while no two // /// functions with the same name can be defined in a package.
-
+	// One major difference between functions and methods is we can have multiple methods with same name while no two
+	// functions with the same name can be defined in a package.
 	// We are allowed to create methods with same name as long as their receivers are different.
 	// Let’s create two struct types Circle and Rectangle and create two methods of the same name
 	// Area which calculates the area of their receiver.
