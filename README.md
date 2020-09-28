@@ -52,4 +52,14 @@ Some go examples about tutorials and exercises
   * Return value
   * Multiple return values
 * [Anatomy of methods in Go](https://medium.com/rungo/anatomy-of-methods-in-go-f552aaa8ac4a)
+  * What is a method?
+  * Methods with the same name
+  * Pointer receivers
+    * Calling methods with pointer receiver on values
+  * Methods on nested struct
+    * Methods on nested struct
+    * Anonymously nested struct
+    * Promoted methods
+  * Methods can accept both pointer and value
+  * Methods on non-struct type
 * [Interfaces in Go](https://medium.com/rungo/interfaces-in-go-ab1601159b3a)
