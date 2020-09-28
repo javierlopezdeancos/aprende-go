@@ -37,12 +37,25 @@ func main() {
 		lastName:  "Geller",
 	}
 
+	// A method is nothing but a function, but it belongs to a certain type.
+	// A method is defined with slightly different syntax than a normal function.
+	// It required an additional parameter known as a receiver which is a type to which the function belongs.
+	// This way, a method (function) can access the properties of the receiver it belongs to (like fields of a struct).
+
 	/***********************************/
 	/*      A simple function         */
 	/*********************************/
 	fmt.Println()
 	fmt.Println("A simple function")
 	fmt.Println(getFullNameFunction(ross.firstName, ross.lastName))
+
+	// A method can solve this problem easily.
+	// To convert a function to the method, we just need an extra receiver parameter in the function definition.
+	// The syntax for defining a method is as follows.
+
+	// As a method belongs to a receiver type and it becomes available on that type as a property,
+	// we can call that method using Type.methodName(...)syntax. In the above program,
+	// we have used e.fullName() to get the full name of an employee since fullName method belongs to Employee.
 
 	/***********************************/
 	/*      Switch to a method        */
@@ -51,6 +64,12 @@ func main() {
 	fmt.Println("Switch to a method")
 	fmt.Println(ross.getFullNameMethod())
 
+	// One major difference between functions and methods is we can have multiple methods with same name while no two // /// functions with the same name can be defined in a package.
+
+	// We are allowed to create methods with same name as long as their receivers are different.
+	// Let’s create two struct types Circle and Rectangle and create two methods of the same name
+	// Area which calculates the area of their receiver.
+
 	/*******************************************/
 	/*      Methods with the same name       */
 	/****************************************/
@@ -58,6 +77,11 @@ func main() {
 	circle := samename.Circle{5.0}
 	fmt.Printf("Area of rectangle is %0.2f\n", rectangle.Area())
 	fmt.Printf("Area of circle is %0.2f\n", circle.Area())
+
+	// So far, we have seen methods belong to a type. But a method can also belong to the pointer of a type.
+
+	// When a method belongs to a type, its receiver receives a copy of the object on which it was called. To verify
+	// that, we can create a method that mutates a struct it receives.
 
 	/***********************************/
 	/*    Method pointer receiver     */
@@ -78,13 +102,23 @@ func main() {
 
 	fmt.Println("new employee after name change =", newEmployeePointer.Name)
 
+	// If you are wondering, do I always need to create a pointer to work with methods with pointer receiver
+	// then Go already figured that out.
+
+	/**********************************************************/
+	/*    Calling methods with pointer receiver on values    */
+	/********************************************************/
 	fmt.Println()
 	fmt.Println("Calling methods with pointer receiver on values")
+
 	fmt.Println("new employee before name change =", newEmployee.Name)
 
 	newEmployee.ChangeNameWithGoShorcuts("Rachel Green")
 
 	fmt.Println("new employee after name change =", newEmployee.Name)
+
+	// As a struct field also can be a struct, we can define a method on parent struct and access nested
+	// struct to do anything we want.
 
 	/***********************************/
 	/*   Methods on nested struct     */
@@ -114,6 +148,9 @@ func main() {
 
 	fmt.Println("employee with nested struct after phone change directly =", employeeWithNestedStruct)
 
+	// If a field of a struct an anonymous struct,
+	// the nested struct fields will be promoted to the parent.
+
 	/**********************************/
 	/*   Anonymously nested struct   */
 	/******************************* */
@@ -134,6 +171,11 @@ func main() {
 	employeeWithNAnonymouslyNestedStruct.ChangePhone("777 1313 1444")
 
 	fmt.Println("employee after phone change =", employeeWithNAnonymouslyNestedStruct)
+
+	// Like promoted fields, methods implemented by the anonymously nested struct
+	// are also promoted to the parent struct. As we saw in the previous example,
+	// Contact field is anonymously nested.
+	// Hence we could access phone field of the inner struct on the parent.
 
 	/*************************/
 	/*   Promoted methods   */
@@ -156,6 +198,11 @@ func main() {
 
 	fmt.Println("employee after phone change =", employeeWithPromotedMethod)
 
+	// When a normal function has a parameter definition,
+	// it will only accept the argument of the type defined by the parameter.
+	// If you passed a pointer to the function which expects a value, it will not work.
+	// This is also true when function accepts pointer but you are passing a value instead.
+
 	/**************************************************/
 	/*   Methods can accept both pointer and value   */
 	/************************************************/
@@ -176,6 +223,11 @@ func main() {
 	(&employeeAcceptingBothPointerAndValue).ShowSalary()
 
 	fmt.Println("employee after change =", employeeAcceptingBothPointerAndValue)
+
+	// So far we have seen methods belonging to struct type but from the definition of the methods,
+	// it is a function that can belong to any type.
+	// Hence a method can receive any type as long as the type definition and method definition is in the same package.
+	// So far, we defined struct and method in the same main package, hence it worked.
 
 	/***********************************/
 	/*   Methods on non struct type   */
