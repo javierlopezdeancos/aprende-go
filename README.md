@@ -74,3 +74,20 @@ Some go examples about tutorials and exercises
   * Pointer vs Value receiver
   * Interface comparison
   * Use of interfaces
+* [Introduction to Streams and Buffers](https://medium.com/rungo/introduction-to-streams-and-buffers-d148c0cda0ad)
+  * What are a stream and a buffer
+  * Reading from a Data Source
+    * io.Reader
+    * strings.NewReader
+    * ioutil.ReadAll
+    * io.ReadFull
+    * io.LimitReader
+  * Writing to a Data Store
+    * io.Writer
+    * io.WriteString
+    * Standard I/O Streams
+  * Closing I/O Operations
+  * Transferring Data between streams
+    * io.Copy
+    * io.Pipe
+  * Buffered streams
