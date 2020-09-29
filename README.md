@@ -63,3 +63,14 @@ Some go examples about tutorials and exercises
   * Methods can accept both pointer and value
   * Methods on non-struct type
 * [Interfaces in Go](https://medium.com/rungo/interfaces-in-go-ab1601159b3a)
+  * What is an interface?
+  * Declaring interface
+  * Implementing interface
+  * Empty interface
+  * Multiple interfaces
+  * Type assertion
+  * Type switch
+  * Embedding interfaces
+  * Pointer vs Value receiver
+  * Interface comparison
+  * Use of interfaces
