@@ -100,8 +100,6 @@ func main() {
 	/*          The switch conditional statement            */
 	/********************************************************/
 
-	// You can execute an initial statement before if condition evaluates.
-
 	//  switch input {
 	//    case value_1:
 	//      ...
