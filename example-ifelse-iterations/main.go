@@ -201,7 +201,7 @@ func main() {
 	// case will be an expression that returns a boolean value.
 
 	fmt.Println()
-	fmt.Println(" Expressionless switch statement")
+	fmt.Println("Expressionless switch statement")
 
 	number := 20
 
