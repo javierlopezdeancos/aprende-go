@@ -274,9 +274,9 @@ Letter is a vovel.
 */
 ```
 
-### 1.4.3 Estado inicial
+### 1.4.3 Inicial statement
 
-Hay otra variante para el switch que también teníamos en el if donde se puede añadir un estado inicial.
+Hay otra variante para el switch que también teníamos en el if donde se puede añadir un statement inicial.
 
 ```go
 switch statement; input {
@@ -310,7 +310,7 @@ Letter is a vovel.
 */
 ```
 
-### 1.4.4 Switch sin input de entrada (Expressionless switch statement) .
+### 1.4.4 Expressionless switch statement
 
 El valor de entrada a un switch en go es opcional.
 
@@ -350,7 +350,7 @@ number is greater than 5
 
 Mientras la variable `number` es mayor que 20 , la condición `number > 5` en el segundo case es la que ejecutará su bloque de código, al ser el primer case evaluado que retorna true.
 
-### 1.4.5 Fallthrough
+### 1.4.5 Fallthrough statement
 
 Normalmente cuando un case block es ejecutado, no se intenta evaluar ningún otro case.
 
@@ -406,17 +406,17 @@ for init; condition; post {
 ```
 
 - `init` inicia cualquier variable que pueda necesitarse  al empezar el bucle o usar al finalizarlo.
-  
+
   La declaración puede ser llamada una vez cuando el bucle empieza a ejecutarse.
 
 - `condition` validaciones del estado para una condición.
-  
+
   Si la condición devuelve true entonces el código dentro del loop se ejecutará.
 
 - Al final de la ejecución del código el `post` será ejecutado.
-  
+
   En esta ejecución podremos modificar las variables definidas en el `init` . Después de la ejecución en el `post` la condición de estado se volverá a evaluar de nuevo.
-  
+
   Si esta evaluación devuelve true, el código dentro del bucle se ejecutará de nuevo, así sucesivamente hasta que el loop termine.
 
 ```go
