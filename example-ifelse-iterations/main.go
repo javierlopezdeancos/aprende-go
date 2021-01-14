@@ -299,7 +299,7 @@ func main() {
 	/************************************/
 
 	// We can also drop init statement and execute outside for loop. But in this case,
-	// the variable i will be accessible outside the for loop.
+	// the variable will be accessible outside the for loop.
 
 	fmt.Println()
 	fmt.Println("Optional init statement")
