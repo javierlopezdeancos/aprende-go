@@ -11,15 +11,15 @@ Algunos ejemplos sobre tutoriales y ejercicios en Go.
     * [Condicional if](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#11-condicional-if)
     * [Condicional if-else](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#12-condicional-if-else)
     * [Condicional if else if](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#13-condicional-if-else-if)
-    * [Estado inicial](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#131-estado-inicial)
-    * Ternary condition
-  * [Condicional switch](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#14-condicional-switch)
-    * The syntax of the switch statement
-    * [Default case](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#141-default-case)
-    * [Múltiples valores en el case](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#142-multiples-valores-en-el-case)
-    * [Inicial statement](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#143-inicial-statement)
-    * [Expressionless switch statement](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#144-expressionless-switch-statement)
-    * [Fallthrough statement](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#145-fallthrough-statement)
+      * [Estado inicial](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#131-estado-inicial)
+      * Ternary condition
+    * [Condicional switch](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#14-condicional-switch)
+      * The syntax of the switch statement
+      * [Default case](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#141-default-case)
+      * [Múltiples valores en el case](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#142-multiples-valores-en-el-case)
+      * [Inicial statement](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#143-inicial-statement)
+      * [Expressionless switch statement](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#144-expressionless-switch-statement)
+      * [Fallthrough statement](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#145-fallthrough-statement)
   * [Iteradoes](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#2-Iteradores)
     * [Bucles for](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#21-bucles-for)
       * The for loop syntax
