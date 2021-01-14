@@ -2,13 +2,13 @@
 
 <img src="./images/pet.jpeg" width="200">
 
-Some go examples about tutorials and exercises
+Algunos ejemplos sobre tutoriales y ejercicios en Go.
 
 ## Summary
 
-* [Anatomy of Conditional Statements and Loops in Go](https://medium.com/rungo/anatomy-of-conditional-statements-and-loops-in-go-aa84352cc34d)
-  * The if/else conditional statement
-    * The if condition
+* [Condicionales e Iteradores](./example-ifelse-iterations/ifelse-iterators.md)
+  * [Condicionales]("./example-ifelse-iterations/ifelse-iterators.md"#1-condicionales)
+    * [El condicional if](./example-ifelse-iterations/ifelse-iterators.md#1-1-condicional-if)
     * The if-else condition
     * The if-else if-else conditionInitial statement
     * Initial statement

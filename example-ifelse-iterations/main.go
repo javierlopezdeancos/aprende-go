@@ -100,8 +100,6 @@ func main() {
 	/*          The switch conditional statement            */
 	/********************************************************/
 
-	// You can execute an initial statement before if condition evaluates.
-
 	//  switch input {
 	//    case value_1:
 	//      ...
@@ -203,7 +201,7 @@ func main() {
 	// case will be an expression that returns a boolean value.
 
 	fmt.Println()
-	fmt.Println(" Expressionless switch statement")
+	fmt.Println("Expressionless switch statement")
 
 	number := 20
 
@@ -301,7 +299,7 @@ func main() {
 	/************************************/
 
 	// We can also drop init statement and execute outside for loop. But in this case,
-	// the variable i will be accessible outside the for loop.
+	// the variable will be accessible outside the for loop.
 
 	fmt.Println()
 	fmt.Println("Optional init statement")
