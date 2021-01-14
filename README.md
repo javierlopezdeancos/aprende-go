@@ -20,7 +20,7 @@ Algunos ejemplos sobre tutoriales y ejercicios en Go.
       * [Inicial statement](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#143-inicial-statement)
       * [Expressionless switch statement](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#144-expressionless-switch-statement)
       * [Fallthrough statement](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#145-fallthrough-statement)
-  * [Iteradoes](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#2-Iteradores)
+  * [Iteradores](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#2-Iteradores)
     * [Bucles for](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#21-bucles-for)
       * The for loop syntax
       * Variants of the for loop
