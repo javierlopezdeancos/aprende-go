@@ -6,30 +6,31 @@ Algunos ejemplos sobre tutoriales y ejercicios en Go.
 
 ## Summary
 
-* [Condicionales e Iteradores](./example-ifelse-iterations/ifelse-iterators.md)
-  * [Condicionales]("./example-ifelse-iterations/ifelse-iterators.md"#1-condicionales)
-    * [El condicional if](./example-ifelse-iterations/ifelse-iterators.md#1-1-condicional-if)
-    * The if-else condition
-    * The if-else if-else conditionInitial statement
-    * Initial statement
+* [Condicionales e Iteradores](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md)
+  * [Condicionales](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#1-condicionales)
+    * [Condicional if](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#11-condicional-if)
+    * [Condicional if-else](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#12-condicional-if-else)
+    * [Condicional if else if](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#13-condicional-if-else-if)
+    * [Estado inicial](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#131-estado-inicial)
     * Ternary condition
-  * The switch conditional statement
+  * [Condicional switch](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#14-condicional-switch)
     * The syntax of the switch statement
-    * The default case
-    * Multiple case values
-    * The initial statement
-    * Expressionless switch statement
-    * The fallthrough statement
-  * The for loops
-    * The for loop syntax
-    * Variants of the for loop
-      * Optional post statement
-      * Optional init statement
-      * Optional init and post statement
-      * Without all statements
-    * The break statement
-    * The continue statement
-    * The return statement
+    * [Default case](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#141-default-case)
+    * [Múltiples valores en el case](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#142-multiples-valores-en-el-case)
+    * [Inicial statement](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#143-inicial-statement)
+    * [Expressionless switch statement](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#144-expressionless-switch-statement)
+    * [Fallthrough statement](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#145-fallthrough-statement)
+  * [Iteradoes](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#2-Iteradores)
+    * [Bucles for](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#21-bucles-for)
+      * The for loop syntax
+      * Variants of the for loop
+        * [Opcional init statment](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#211-opcional-init-statment)
+        * [Opcional post statment](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#212-opcional-post-statment)
+        * [Opcional init y statment](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#213-opcional-init-y-post-statment)
+        * [Sin ningún statment](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#214-sin-ningun-statment)
+        * [El break statment](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#215-el-break-statement)
+        * [El continue statment](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#216-el-continue-statement)
+        * [El return statment](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-ifelse-iterations/ifelse-iterators.md#217-el-return-statement)
 * [Structures in Go (structs)](https://medium.com/rungo/structures-in-go-76377cc106a2)
   * Declaring a struct type
   * Creating a struct
