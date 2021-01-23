@@ -399,6 +399,7 @@ La instrucción `fallthrough` debe ser la última en un case block, de lo contra
 
 ## 2.1 Bucles for
 
+### 2.1.1 Sintaxis del bucle for
 ```go
 for init; condition; post {
   ...
@@ -447,7 +448,8 @@ Current number is 6
 */
 ```
 
-### 2.1.1 Opcional init statment
+### 2.1.2 Variantes del bucle for
+#### 2.1.2.1 Opcional init statment
 
 Go permite colocar el init statment y ejecutarlo fuera del loop pero en ese caso la variable estará accesible fuera del loop.
 
@@ -481,7 +483,7 @@ Current number is 6
 */
 ```
 
-### 2.1.2 Opcional post statment
+#### 2.1.2.2 Opcional post statment
 
 Go permite colocar y ejecutar dentro del código del bucle el código post para obtener los mismos resultados.
 
@@ -514,7 +516,7 @@ Current number is 6
 */
 ```
 
-### 2.1.3 Opcional init y post statement
+#### 2.1.2.3 Opcional init y post statement
 
 Un bucle for puede tener solo la condición que comprueba el statment, extrayendo fuera del bucle el init y ubicando dentro del bucle el post.
 
@@ -547,7 +549,7 @@ Current number is 6
 */
 ```
 
-### 2.1.4 Sin ningún statment
+#### 2.1.2.4 Sin ningún statment
 
 Un bucle for sin init, post o check statetment es un bucle for cuya condition statement siempre es true. Esto quiere decir que estará iterando indefinidamente hasta que sea terminado manualmente dentro del código del bucle. Para esta operación tenemos la palabra reservada break para terminar el loop.
 
@@ -585,7 +587,7 @@ Current number is 6
 */
 ```
 
-### 2.1.5 El break statment
+#### 2.1.2.5 El break statment
 
 El break statement es usado dentro del bucle for para terminarlo.
 
@@ -623,7 +625,7 @@ Current number is 6
 */
 ```
 
-### 2.1.6 El continue statement
+#### 2.1.2.6 El continue statement
 
 El continue statement es usado para saltar a la siguiente iteracción del bucle for, simplemente:
 
@@ -664,6 +666,64 @@ Current number is 10
 */
 ```
 
-### 2.1.7 El return statement
+#### 2.1.2.7 El return statement
 
 Si el bucle for encuentra return statement, la función de ejecución se parará y el valor será devuelto por la función, por ende podemos decir que el return no es algo específico del bucle for.
+
+#### 2.1.2.8 Range
+
+##### 2.1.2.8.1 Range sobre un array
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+   /* create a slice */
+   numbers := []int{0,1,2,3,4,5,6,7,8}
+
+   /* print the numbers */
+   for i:= range numbers {
+      fmt.Println("Slice item",i,"is",numbers[i])
+   }
+}
+```
+
+##### 2.1.2.8.2 Range sobre un map
+
+###### 2.1.2.8.2.1 Range sobre un map usando keys
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+   /* create a map*/
+   countryCapitalMap := map[string] string {"France":"Paris","Italy":"Rome","Japan":"Tokyo"}
+
+    /* print map using keys*/
+   for country := range countryCapitalMap {
+      fmt.Println("Capital of",country,"is",countryCapitalMap[country])
+   }
+}
+```
+
+###### 2.1.2.8.2.2 Range sobre un map usando key/value
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+   /* create a map*/
+   countryCapitalMap := map[string] string {"France":"Paris","Italy":"Rome","Japan":"Tokyo"}
+
+   /* print map using key-value*/
+   for country,capital := range countryCapitalMap {
+      fmt.Println("Capital of",country,"is",capital)
+   }
+}
+```
