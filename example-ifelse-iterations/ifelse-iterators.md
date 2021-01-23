@@ -2,6 +2,8 @@
 
 [Anatomy of Conditional Statements and Loops in Go](https://medium.com/rungo/anatomy-of-conditional-statements-and-loops-in-go-aa84352cc34d)
 
+[Go Range](https://www.tutorialspoint.com/go/go_range.htm)
+
 # 1. Condicionales
 
 Go nos provee de **if**, **if-else**, **if if-else if variantes,** **switch** etc para controlar el flujo condicional de ejecución de manera con la que ya estábamos familiarizados en otros lenguajes.
