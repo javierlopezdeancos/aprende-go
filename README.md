@@ -97,7 +97,7 @@ Algunos ejemplos sobre tutoriales y ejercicios en Go.
     * io.Copy
     * io.Pipe
   * Buffered streams
-* [Trabajando con JON](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#trabajando-con-json)
+* [Trabajando con JSON](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#trabajando-con-json)
   * [Referencias](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#referencias)
   * [Introducción](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#introduccion)
   * [Codificando JSON](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#codificando-json)
