@@ -97,3 +97,21 @@ Algunos ejemplos sobre tutoriales y ejercicios en Go.
     * io.Copy
     * io.Pipe
   * Buffered streams
+* [Trabajando con JON](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#trabajando-con-json)
+  * [Referencias](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#referencias)
+  * [Introducción](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#introduccion)
+  * [Codificando JSON](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#codificando-json)
+    * [Manejo de tipos de datos](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#manejo-de-tipos-de-datos)
+    * [Tipos de datos abstractos](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#tipos-de-datos-abstractos)
+    * [Conversión de tipos de datos](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#conversion-de-tipos-de-datos)
+    * [Codificando usando structure tags](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#codificando-usando-structure-tags)
+    * [Codificar trabajando con maps](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#codificar-trabajando-con-maps)
+  * [Decodificando JSON](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#decodificando-json)
+    * [Manejando estructuras de datos complejas](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#manejando-estructuras-de-datos-complejas)
+    * [Campos promocionados](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#campos-promocionados)
+    * [Decodificando usando structure tags](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#decodificando-usando-structure-tags)
+    * [Decodificar trabajando con maps](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#decodificar-trabajando-con-maps)
+    * [Usando Unmarshaler and TextUnmarshaler](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#usando-unmarshaler-and-textunmarshaler)
+  * [Codificador y Decodificador](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#codificador-y-decodificador)
+    * [Codificador](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#codificador)
+    * [Decodificador](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#codificador)
