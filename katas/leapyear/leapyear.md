@@ -12,5 +12,5 @@ Como sabemos hay cuatro reglas:
 
 ## Ejemplos
 
-[Código fuente](./leapyear.go)
-[Código tests](./leapyear_test.go)
+* [Código fuente](./leapyear.go)
+* [Código tests](./leapyear_test.go)
