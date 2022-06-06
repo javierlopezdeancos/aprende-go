@@ -116,4 +116,4 @@ Algunos ejemplos sobre tutoriales y ejercicios en Go.
     * [Codificador](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#codificador)
     * [Decodificador](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#codificador)
 * Katas
-  [Leap Year](./katas/leapYear%20/leapYear.md)
+  [Leap Year](./katas/leapyear/leapyear.md)
