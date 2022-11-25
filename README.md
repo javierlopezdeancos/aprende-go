@@ -117,3 +117,4 @@ Algunos ejemplos sobre tutoriales y ejercicios en Go.
     * [Decodificador](https://github.com/javierlopezdeancos/my-go-examples/blob/master/example-work-with-json/work-with-json.md#codificador)
 * Katas
   [Leap Year](./katas/leapyear/leapyear.md)
+  [String Calculator](./katas/stringcalculator/stringcalculator.md)
