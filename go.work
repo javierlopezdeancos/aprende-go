@@ -1,0 +1,10 @@
+go 1.19
+
+use ./example-functions
+use ./example-ifelse-iterations
+use ./example-imports
+use ./example-interfaces
+use ./example-methods
+use ./example-streams-and-buffers
+use ./example-structs
+use ./example-work-with-json

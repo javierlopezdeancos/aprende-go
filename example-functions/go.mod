@@ -1,3 +1,3 @@
 module my-go-examples/example-functions
 
-go 1.14
+go 1.19
