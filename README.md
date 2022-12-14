@@ -52,17 +52,17 @@ Algunos ejemplos sobre tutoriales y ejercicios en Go.
   * Struct comparison
   * Struct field meta-data
 * [Anatomía de funciones en Go](./example-functions/functions.md)
-  * [Qué es una función?](./example-functions/functions.md#1-1-que-es-una-funcion)
-  * [Convención de nombres para funciones](./example-functions/functions.md#1-2-convencion-de-nombres-para-funciones)
-  * [Parámetros en funciones](./example-functions/functions.md#1-3-parametros-en-funciones)
-  * [Valor de retorno](./example-functions/functions.md#1-4-valor-de-retorno)
-  * [Multiples valores de retorno](./example-functions/functions.md#1-5-multiples-valores-de-retorno)
-  * [Valores de retorno nombrados](./example-functions/functions.md#1-6-valores-de-retorno-nombrados)
-  * [Función recursiva](./example-functions/functions.md#1-7-función-recursiva)
-  * [`defer` keyword](./example-functions/functions.md#1-8-defer-keyword)
-  * [Función como tipo](./example-functions/functions.md#1-9-funcion-como-tipo)
-  * [Función como valor (función anónima)](./example-functions/functions.md#1-10-funcion-como-valor-funcion-anonima)
-  * [Función como valor (función anónima)](./example-functions/functions.md#1-11-expresion-de-funcion-invocada-inmediatamente-IIFE)
+  * [Qué es una función?](./example-functions/functions.md#11-qu%C3%A9-es-una-funci%C3%B3n)
+  * [Convención de nombres para funciones](./example-functions/functions.md#12-convenci%C3%B3n-de-nombres-para-funciones)
+  * [Parámetros en funciones](./example-functions/functions.md#13-par%C3%A1metros-en-funciones)
+  * [Valor de retorno](./example-functions/functions.md#14-valor-de-retorno)
+  * [Multiples valores de retorno](./example-functions/functions.md#15-multiples-valores-de-retorno)
+  * [Valores de retorno nombrados](./example-functions/functions.md#16-valores-de-retorno-nombrados)
+  * [Función recursiva](./example-functions/functions.md#17-funci%C3%B3n-recursiva)
+  * [`defer` keyword](./example-functions/functions.md#18-defer-keyword)
+  * [Función como tipo](./example-functions/functions.md#19-funci%C3%B3n-como-tipo)
+  * [Función como valor (función anónima)](./example-functions/functions.md#110-funci%C3%B3n-como-valor-funci%C3%B3n-an%C3%B3nima)
+  * [Función como valor (función anónima)](./example-functions/functions.md#111-expresi%C3%B3n-de-funci%C3%B3n-invocada-inmediatamente-iife)
 * [Anatomy of methods in Go](https://medium.com/rungo/anatomy-of-methods-in-go-f552aaa8ac4a)
   * What is a method?
   * Methods with the same name

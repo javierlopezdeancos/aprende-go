@@ -694,6 +694,6 @@ En el programa anterior, observe la definición de la función. La primera parte
 5+3 = 8
 ```
 
-Puedes ver el ejemplo [aquí]{https://go.dev/play/p/yxRJr51OxzY}
+Puedes ver el ejemplo [aquí](https://go.dev/play/p/yxRJr51OxzY)
 
 > La función invocada inmediatamente también se puede usar fuera de la función principal en un contexto global. Esto puede ser útil cuando necesita crear una variable global utilizando el valor de retorno de la ejecución **de una función** y no desea revelar la función a las otras partes de su programa.
