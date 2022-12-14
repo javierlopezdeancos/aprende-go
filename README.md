@@ -51,12 +51,18 @@ Algunos ejemplos sobre tutoriales y ejercicios en Go.
   * Function fields
   * Struct comparison
   * Struct field meta-data
-* [The anatomy of Functions in Go](https://medium.com/rungo/the-anatomy-of-functions-in-go-de56c050fe11)
-  * What is a function
-  * Function name convention
-  * Function parameters
-  * Return value
-  * Multiple return values
+* [Anatomía de funciones en Go](./example-functions/functions.md)
+  * [Qué es una función?](./example-functions/functions.md#1-1-que-es-una-funcion)
+  * [Convención de nombres para funciones](./example-functions/functions.md#1-2-convencion-de-nombres-para-funciones)
+  * [Parámetros en funciones](./example-functions/functions.md#1-3-parametros-en-funciones)
+  * [Valor de retorno](./example-functions/functions.md#1-4-valor-de-retorno)
+  * [Multiples valores de retorno](./example-functions/functions.md#1-5-multiples-valores-de-retorno)
+  * [Valores de retorno nombrados](./example-functions/functions.md#1-6-valores-de-retorno-nombrados)
+  * [Función recursiva](./example-functions/functions.md#1-7-función-recursiva)
+  * [`defer` keyword](./example-functions/functions.md#1-8-defer-keyword)
+  * [Función como tipo](./example-functions/functions.md#1-9-funcion-como-tipo)
+  * [Función como valor (función anónima)](./example-functions/functions.md#1-10-funcion-como-valor-funcion-anonima)
+  * [Función como valor (función anónima)](./example-functions/functions.md#1-11-expresion-de-funcion-invocada-inmediatamente-IIFE)
 * [Anatomy of methods in Go](https://medium.com/rungo/anatomy-of-methods-in-go-f552aaa8ac4a)
   * What is a method?
   * Methods with the same name
