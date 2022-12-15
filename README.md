@@ -36,21 +36,20 @@ Algunos ejemplos sobre tutoriales y ejercicios en Go.
           * [Range sobre un map](./example-ifelse-iterations/ifelse-iterators.md#21282-range-sobre-un-map)
             * [Range sobre un map usando keys](./example-ifelse-iterations/ifelse-iterators.md#212821-range-sobre-un-map-usando-keys)
             * [Range sobre un map usando key value](./example-ifelse-iterations/ifelse-iterators.md#212822-range-sobre-un-map-usando-key-value)
-* [Structures in Go (structs)](https://medium.com/rungo/structures-in-go-76377cc106a2)
-  * Declaring a struct type
-  * Creating a struct
-    * Getting and setting struct fields
-  * Initializing a struct
-  * Anonymous struct
-  * Pointer to a struct
-  * Anonymous fields
-  * Nested struct
-  * Promoted fields
-  * Nested interface
-  * Exported fields
-  * Function fields
-  * Struct comparison
-  * Struct field meta-data
+* [Estructuras en go (structs)](./example-structs/structs.md)
+  * [¿Qué es una estructura?](./example-structs/structs.md#1-qu%C3%A9-es-una-estructura)
+  * [Declarar un tipo de estructura](./example-structs/structs.md#11-declarar-un-tipo-de-estructura)
+  * [Creando una estructura](./example-structs/structs.md#12-creando-una-estructura)
+  * [Obtener y establecer campos de estructura](./example-structs/structs.md#13-obtener-y-establecer-campos-de-estructura)
+  * [Inicializando una estructura](./example-structs/structs.md#14-inicializando-una-estructura)
+  * [Estructura anónima](./example-structs/structs.md#15-estructura-an%C3%B3nima)
+  * [Puntero a una estructura](./example-structs/structs.md#16-puntero-a-una-estructura)
+  * [Campos anónimos](./example-structs/structs.md#17-campos-an%C3%B3nimos)
+  * [Estructura anidada](./example-structs/structs.md#18-estructura-anidada)
+  * [Campos promocionados](./example-structs/structs.md#19-campos-promocionados)
+  * [Campos de función](./example-structs/structs.md#110-campos-de-funci%C3%B3n)
+  * [Comparación de estructuras](./example-structs/structs.md#111-comparaci%C3%B3n-de-estructuras)
+  * [Metadatos de campo de estructura](./example-structs/structs.md#112-metadatos-de-campo-de-estructura)
 * [Anatomía de funciones en Go](./example-functions/functions.md)
   * [Qué es una función?](./example-functions/functions.md#11-qu%C3%A9-es-una-funci%C3%B3n)
   * [Convención de nombres para funciones](./example-functions/functions.md#12-convenci%C3%B3n-de-nombres-para-funciones)
