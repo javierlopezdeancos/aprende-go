@@ -1,4 +1,4 @@
-# References
+# Referencias
 
 [Anatomía de funciones en Go](https://medium.com/rungo/the-anatomy-of-functions-in-go-de56c050fe11)
 
