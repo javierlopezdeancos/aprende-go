@@ -372,7 +372,7 @@ Este programa no se compilará debido a que el tipo estático de `s` es `Shape` 
 
 Para que funcione, necesitamos extraer de alguna manera el valor dinámico de estas interfaces, que es una estructura de tipo `Cube` y `Cube` implementa estos métodos. Esto se puede hacer usando **aserción de tipo**.
 
-### Type assertion
+## Type assertion
 
 Podemos averiguar el valor dinámico subyacente de una interfaz usando la sintaxis **i.(Type)** donde `i` es una variable de tipo interfaz y `Type` es un tipo que implementa la interfaz. Go verificará si el tipo dinámico de `i` es idéntico a `Type` y devolverá el valor dinámico si es posible.
 
@@ -561,7 +561,7 @@ full name : {John Adams 2000}
 salary : 2000
 ```
 
-### Type switch
+## Type switch
 
 Hemos visto una **interfaz vacía** y su uso. Reconsideremos la función `explain` que vimos antes. Como el tipo de argumento de la función `explain` es una **interfaz vacía**, podemos pasarle cualquier argumento.
 
@@ -615,7 +615,7 @@ Usando la declaración `i.(type)` dentro del `switch`, estamos obteniendo acceso
 
 En el caso del `string`, usamos la función `strings.ToUpper` para convertir el `string` a mayúsculas. Pero dado que solo acepta el tipo de datos `string`, necesitábamos obtener el valor dinámico subyacente. Por lo tanto, usamos **type assertion**.
 
-### Interfaces Embebidas
+## Interfaces Embebidas
 
 En Go, una interfaz no puede implementar otras interfaces ni extenderlas, pero podemos crear una nueva interfaz fusionando dos o más interfaces. Reescribamos nuestro programa `Shape-Cube`.
 
@@ -674,7 +674,7 @@ En el programa anterior, dado que `Cube` implementa el método `Area` y `Volume`
 
 Esto es posible porque, al igual que la **estructura anidada de forma anónima**, todos los métodos de las interfaces anidadas se promocionan a interfaces principales.
 
-### `Pointer` vs `Value` receiver
+## `Pointer` vs `Value` receiver
 
 Hasta ahora, en este tutorial, hemos visto methods with value receivers (*métodos con receptores de valor*). ¿La interfaz estará bien con el método que acepta el receptor del puntero? Vamos a ver.
 
@@ -790,7 +790,7 @@ Parece que Go está feliz de pasar una **copia del valor del puntero** como rece
 
 > Sin embargo, desearía que Go pudiera haber procesado la llamada al método en interfaces similares a la estructura para que no tengamos que preocuparnos por la conversión del puntero. Pero **podría deberse a la seguridad y la capacidad de la interfaz para almacenar datos**.
 
-### Comparación de interfaces
+## Comparación de interfaces
 
 * Se pueden comparar dos interfaces con los operadores `==` y `!=`. Dos interfaces son siempre iguales si los valores dinámicos subyacentes son `nil`, lo que significa que dos `nil` interfaces son siempre iguales, por lo tanto, la operación `==` devuelve `true`.
 
@@ -805,7 +805,7 @@ fmt.Println( a == b ) // true
 
 * Si una interfaz es nula, entonces la operación `==` siempre devolverá `false`.
 
-### Uso de interfaces
+## Uso de interfaces
 
 Hemos aprendido que son las interfaces y vimos que pueden tomar diferentes formas. Esa es la definición de polimorfismo.
 

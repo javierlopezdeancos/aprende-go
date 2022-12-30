@@ -73,18 +73,18 @@ Algunos ejemplos sobre tutoriales y ejercicios en Go.
     * Promoted methods
   * Methods can accept both pointer and value
   * Methods on non-struct type
-* [Interfaces in Go](https://medium.com/rungo/interfaces-in-go-ab1601159b3a)
-  * What is an interface?
-  * Declaring interface
-  * Implementing interface
-  * Empty interface
-  * Multiple interfaces
-  * Type assertion
-  * Type switch
-  * Embedding interfaces
-  * Pointer vs Value receiver
-  * Interface comparison
-  * Use of interfaces
+* [Interfaces en Go](./example-interfaces/interfaces.md)
+  * [Que es una interfaz?](./example-interfaces/interfaces.md#1-que-es-una-interfaz)
+  * [Declaración de interfaz](./example-interfaces/interfaces.md#declaración-de-interfaz)
+  * [Implementación de interfaz](./example-interfaces/interfaces.md#implementación-de-interfaz)
+  * [Interfaz vacía](./example-interfaces/interfaces.md#interfaz-vacía)
+  * [Interfaces multiples](./example-interfaces/interfaces.md#interfaces-multiples)
+  * [Type assertion](./example-interfaces/interfaces.md#type-assertion)
+  * [Type switch](./example-interfaces/interfaces.md#type-switch)
+  * [Interfaces embebidas](./example-interfaces/interfaces.md#interfaces-embebidas)
+  * [Pointer vs Value receiver](./example-interfaces/interfaces.md#pointer-vs-value-receiver)
+  * [Comparación de interfaces](./example-interfaces/interfaces.md#comparación-de-interfaces)
+  * [Uso de interfaces](./example-interfaces/interfaces.md#uso-de-interfaces)
 * [Introduction to Streams and Buffers](https://medium.com/rungo/introduction-to-streams-and-buffers-d148c0cda0ad)
   * What are a stream and a buffer
   * Reading from a Data Source
