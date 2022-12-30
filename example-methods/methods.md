@@ -2,7 +2,7 @@
 
 [Interfaces en Go](https://medium.com/rungo/anatomy-of-methods-in-go-f552aaa8ac4a)
 
-# 1. Anatomy of methods in Go
+# 1. Anatomía de métodos en Go
 
 Go no es compatible con el paradigma orientado a objetos, pero la `struct` se asemeja a la arquitectura de clases. Para agregar métodos a una estructura, necesitamos usar funciones con un `receiver` (*receptor*).
 
