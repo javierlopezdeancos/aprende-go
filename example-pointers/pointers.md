@@ -44,7 +44,7 @@ Cuando declara una variable y proporciona algún valor (*datos*), en el tiempo d
 
 Esa memoria tendrá alguna dirección de memoria (*como una dirección postal*) para que Go pueda encontrar el valor de esa variable cuando se le solicite. *Estas direcciones de memoria se representan en valores hexadecimales*.
 
-## 1.2 Cómo acceder a la dirección de memoria de una variable?
+## 1.1 Cómo acceder a la dirección de memoria de una variable?
 
 Para acceder al valor de la dirección (*dato*) representado por una variable, Go proporciona el operador `&` (*ampersand*) que se usa delante del nombre de la variable. Al hacer esto, la expresión `&variable_name` devuelve la dirección de memoria del valor (*dato*) al que hace referencia la variable `variable_name`.
 
@@ -76,7 +76,7 @@ func main() {
 
 Vimos esto en la lección de [slices](../example-slices/slices.md) cuando intentábamos demostrar que dos slices pueden hacer referencia a valores del la mismo array. En el ejemplo anterior, usando el operador `&`, encontramos la dirección de memoria de la variable `a`, `b` y `c`.
 
-## 1.3 Que es un puntero?
+## 1.2 Que es un puntero?
 
 **Un puntero es una variable que apunta a la ubicación de memoria de otra variable** (*en realidad, al valor al que hace referencia la variable*).
 
@@ -169,7 +169,7 @@ Cuando imprime el valor de `pa`, devuelve la dirección de memoria a la que apun
 Sin embargo, no menciona explícitamente a qué variable o datos apunta. Pero puede encontrar los datos en esa dirección de memoria.
 
 
-## 1.4 Desreferenciar un puntero
+## 1.3 Desreferenciar un puntero
 
 Para averiguar el valor (*dato*) al que apunta un puntero, necesitamos usar el operador `*`, también llamado operador de `desreferenciación` (*dereferencing operator*) que, si se coloca antes de una variable de puntero (*como el operador `&` para obtener la dirección de la memoria*), devuelve los datos en esa memoria.
 
@@ -194,7 +194,7 @@ data at 0xc000120000 is 1
 
 [Ejemplo](https://go.dev/play/p/TnS5HySFnA9)
 
-## 1.5 Cambiar el valor de la variable usando un puntero
+## 1.4 Cambiar el valor de la variable usando un puntero
 
 Como vimos en el ejemplo anterior, podemos leer los datos en la ubicación de memoria a la que apunta un puntero, pero también podemos cambiar (escribir) el valor en esa ubicación de memoria.
 
@@ -229,7 +229,7 @@ Si se pregunta, ¿por qué cambió el valor de la variable? Esto se debe a que s
 > La diferencia entre una variable y un puntero es que una variable almacena el valor en una dirección de memoria y el puntero apunta a una dirección de memoria.
 
 
-## 1.6 La función new
+## 1.5 La función new
 
 Go proporciona la función `new` integrada que asigna memoria y devuelve un puntero a esa memoria. La sintaxis de la nueva función es la siguiente.
 
@@ -266,7 +266,7 @@ Go almacena el valor cero del tipo de datos pasado a la nueva función y devuelv
 
 > Por lo tanto, la definición "**Un puntero es una variable que apunta a la dirección de memoria de otra variable**" no es estrictamente cierta. "**Un puntero es una variable que apunta a una dirección de memoria**" es más preciso.
 
-## 1.7 Pasar un puntero a una función
+## 1.6 Pasar un puntero a una función
 
 Al igual que una variable, puede pasar un puntero a una función. hay dos maneras de hacer esto. Cree un puntero y luego páselo a la función o simplemente pase una dirección de una variable.
 
@@ -391,6 +391,6 @@ a = [2 6 12]
 
 **Pero pasar el puntero de matriz como parámetro de función no es idiomático para Go**. Deberíamos preferir `slices` en su lugar para esta funcionalidad. Como vimos en la lección de `slices`, podemos pasar un `slice` como argumento a una función y esa función puede mutar los valores dentro del `slice`
 
-## 1.8 Aritmética de punteros
+## 1.7 Aritmética de punteros
 
 A diferencia del lenguaje C, donde un puntero puede incrementarse o disminuirse, Go no permite la [aritmética de punteros](https://www.tutorialspoint.com/cprogramming/c_pointer_arithmetic.htm).
