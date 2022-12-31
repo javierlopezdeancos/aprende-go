@@ -36,6 +36,7 @@ Algunos ejemplos sobre tutoriales y ejercicios en Go.
           * [Range sobre un map](./example-ifelse-iterations/ifelse-iterators.md#21282-range-sobre-un-map)
             * [Range sobre un map usando keys](./example-ifelse-iterations/ifelse-iterators.md#212821-range-sobre-un-map-usando-keys)
             * [Range sobre un map usando key value](./example-ifelse-iterations/ifelse-iterators.md#212822-range-sobre-un-map-usando-key-value)
+* [Punteros en Go](https://medium.com/rungo/pointers-in-go-a789eafccd53)
 * [Estructuras en go (structs)](./example-structs/structs.md)
   * [¿Qué es una estructura?](./example-structs/structs.md#1-qu%C3%A9-es-una-estructura)
   * [Declarar un tipo de estructura](./example-structs/structs.md#11-declarar-un-tipo-de-estructura)
