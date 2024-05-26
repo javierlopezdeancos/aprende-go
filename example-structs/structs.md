@@ -87,7 +87,7 @@ El **zero value** de una estructura es una estructura con todos los campos estab
 - `int` tendrá el valor cero de 0.
 - `bool` tendrá el valor cero de falso.
 
-> Cuando decimos estructura, nos referimos a la variable que contiene el valor del tipo de datos `Employee`. Por lo tanto, `Employee` es el `struct type`, mientras que `ross` es una estructura mientras que la palabra clave `struct` es un `built-in type`. Si esto fuera así en el paradigma OOP, llamaríamos a `Employee` una clase y a `ross` un objeto.
+> Cuando decimos estructura, nos referimos a la variable que contiene el valor del tipo de datos `Employee`. Por lo tanto, `Employee` es el `struct type`, por el contrario `ross` es una estructura mientras que la palabra clave `struct` es un `built-in type`. Si esto fuera así en el paradigma OOP, llamaríamos a `Employee` una clase y a `ross` un objeto.
 
 ## 1.3 Obtener y establecer campos de estructura
 
