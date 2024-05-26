@@ -89,7 +89,7 @@ El **zero value** de una estructura es una estructura con todos los campos estab
 
 > Cuando decimos estructura, nos referimos a la variable que contiene el valor del tipo de datos `Employee`. Por lo tanto, `Employee` es el `struct type`, por el contrario `ross` es una estructura mientras que la palabra clave `struct` es un `built-in type`. Si esto fuera así en el paradigma OOP, llamaríamos a `Employee` una clase y a `ross` un objeto.
 
-## 1.3 Obtener y establecer campos de estructura
+## 1.3 Obtener y rellenar campos de una estructura
 
 Obtener y configurar un campo de estructura es muy simple. Cuando se crea una variable de estructura, podemos acceder a sus campos usando `.` (*punto*) operador.
 
@@ -171,7 +171,7 @@ Hemos usado la notación abreviada (*usando la sintaxis `:=`*) para crear la var
 
 > La **coma** (*,*) es absolutamente necesaria después de la asignación de valor del último campo al crear una estructura usando la sintaxis anterior. De esta manera, Go no agregará un **punto y coma** justo después del último campo mientras compila el código.
 
-También puede inicializar solo algunos campos de una estructura y dejar otros en sus valores cero. En el siguiente ejemplo, el valor de la estructura `ross` será `{ross Bing 0 true}` ya que su `salary` tiene un valor cero de 0.
+También puede inicializar solo algunos campos de una estructura y dejar otros en sus `zero values`. En el siguiente ejemplo, el valor de la estructura `ross` será `{ross Bing 0 true}` ya que `salary`, de tipo `int`, tiene un `zero value` de 0.
 
 ```go
 ross := Employee {

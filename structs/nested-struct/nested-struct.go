@@ -1,4 +1,4 @@
-package nestedstruct
+package nested_struct
 
 // Salary employee struct
 type Salary struct {

@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"my-go-examples/example-structs/exportedfields"
-	"my-go-examples/example-structs/functionfields"
-	"my-go-examples/example-structs/nestedinterface"
-	"my-go-examples/example-structs/nestedstruct"
-	"my-go-examples/example-structs/promotednestedinterface"
+	exportedFields "my-go-examples/example-structs/exported-fields"
+	functionFields "my-go-examples/example-structs/function-fields"
+	nestedInterface "my-go-examples/example-structs/nested-interface"
+	nestedStruct "my-go-examples/example-structs/nested-struct"
+	promotedNestedInterface "my-go-examples/example-structs/promoted-nested-interface"
 )
 
 /*
@@ -140,11 +140,11 @@ func main() {
 	//  When a struct field has a struct value, that struct value is called a nested struct since it is nested
 	// inside a parent struct.
 
-	fernando := nestedstruct.Employee{
+	fernando := nestedStruct.Employee{
 		FirstName: "Fernando",
 		LastName:  "Redondo",
 		Bool:      true,
-		Salary:    nestedstruct.Salary{1100, 50, 50},
+		Salary:    nestedStruct.Salary{1100, 50, 50},
 	}
 
 	fmt.Println(fernando)
@@ -177,10 +177,10 @@ func main() {
 	// Any data type that implements an interface can also be represented as a type of that interface (polymorphism).
 	// We can have a struct field of an interface type and its value can be anything that implements that interface.
 
-	gento := nestedinterface.Employee{
+	gento := nestedInterface.Employee{
 		FirstName: "Paco",
 		LastName:  "Gento",
-		Salary:    nestedinterface.Salary{1100, 50, 50},
+		Salary:    nestedInterface.Salary{1100, 50, 50},
 	}
 
 	fmt.Println("Paco Gento's salary is", gento.Salary.GetSalary())
@@ -194,10 +194,10 @@ func main() {
 	// Similar to the field promotions we saw earlier, methods are also promoted when a struct field
 	// is an anonymous interface.
 
-	maradona := promotednestedinterface.Employee{
+	maradona := promotedNestedInterface.Employee{
 		FirstName: "Diego",
 		LastName:  "Armando",
-		Salaried:  promotednestedinterface.Salary{12349100, 23450, 50},
+		Salaried:  promotedNestedInterface.Salary{12349100, 23450, 50},
 	}
 
 	fmt.Println("Diego Armando's salary is", maradona.GetSalary())
@@ -209,7 +209,7 @@ func main() {
 	fmt.Println("Exported fields")
 
 	// We can't initialize salary and fulltime properties beacuse they aren't exported
-	rafael := exportedfields.Employee{
+	rafael := exportedFields.Employee{
 		FirstName: "Rafael",
 		LastName:  "Martin Vazquez",
 	}
@@ -224,7 +224,7 @@ func main() {
 
 	// Struct fields can also be functions.
 
-	sidi := functionfields.Employee{
+	sidi := functionFields.Employee{
 		FirstName: "Ruiz",
 		LastName:  "Diaz de Vivar",
 		FullName: func(firstName string, lastName string) string {

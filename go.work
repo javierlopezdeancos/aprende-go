@@ -6,6 +6,6 @@ use ./example-imports
 use ./example-interfaces
 use ./example-methods
 use ./example-streams-and-buffers
-use ./example-structs
+use ./structs
 use ./example-work-with-json
 use ./example-pointers

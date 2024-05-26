@@ -1,4 +1,4 @@
-package nestedinterface
+package promoted_nested_interface
 
 // Salaried interface
 type Salaried interface {
@@ -20,5 +20,5 @@ func (s Salary) GetSalary() int {
 // Employee struct
 type Employee struct {
 	FirstName, LastName string
-	Salary              Salaried
+	Salaried
 }

@@ -1,4 +1,4 @@
-package functionfields
+package function_fields
 
 // In the above program, we have defined struct type Employee which has two string fields and one
 // function field. Just for simplicity, we have created a derived function type FullNameType.
