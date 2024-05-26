@@ -6,17 +6,17 @@
 
 Go no es compatible con el paradigma orientado a objetos, pero la `struct` se asemeja a la arquitectura de clases. Para agregar métodos a una estructura, necesitamos usar funciones con un `receiver` (*receptor*).
 
-Go no proporciona clases, pero podemos usar estructuras para crear objetos como hemos aprendido en el capitulo de [structs](../example-structs/structs.md). Pero en Object Oriented Programing, las clases tienen `properties` (campos) así como `behaviors` (métodos) y hasta ahora solo hemos aprendido acerca de las propiedades de una estructura que son structure fields.
+Go no proporciona clases, pero podemos usar estructuras para crear objetos como hemos aprendido en el capitulo de [structs](../structs/structs.md). Pero en Object Oriented Programing, las clases tienen `properties` (campos) así como `behaviors` (métodos) y hasta ahora solo hemos aprendido acerca de las propiedades de una estructura que son structure fields.
 
 > Behavior es una acción que un objeto puede realizar. Por ejemplo, `Dog` es un tipo de `Animal` y `Dog` puede `bark`(*ladrar*). Por lo tanto, ladrar es un comportamiento de la clase `Dog`. Por lo tanto, cualquier objeto (instancia) de la clase `Dog` tendrá este comportamiento.
 
-Hemos visto en la lección de [structs](../example-structs/structs.md), especialmente en la sección de campo de función, que un campo de estructura también puede ser una función. Podemos agregar un campo `bark` de función de tipo que no toma argumentos y devuelve un string `woof woof!`. Esta podría ser una forma de agregar métodos a la estructura.
+Hemos visto en la lección de [structs](../structs/structs.md), especialmente en la sección de campo de función, que un campo de estructura también puede ser una función. Podemos agregar un campo `bark` de función de tipo que no toma argumentos y devuelve un string `woof woof!`. Esta podría ser una forma de agregar métodos a la estructura.
 
 Pero esto no se adhiere al concepto Object Oriented Programing ya que los campos de estructura no tienen idea de la estructura a la que pertenecen. Por lo tanto, los métodos vienen al rescate.
 
 # 1.1 Que es un método?
 
-En la sección anterior de [structs](../example-structs/structs.md), jugamos con los campos de función de una estructura, por lo tanto, el concepto de método será muy fácil de entender.
+En la sección anterior de [structs](../structs/structs.md), jugamos con los campos de función de una estructura, por lo tanto, el concepto de método será muy fácil de entender.
 
 Un método no es más que una función, pero pertenece a cierto tipo. Un método se define con una sintaxis ligeramente diferente a la de una función normal. Requería un parámetro adicional conocido como receiver (*receptor*), que es un tipo al que pertenece la función. De esta forma, un método (función) puede acceder a las propiedades del receptor al que pertenece (como campos de una estructura).
 
@@ -110,7 +110,7 @@ Se puede acceder al **receiver** del método dentro del cuerpo del método. Por 
 
 Como un método pertenece a un tipo de receiver y está disponible en ese tipo como una propiedad, podemos llamar a ese método usando la sintaxis `Type.methodName(...)`. En el programa anterior, hemos usado `e.fullName()` para obtener el nombre completo de un empleado ya que el método `fullName` pertenece a `Employee`.
 
-> Esto no es diferente de lo que vimos en el capitulo de [`structs`](../example-structs/structs.md) donde la función `fullName` era un campo de `struct`. Pero en el caso de los métodos, no tenemos que proporcionar propiedades de `struct` porque el método ya las conoce.
+> Esto no es diferente de lo que vimos en el capitulo de [`structs`](../structs/structs.md) donde la función `fullName` era un campo de `struct`. Pero en el caso de los métodos, no tenemos que proporcionar propiedades de `struct` porque el método ya las conoce.
 
 ## 1.2 Métodos con el mismo nombre
 
@@ -336,7 +336,7 @@ El programa anterior funcionará bien como antes. Entonces, qué cambió.
 
 ## 1.4 Métodos en estructuras anidadas
 
-Aprendimos mucho sobre la estructura anidada en el capitulo de [structs](../example-structs/structs.md). Como un campo de estructura también puede ser una estructura, podemos definir un método en la estructura principal y acceder a la estructura anidada para hacer lo que queramos.
+Aprendimos mucho sobre la estructura anidada en el capitulo de [structs](../structs/structs.md). Como un campo de estructura también puede ser una estructura, podemos definir un método en la estructura principal y acceder a la estructura anidada para hacer lo que queramos.
 
 **Code**
 ```go

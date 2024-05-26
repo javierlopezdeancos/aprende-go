@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	exportedFields "my-go-examples/example-structs/exported-fields"
-	functionFields "my-go-examples/example-structs/function-fields"
-	nestedInterface "my-go-examples/example-structs/nested-interface"
-	nestedStruct "my-go-examples/example-structs/nested-struct"
-	promotedNestedInterface "my-go-examples/example-structs/promoted-nested-interface"
+	exportedFields "my-go-examples/structs/exported-fields"
+	functionFields "my-go-examples/structs/function-fields"
+	nestedInterface "my-go-examples/structs/nested-interface"
+	nestedStruct "my-go-examples/structs/nested-struct"
+	promotedNestedInterface "my-go-examples/structs/promoted-nested-interface"
 )
 
 /*

@@ -6,7 +6,7 @@ Las interfaces en Go no imponen un tipo para implementar métodos, pero las inte
 
 # 1. Que es una interfaz?
 
-Hablamos mucho sobre el objeto y el comportamiento en las lecciones de [`structs`](../example-structs/structs.md) y [`methods`](../example-methods/methods.md). También vimos cómo una estructura (y otros tipos) pueden implementar métodos. Una interfaz es otra pieza de un rompecabezas que acerca a Go al paradigma de la programación orientada a objetos.
+Hablamos mucho sobre el objeto y el comportamiento en las lecciones de [`structs`](../structs/structs.md) y [`methods`](../example-methods/methods.md). También vimos cómo una estructura (y otros tipos) pueden implementar métodos. Una interfaz es otra pieza de un rompecabezas que acerca a Go al paradigma de la programación orientada a objetos.
 
 Una interfaz es una colección de **firmas de métodos** que un Tipo puede implementar (usando métodos). Por lo tanto, la interfaz define (*no declara*) el comportamiento del objeto (*del tipo `Type`*).
 
@@ -140,7 +140,7 @@ Podemos llamar al método `Area` en `s` ya que la interfaz `Shape` define el mé
 
 Además, podemos ver que podemos comparar `s` con `r` ya que ambas variables tienen el mismo tipo dinámico (*estructura de tipo `Rect`*) y valor dinámico `{5 4}`.
 
-> Puede aprender sobre la comparación de estructuras en la lección de [structs](../example-structs/structs.md).
+> Puede aprender sobre la comparación de estructuras en la lección de [structs](../structs/structs.md).
 
 Cambiemos el tipo dinámico y el valor dinámico de `s`.
 
@@ -208,7 +208,7 @@ value of s is {10}
 value of s is 314.16
 ```
 
-Si lees lecciones de [structs](../example-structs/structs.md) y [methods](../example-methods/methods.md), entonces el programa anterior no debería sorprenderte. Como el nuevo tipo de estructura `Circle` también implementa la interfaz `Shape`, podemos asignarle un valor de tipo de estructura `Circle`.
+Si lees lecciones de [structs](../structs/structs.md) y [methods](../example-methods/methods.md), entonces el programa anterior no debería sorprenderte. Como el nuevo tipo de estructura `Circle` también implementa la interfaz `Shape`, podemos asignarle un valor de tipo de estructura `Circle`.
 
 Supongo que ahora puedes relacionar por qué el tipo y el valor de la interfaz son dinámicos. De la lección de [slices](https://medium.com/rungo/the-anatomy-of-slices-in-go-6450e3bb2b94), aprendimos que una slice contiene la referencia a una matriz. De manera similar, podemos decir que **una interfaz también funciona de manera similar al mantener dinámicamente una referencia al underlying type (*tipo subyacente*)**.
 
@@ -726,7 +726,7 @@ Go build failed.
 
 Si lee el error detenidamente, dice que el `Area method has pointer receiver`. Entonces, ¿qué pasa si el método `Area` tiene un receptor de puntero?
 
-Bueno, hemos visto la lección de [`structs`](../example-structs/structs.md) que un método con un receptor de puntero funcionará tanto con el puntero como con el valor y si hubiéramos usado `r.Area()` en el programa anterior, se habría compilado bien.
+Bueno, hemos visto la lección de [`structs`](../structs/structs.md) que un método con un receptor de puntero funcionará tanto con el puntero como con el valor y si hubiéramos usado `r.Area()` en el programa anterior, se habría compilado bien.
 
 Sin embargo, con las interfaces, esto es un poco diferente. El tipo dinámico de interfaz `s` es `Rect` y podemos ver claramente que `Rect` no implementa el método `Area` pero `*Rect` sí.
 

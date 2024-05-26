@@ -1,3 +1,3 @@
-module my-go-examples/example-structs
+module my-go-examples/structs
 
 go 1.14
