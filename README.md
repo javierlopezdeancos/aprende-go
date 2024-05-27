@@ -1,8 +1,8 @@
-# My Go Examples
+# Aprende Go en castellano
 
 <img src="./images/pet.jpeg" width="200">
 
-Algunos ejemplos sobre tutoriales y ejercicios en Go.
+Aprende Go en castellano con ejemplos tutoriales y ejercicios.
 
 ## Summary
 
