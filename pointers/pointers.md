@@ -144,9 +144,9 @@ pointer pa of type *int with value 0xc00001c030
 
 [Ejemplo](https://go.dev/play/p/LHlGgDwSpH6)
 
-En el ejemplo anterior, hemos creado una variable `d` y le hemos asignado un valor inicial de `1`. Go guardará un número entero 1 en algún lugar de la RAM. Luego hemos creado el puntero `pd` que puede apuntar a un valor `int`.
+En el ejemplo anterior, hemos creado una variable `a` y le hemos asignado un valor inicial de `1`. Go guardará un número entero 1 en algún lugar de la RAM. Luego hemos creado el puntero `pa` que puede apuntar a un valor `int`.
 
-Posteriormente, hemos asignado la dirección de memoria de la variable a (*su valor en realidad*) al puntero `pd` usando la expresión `pa = &a`. El programa anterior también se puede escribir con un formato abreviado de asignación de variables.
+Posteriormente, hemos asignado la dirección de memoria de la variable a (*su valor en realidad*) al puntero `pa` usando la expresión `pa = &a`. El programa anterior también se puede escribir con un formato abreviado de asignación de variables.
 
 **Code**
 
@@ -272,9 +272,9 @@ data at 0xc00001c030 is 0
 
 [Ejemplo](https://go.dev/play/p/WCVmwQCS6cG)
 
-¿Esperaba que el valor (*dato*) en la ubicación de la memoria devuelto por la nueva función fuera nulo? Bueno, *el valor cero de un puntero es nulo*, lo que significa que el puntero no apunta a ninguna memoria, pero cuando el puntero lo apunta a una ubicación de memoria, la memoria no puede estar vacía, debe contener algunos datos.
+¿Esperaba que el valor (*dato*) en la ubicación de la memoria devuelto por la nueva función fuera nulo? Bueno, *el zero value de un puntero es nulo*, lo que significa que el puntero no apunta a ninguna memoria, pero cuando el puntero lo apunta a una ubicación de memoria, la memoria no puede estar vacía, debe contener algunos datos.
 
-Go almacena el valor cero del tipo de datos pasado a la nueva función y devuelve la dirección de memoria de la misma. Por lo tanto, si solo está interesado en un puntero, puede usar la nueva función en lugar de crear una nueva variable y luego un puntero que apunte al valor de la variable.
+Go almacena el `zero value` del tipo de datos pasado a la nueva función y devuelve la dirección de memoria de la misma. Por lo tanto, si solo está interesado en un puntero, puede usar la nueva función en lugar de crear una nueva variable y luego un puntero que apunte al valor de la variable.
 
 > Por lo tanto, la definición "**Un puntero es una variable que apunta a la dirección de memoria de otra variable**" no es estrictamente cierta. "**Un puntero es una variable que apunta a una dirección de memoria**" es más preciso.
 
