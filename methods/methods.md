@@ -1,5 +1,5 @@
 - [Referencias](#referencias)
-- [Anatomía de métodos en Go](#anatom%C3%ADa-de-m%C3%A9todos-en-go)
+- [Métodos en Go](#m%C3%A9todos-en-go)
 - [Que es un método?](#que-es-un-m%C3%A9todo)
   - [Métodos con el mismo nombre](#m%C3%A9todos-con-el-mismo-nombre)
   - [Pointer receivers](#pointer-receivers)
@@ -19,7 +19,7 @@
 
 Go no es compatible con el paradigma orientado a objetos, pero la `struct` se asemeja a la arquitectura de clases. Para agregar métodos a una estructura, necesitamos usar funciones con un `receiver` (*receptor*).
 
-Go no proporciona clases, pero podemos usar estructuras para crear objetos como hemos aprendido en el capitulo de [structs](../structs/structs.md). Pero en Object Oriented Programing, las clases tienen `properties` (campos) así como `behaviors` (métodos) y hasta ahora solo hemos aprendido acerca de las propiedades de una estructura que son structure fields.
+Go no proporciona clases, pero podemos usar estructuras para crear objetos como hemos aprendido en el capitulo de [structs](../structs/structs.md). Pero en *Object Oriented Programming*, las clases tienen `properties` (campos) así como `behaviors` (métodos) y hasta ahora solo hemos aprendido acerca de las propiedades de una estructura que son structure fields.
 
 > Behavior es una acción que un objeto puede realizar. Por ejemplo, `Dog` es un tipo de `Animal` y `Dog` puede `bark`(*ladrar*). Por lo tanto, ladrar es un comportamiento de la clase `Dog`. Por lo tanto, cualquier objeto (instancia) de la clase `Dog` tendrá este comportamiento.
 
@@ -361,7 +361,7 @@ El programa anterior funcionará bien como antes. Entonces, qué cambió.
 
 ## 1.4 Métodos en estructuras anidadas
 
-Aprendimos mucho sobre la estructura anidada en el capitulo de [structs](../structs/structs.md). Como un campo de estructura también puede ser una estructura, podemos definir un método en la estructura principal y acceder a la estructura anidada para hacer lo que queramos.
+Aprendimos mucho sobre la estructura anidada en el capitulo de [structs](../structs/structs.md#estructura-anidada). Como un campo de estructura también puede ser una estructura, podemos definir un método en la estructura principal y acceder a la estructura anidada para hacer lo que queramos.
 
 **Code**
 
@@ -466,7 +466,7 @@ e after phone change = {Ross Geller 1200 {011 1010 1222 New Delhi, India}}
 
 ### 1.4.2 Estructuras anidadas anónimamente
 
-En el capitulo sobre [structs](https://medium.com/rungo/anatomy-of-methods-in-go-f552aaa8ac4a), también aprendimos sobre campos anónimos y promociones de campo. En pocas palabras, si un campo de una estructura es una estructura anónima, los campos de la estructura anidada se promoverán al padre.
+En el capitulo sobre [structs](../structs/structs.md#campos-promocionados), también aprendimos sobre campos anónimos y promociones de campo. En pocas palabras, si un campo de una estructura es una estructura anónima, los campos de la estructura anidada se promoverán al padre.
 
 Veamos cómo podemos usar los campos promocionados dentro de un método.
 
