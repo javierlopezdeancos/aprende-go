@@ -1,4 +1,4 @@
-package promotedmethods
+package promoted_methods
 
 /**
  * Like promoted fields, methods implemented by the anonymously nested struct are also promoted

@@ -23,31 +23,33 @@ Un método no es más que una función, pero pertenece a cierto tipo. Un método
 Escribamos un programa para obtener el `full name` de una estructura `Employee` usando una simple función.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Employee struct {
-	FirstName, LastName string
+ FirstName, LastName string
 }
 
 func fullName(firstName string, lastName string) (fullName string) {
-	fullName = firstName + " " + lastName
-	return
+ fullName = firstName + " " + lastName
+ return
 }
 
 func main() {
-	e := Employee{
-		FirstName: "Ross",
-		LastName:  "Geller",
-	}
+ e := Employee{
+  FirstName: "Ross",
+  LastName:  "Geller",
+ }
 
-	fmt.Println(fullName(e.FirstName, e.LastName))
+ fmt.Println(fullName(e.FirstName, e.LastName))
 }
 ```
 
 **Output**
+
 ```
 Ross Geller
 ```
@@ -73,29 +75,31 @@ De la sintaxis anterior, podemos decir que el método y la función tienen la mi
 Vamos a crear el método `fullName` usando la sintaxis anterior.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Employee struct {
-	FirstName, LastName string
+ FirstName, LastName string
 }
 
 func (e Employee) fullName() string {
-	return e.FirstName + " " + e.LastName
+ return e.FirstName + " " + e.LastName
 }
 
 func main() {
-	e := Employee{
-		FirstName: "Ross",
-		LastName:  "Geller",
-	}
-	fmt.Println(e.fullName())
+ e := Employee{
+  FirstName: "Ross",
+  LastName:  "Geller",
+ }
+ fmt.Println(e.fullName())
 }
 ```
 
 **Output**
+
 ```
 Ross Geller
 ```
@@ -119,40 +123,42 @@ Una diferencia importante entre funciones y métodos es que podemos tener varios
 Se nos permite crear métodos con el mismo nombre siempre que sus receptores sean diferentes. Vamos a crear dos tipos de estructura `Circle` y `Rectangle` y crear dos métodos del mismo nombre `Area` que calcula el área de su receiver.
 
 **Code**
+
 ```go
 package main
 
 import (
-	"fmt"
-	"math"
+ "fmt"
+ "math"
 )
 
 type Rect struct {
-	width  float64
-	height float64
+ width  float64
+ height float64
 }
 
 type Circle struct {
-	radius float64
+ radius float64
 }
 
 func (r Rect) Area() float64 {
-	return r.width * r.height
+ return r.width * r.height
 }
 
 func (c Circle) Area() float64 {
-	return math.Pi * c.radius * c.radius
+ return math.Pi * c.radius * c.radius
 }
 
 func main() {
-	rect := Rect{5.0, 4.0}
-	cir := Circle{5.0}
-	fmt.Printf("Area of rectangle rect = %0.2f\n", rect.Area())
-	fmt.Printf("Area of circle cir = %0.2f\n", cir.Area())
+ rect := Rect{5.0, 4.0}
+ cir := Circle{5.0}
+ fmt.Printf("Area of rectangle rect = %0.2f\n", rect.Area())
+ fmt.Printf("Area of circle cir = %0.2f\n", cir.Area())
 }
 ```
 
 **Output**
+
 ```
 Area of rectangle rect = 20.00
 Area of circle cir = 78.54
@@ -169,38 +175,40 @@ Hasta ahora, hemos visto que los métodos pertenecen a un tipo. Pero un método 
 Cuando un método pertenece a un tipo, su receptor recibe una copia del objeto sobre el que fue llamado. Para verificar eso, podemos crear un método que muta una estructura que recibe. Vamos a crear un método `changeName` que cambie el campo de nombre de una estructura de `Employee`.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Employee struct {
-	name   string
-	salary int
+ name   string
+ salary int
 }
 
 func (e Employee) changeName(newName string) {
-	e.name = newName
+ e.name = newName
 }
 
 func main() {
-	e := Employee{
-		name:   "Ross Geller",
-		salary: 1200,
-	}
+ e := Employee{
+  name:   "Ross Geller",
+  salary: 1200,
+ }
 
-	// e before name change
-	fmt.Println("e before name change =", e)
+ // e before name change
+ fmt.Println("e before name change =", e)
 
-	// change name
-	e.changeName("Monica Geller")
+ // change name
+ e.changeName("Monica Geller")
 
-	// e after name change
-	fmt.Println("e after name change =", e)
+ // e after name change
+ fmt.Println("e after name change =", e)
 }
 ```
 
 **Output**
+
 ```
 e before name change = {Ross Geller 1200}
 e after name change = {Ross Geller 1200}
@@ -227,38 +235,40 @@ Como puede ver en la definición anterior, la sintaxis para definir un método c
 Cuando un método pertenece al puntero de un tipo, su receiver recibirá el puntero al objeto en lugar de una copia del objeto. Reescribamos el ejemplo anterior con un método que recibe un receptor de puntero.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Employee struct {
-	name   string
-	salary int
+ name   string
+ salary int
 }
 
 func (e *Employee) changeName(newName string) {
-	(*e).name = newName
+ (*e).name = newName
 }
 
 func main() {
-	e := Employee{
-		name:   "Ross Geller",
-		salary: 1200,
-	}
+ e := Employee{
+  name:   "Ross Geller",
+  salary: 1200,
+ }
 
-	// e before name change
-	fmt.Println("e before name change =", e)
-	// create pointer to `e`
-	ep := &e
-	// change name
-	ep.changeName("Monica Geller")
-	// e after name change
-	fmt.Println("e after name change =", e)
+ // e before name change
+ fmt.Println("e before name change =", e)
+ // create pointer to `e`
+ ep := &e
+ // change name
+ ep.changeName("Monica Geller")
+ // e after name change
+ fmt.Println("e after name change =", e)
 }
 ```
 
 **Output**
+
 ```
 e before name change = {Ross Geller 1200}
 e after name change = {Monica Geller 1200}
@@ -289,36 +299,38 @@ Si se pregunta, ¿siempre necesito crear un puntero para trabajar con métodos c
 Reescribamos el ejemplo anterior usando los atajos de Go.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Employee struct {
-	name   string
-	salary int
+ name   string
+ salary int
 }
 
 func (e *Employee) changeName(newName string) {
-	e.name = newName
+ e.name = newName
 }
 
 func main() {
-	e := Employee{
-		name:   "Ross Geller",
-		salary: 1200,
-	}
+ e := Employee{
+  name:   "Ross Geller",
+  salary: 1200,
+ }
 
-	// e before name change
-	fmt.Println("e before name change =", e)
-	// change name
-	e.changeName("Monica Geller")
-	// e after name change
-	fmt.Println("e after name change =", e)
+ // e before name change
+ fmt.Println("e before name change =", e)
+ // change name
+ e.changeName("Monica Geller")
+ // e after name change
+ fmt.Println("e after name change =", e)
 }
 ```
 
 **Output**
+
 ```
 e before name change = {Ross Geller 1200}
 e after name change = {Monica Geller 1200}
@@ -328,7 +340,7 @@ e after name change = {Monica Geller 1200}
 
 El programa anterior funcionará bien como antes. Entonces, qué cambió.
 
-* Si un método tiene un **receiver de puntero**, entonces no necesariamente necesita usar la sintaxis de desreferenciación de puntero `(*e)` para obtener el valor del receptor. Puede usar `e ` simplemente, que será la dirección del valor al que apunta el puntero, pero Go entenderá que está tratando de realizar una operación en el valor mismo y, under the hood, convertirá `e` en `(*e)`.
+* Si un método tiene un **receiver de puntero**, entonces no necesariamente necesita usar la sintaxis de desreferenciación de puntero `(*e)` para obtener el valor del receptor. Puede usar `e` simplemente, que será la dirección del valor al que apunta el puntero, pero Go entenderá que está tratando de realizar una operación en el valor mismo y, under the hood, convertirá `e` en `(*e)`.
 
 * Además, no necesariamente necesita llamar a un método desde un puntero si el método tiene un receptor de puntero. En su lugar, se le permite llamar a este método en el valor y Go pasará el puntero del valor como receiver automáticamente.
 
@@ -339,40 +351,42 @@ El programa anterior funcionará bien como antes. Entonces, qué cambió.
 Aprendimos mucho sobre la estructura anidada en el capitulo de [structs](../structs/structs.md). Como un campo de estructura también puede ser una estructura, podemos definir un método en la estructura principal y acceder a la estructura anidada para hacer lo que queramos.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Contact struct {
-	phone, address string
+ phone, address string
 }
 type Employee struct {
-	name    string
-	salary  int
-	contact Contact
+ name    string
+ salary  int
+ contact Contact
 }
 
 func (e *Employee) changePhone(newPhone string) {
-	e.contact.phone = newPhone
+ e.contact.phone = newPhone
 }
 
 func main() {
-	e := Employee{
-		name:    "Ross Geller",
-		salary:  1200,
-		contact: Contact{"011 8080 8080", "New Delhi, India"},
-	}
-	// e before phone change
-	fmt.Println("e before phone change =", e)
-	// change phone
-	e.changePhone("011 1010 1222")
-	// e after phone change
-	fmt.Println("e after phone change =", e)
+ e := Employee{
+  name:    "Ross Geller",
+  salary:  1200,
+  contact: Contact{"011 8080 8080", "New Delhi, India"},
+ }
+ // e before phone change
+ fmt.Println("e before phone change =", e)
+ // change phone
+ e.changePhone("011 1010 1222")
+ // e after phone change
+ fmt.Println("e after phone change =", e)
 }
 ```
 
 **Outline**
+
 ```
 e before phone change = {Ross Geller 1200 {011 8080 8080 New Delhi, India}}
 e after phone change = {Ross Geller 1200 {011 1010 1222 New Delhi, India}}
@@ -389,43 +403,45 @@ Dado que `e` es el puntero en el método, podemos mutar la estructura anidada. E
 Una estructura anidada también puede tener métodos. Si la estructura interna implementa un método, puede llamar a un método usando `.` (dot) accessor.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Contact struct {
-	phone, address string
+ phone, address string
 }
 type Employee struct {
-	name    string
-	salary  int
-	contact Contact
+ name    string
+ salary  int
+ contact Contact
 }
 
 func (c *Contact) changePhone(newPhone string) {
-	c.phone = newPhone
+ c.phone = newPhone
 }
 
 func main() {
-	e := Employee{
-		name:   "Ross Geller",
-		salary: 1200,
-		contact: Contact{
-			phone:   "011 8080 8080",
-			address: "New Delhi, India",
-		},
-	}
-	// e before phone change
-	fmt.Println("e before phone change =", e)
-	// change phone
-	e.contact.changePhone("011 1010 1222")
-	// e after phone change
-	fmt.Println("e after phone change =", e)
+ e := Employee{
+  name:   "Ross Geller",
+  salary: 1200,
+  contact: Contact{
+   phone:   "011 8080 8080",
+   address: "New Delhi, India",
+  },
+ }
+ // e before phone change
+ fmt.Println("e before phone change =", e)
+ // change phone
+ e.contact.changePhone("011 1010 1222")
+ // e after phone change
+ fmt.Println("e after phone change =", e)
 }
 ```
 
 **Output**
+
 ```
 e before phone change = {Ross Geller 1200 {011 8080 8080 New Delhi, India}}
 e after phone change = {Ross Geller 1200 {011 1010 1222 New Delhi, India}}
@@ -440,43 +456,45 @@ En el capitulo sobre [structs](https://medium.com/rungo/anatomy-of-methods-in-go
 Veamos cómo podemos usar los campos promocionados dentro de un método.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Contact struct {
-	phone, address string
+ phone, address string
 }
 type Employee struct {
-	name   string
-	salary int
-	Contact
+ name   string
+ salary int
+ Contact
 }
 
 func (e *Employee) changePhone(newPhone string) {
-	e.phone = newPhone
+ e.phone = newPhone
 }
 
 func main() {
-	e := Employee{
-		name:   "Ross Geller",
-		salary: 1200,
-		Contact: Contact{
-			phone:   "011 8080 8080",
-			address: "New Delhi, India",
-		},
-	}
-	// e before phone change
-	fmt.Println("e before phone change =", e)
-	// change phone
-	e.changePhone("011 1010 1222")
-	// e after phone change
-	fmt.Println("e after phone change =", e)
+ e := Employee{
+  name:   "Ross Geller",
+  salary: 1200,
+  Contact: Contact{
+   phone:   "011 8080 8080",
+   address: "New Delhi, India",
+  },
+ }
+ // e before phone change
+ fmt.Println("e before phone change =", e)
+ // change phone
+ e.changePhone("011 1010 1222")
+ // e after phone change
+ fmt.Println("e after phone change =", e)
 }
 ```
 
 **Output**
+
 ```
 e before phone change = {Ross Geller 1200 {011 8080 8080 New Delhi, India}}
 e after phone change = {Ross Geller 1200 {011 1010 1222 New Delhi, India}}
@@ -495,44 +513,46 @@ Al igual que los campos promocionados, los métodos implementados por la estruct
 En el mismo escenario, cualquier método implementado por la estructura `contact` estará disponible en la estructura `Employee`. Reescribamos el ejemplo anterior.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Contact struct {
-	phone, address string
+ phone, address string
 }
 
 type Employee struct {
-	name   string
-	salary int
-	Contact
+ name   string
+ salary int
+ Contact
 }
 
 func (c *Contact) changePhone(newPhone string) {
-	c.phone = newPhone
+ c.phone = newPhone
 }
 
 func main() {
-	e := Employee{
-		name:   "Ross Geller",
-		salary: 1200,
-		Contact: Contact{
-			phone:   "011 8080 8080",
-			address: "New Delhi, India",
-		},
-	}
-	// e before phone change
-	fmt.Println("e before phone change =", e)
-	// change phone
-	e.changePhone("011 1010 1222")
-	// e after phone change
-	fmt.Println("e after phone change =", e)
+ e := Employee{
+  name:   "Ross Geller",
+  salary: 1200,
+  Contact: Contact{
+   phone:   "011 8080 8080",
+   address: "New Delhi, India",
+  },
+ }
+ // e before phone change
+ fmt.Println("e before phone change =", e)
+ // change phone
+ e.changePhone("011 1010 1222")
+ // e after phone change
+ fmt.Println("e after phone change =", e)
 }
 ```
 
 **Output**
+
 ```
 e before phone change = {Ross Geller 1200 {011 8080 8080 New Delhi, India}}
 e after phone change = {Ross Geller 1200 {011 1010 1222 New Delhi, India}}
@@ -553,42 +573,44 @@ Cuando una función normal tiene una definición de parámetro, solo aceptará e
 Pero cuando se trata de métodos, esa no es una regla estricta. Podemos definir un método con valor o receiver de puntero y llamarlo como puntero o valor. **Go hace el trabajo de conversión de tipo** under the hood, como hemos visto en los ejemplos anteriores.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Employee struct {
-	name   string
-	salary int
+ name   string
+ salary int
 }
 
 func (e *Employee) changeName(newName string) {
-	e.name = newName
+ e.name = newName
 }
 
 func (e Employee) showSalary() {
-	e.salary = 1500
-	fmt.Println("Salary of e =", e.salary)
+ e.salary = 1500
+ fmt.Println("Salary of e =", e.salary)
 }
 
 func main() {
-	e := Employee{
-		name:   "Ross Geller",
-		salary: 1200,
-	}
-	// e before change
-	fmt.Println("e before change =", e)
-	// calling `changeName` pointer method on value
-	e.changeName("Monica Geller")
-	// calling `showSalary` value method on pointer
-	(&e).showSalary()
-	// e after change
-	fmt.Println("e after change =", e)
+ e := Employee{
+  name:   "Ross Geller",
+  salary: 1200,
+ }
+ // e before change
+ fmt.Println("e before change =", e)
+ // calling `changeName` pointer method on value
+ e.changeName("Monica Geller")
+ // calling `showSalary` value method on pointer
+ (&e).showSalary()
+ // e after change
+ fmt.Println("e after change =", e)
 }
 ```
 
 **Output**
+
 ```
 e before change = {Ross Geller 1200}
 Salary of e = 1500
@@ -610,25 +632,27 @@ Hasta ahora hemos visto métodos pertenecientes al tipo struct pero por la defin
 Hasta ahora, definimos la estructura y el método en el mismo paquete `main`, por lo que funcionó. Pero para verificar si podemos agregar métodos en tipos externos, intentaremos agregar un método a `toUpperCase` en el `string` de tipo incorporada.
 
 **Code**
+
 ```go
 package main
 
 import (
-	"fmt"
-	"strings"
+ "fmt"
+ "strings"
 )
 
 func (s string) toUpperCase() string {
-	return strings.ToUpper(s)
+ return strings.ToUpper(s)
 }
 
 func main() {
-	str := "Hello World"
-	fmt.Println(str.toUpperCase())
+ str := "Hello World"
+ fmt.Println(str.toUpperCase())
 }
 ```
 
 **Output**
+
 ```
 program.go:8: cannot define new methods on non-local type string
 program.go:14: str.toUpperCase undefined (type string has no field or method toUpperCase)
@@ -645,28 +669,30 @@ Pero el programa anterior se ejecutará con un error de compilación.
 Esto se debe a que el tipo `string` y el método `toUpperCase` no están definidos en el mismo paquete. Vamos a crear un nuevo tipo derivado `MyString` from `string`. De esta forma, tanto el método como el tipo `MyString` recién definido pertenecerán al mismo paquete y deberían funcionar.
 
 **Code**
+
 ```go
 package main
 
 import (
-	"fmt"
-	"strings"
+ "fmt"
+ "strings"
 )
 
 type MyString string
 
 func (s MyString) toUpperCase() string {
-	normalString := string(s)
-	return strings.ToUpper(normalString)
+ normalString := string(s)
+ return strings.ToUpper(normalString)
 }
 
 func main() {
-	str := MyString("Hello World")
-	fmt.Println(str.toUpperCase())
+ str := MyString("Hello World")
+ fmt.Println(str.toUpperCase())
 }
 ```
 
 **Output**
+
 ```
 HELLO WORLD
 ```

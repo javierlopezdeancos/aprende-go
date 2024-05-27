@@ -1,4 +1,4 @@
-package pointerreceivers
+package pointer_receivers
 
 /**
  * When a method belongs to a type, its receiver receives a copy of the object on which it was called.

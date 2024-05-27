@@ -1,4 +1,4 @@
-package anonymouslynestedstruct
+package anonymous_nested_struct
 
 /**
  * In the previous lesson, we also learned about anonymous fields and field promotions.

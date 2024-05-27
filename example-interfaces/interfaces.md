@@ -6,7 +6,7 @@ Las interfaces en Go no imponen un tipo para implementar métodos, pero las inte
 
 # 1. Que es una interfaz?
 
-Hablamos mucho sobre el objeto y el comportamiento en las lecciones de [`structs`](../structs/structs.md) y [`methods`](../example-methods/methods.md). También vimos cómo una estructura (y otros tipos) pueden implementar métodos. Una interfaz es otra pieza de un rompecabezas que acerca a Go al paradigma de la programación orientada a objetos.
+Hablamos mucho sobre el objeto y el comportamiento en las lecciones de [`structs`](../structs/structs.md) y [`methods`](../methods/methods.md). También vimos cómo una estructura (y otros tipos) pueden implementar métodos. Una interfaz es otra pieza de un rompecabezas que acerca a Go al paradigma de la programación orientada a objetos.
 
 Una interfaz es una colección de **firmas de métodos** que un Tipo puede implementar (usando métodos). Por lo tanto, la interfaz define (*no declara*) el comportamiento del objeto (*del tipo `Type`*).
 
@@ -208,7 +208,7 @@ value of s is {10}
 value of s is 314.16
 ```
 
-Si lees lecciones de [structs](../structs/structs.md) y [methods](../example-methods/methods.md), entonces el programa anterior no debería sorprenderte. Como el nuevo tipo de estructura `Circle` también implementa la interfaz `Shape`, podemos asignarle un valor de tipo de estructura `Circle`.
+Si lees lecciones de [structs](../structs/structs.md) y [methods](../methods/methods.md), entonces el programa anterior no debería sorprenderte. Como el nuevo tipo de estructura `Circle` también implementa la interfaz `Shape`, podemos asignarle un valor de tipo de estructura `Circle`.
 
 Supongo que ahora puedes relacionar por qué el tipo y el valor de la interfaz son dinámicos. De la lección de [slices](https://medium.com/rungo/the-anatomy-of-slices-in-go-6450e3bb2b94), aprendimos que una slice contiene la referencia a una matriz. De manera similar, podemos decir que **una interfaz también funciona de manera similar al mantener dinámicamente una referencia al underlying type (*tipo subyacente*)**.
 
@@ -732,7 +732,7 @@ Sin embargo, con las interfaces, esto es un poco diferente. El tipo dinámico de
 
 > Podrías preguntarte, ¿por qué la asignación `r := Rect{}` no falló porque claramente `Rect` no implementa la interfaz `Shape`?
 
-> Esto se debe a que se puede llamar a un método con puntero o receptor de valor tanto en el valor como en el puntero, y la conversión de **valor a un puntero** o **puntero a un valor** adecuado para pasar como receptor para la llamada al método se realiza mediante Go under the hood ( como se ve en la lección de [métodos](../example-methods/methods.md) ).
+> Esto se debe a que se puede llamar a un método con puntero o receptor de valor tanto en el valor como en el puntero, y la conversión de **valor a un puntero** o **puntero a un valor** adecuado para pasar como receptor para la llamada al método se realiza mediante Go under the hood ( como se ve en la lección de [métodos](../methods/methods.md) ).
 
 > Por lo tanto, en el momento de la compilación, tanto el puntero como el valor se pueden almacenar en una variable de tipo interfaz. Sin embargo, al llamar a un método en la propia interfaz, el tipo dinámico se considera en tiempo de ejecución y el valor dinámico se pasa como receptor al método.
 

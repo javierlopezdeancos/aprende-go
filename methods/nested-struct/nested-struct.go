@@ -1,4 +1,4 @@
-package nestedstruct
+package nested_struct
 
 /*
 * We learned a great deal about the nested structure in the previous lesson.

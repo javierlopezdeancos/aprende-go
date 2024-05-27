@@ -6,13 +6,13 @@ package main
  */
 
 import (
-	"aprende-go/example-methods/acceptbothpointerandvalue"
-	"aprende-go/example-methods/anonymouslynestedstruct"
-	"aprende-go/example-methods/methodsonnonstructtype"
-	"aprende-go/example-methods/nestedstruct"
-	"aprende-go/example-methods/pointerreceivers"
-	"aprende-go/example-methods/promotedmethods"
-	"aprende-go/example-methods/samename"
+	acceptBothPointerAndValue "aprende-go/methods/accept-both-pointer-and-value"
+	anonymousNestedStruct "aprende-go/methods/anonymous-nested-struct"
+	methodsOnNonStructType "aprende-go/methods/methods-on-non-struct-type"
+	nestedStruct "aprende-go/methods/nested-struct"
+	pointerReceivers "aprende-go/methods/pointer-receivers"
+	promotedMethods "aprende-go/methods/promoted-methods"
+	sameName "aprende-go/methods/same-name"
 	"fmt"
 )
 
@@ -76,8 +76,8 @@ func main() {
 	// Let’s create two struct types Circle and Rectangle and create two methods of the same name
 	// Area which calculates the area of their receiver.
 
-	rectangle := samename.Rectangle{5.0, 4.0}
-	circle := samename.Circle{5.0}
+	rectangle := sameName.Rectangle{5.0, 4.0}
+	circle := sameName.Circle{5.0}
 	fmt.Printf("Area of rectangle is %0.2f\n", rectangle.Area())
 	fmt.Printf("Area of circle is %0.2f\n", circle.Area())
 
@@ -93,7 +93,7 @@ func main() {
 	fmt.Println()
 	fmt.Println("Method pointer receiver")
 
-	newEmployee := pointerreceivers.Employee{
+	newEmployee := pointerReceivers.Employee{
 		Name:   "Ross Geller",
 		Salary: 50000,
 	}
@@ -132,12 +132,12 @@ func main() {
 	fmt.Println()
 	fmt.Println("Methods on nested struct")
 
-	cotactEmployee := nestedstruct.Contact{
+	cotactEmployee := nestedStruct.Contact{
 		Phone:   "011 8080 8080",
 		Address: "New Delhi, India",
 	}
 
-	employeeWithNestedStruct := nestedstruct.Employee{
+	employeeWithNestedStruct := nestedStruct.Employee{
 		Name:    "Ross Geller",
 		Salary:  1200,
 		Contact: cotactEmployee,
@@ -164,10 +164,10 @@ func main() {
 	fmt.Println()
 	fmt.Println("Anonymously nested struct")
 
-	employeeWithNAnonymouslyNestedStruct := anonymouslynestedstruct.Employee{
+	employeeWithNAnonymouslyNestedStruct := anonymousNestedStruct.Employee{
 		Name:   "Ross Geller",
 		Salary: 1200,
-		Contact: anonymouslynestedstruct.Contact{
+		Contact: anonymousNestedStruct.Contact{
 			Phone:   "011 8080 8080",
 			Address: "New Delhi, India",
 		},
@@ -191,10 +191,10 @@ func main() {
 	fmt.Println()
 	fmt.Println("Promoted methods")
 
-	employeeWithPromotedMethod := promotedmethods.Employee{
+	employeeWithPromotedMethod := promotedMethods.Employee{
 		Name:   "Ross Geller",
 		Salary: 1200,
-		Contact: promotedmethods.Contact{
+		Contact: promotedMethods.Contact{
 			Phone:   "011 8080 8080",
 			Address: "New Delhi, India",
 		},
@@ -218,7 +218,7 @@ func main() {
 	fmt.Println()
 	fmt.Println("Methods can accept both pointer and value")
 
-	employeeAcceptingBothPointerAndValue := acceptbothpointerandvalue.Employee{
+	employeeAcceptingBothPointerAndValue := acceptBothPointerAndValue.Employee{
 		Name:   "Ross Geller",
 		Salary: 1200,
 	}
@@ -244,6 +244,6 @@ func main() {
 
 	fmt.Println()
 	fmt.Println("Methods on non struct type")
-	str := methodsonnonstructtype.MyString("Hello World")
+	str := methodsOnNonStructType.MyString("Hello World")
 	fmt.Println(str.ToUpperCase())
 }

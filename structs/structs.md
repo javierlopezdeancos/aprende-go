@@ -580,7 +580,7 @@ Al crear la estructura `rossGeller`, debemos asegurarnos de que el campo `FullNa
 
 Luego simplemente ejecutamos la función `rossGeller.FullName` con dos argumentos de cadena `rossGeller.FirstName` y `rossGeller.LastName`.
 
-> If you are wondering, why we need to pass properties of `rossGeller` (viz. `rossGeller.FirstName` and `rossGeller.LastName`) to `rossGeller.FullName` function because `FullName` field belongs to the same struct `rossGeller`, then you need to see the [methods](../example-methods/methods.md) lesson.
+> If you are wondering, why we need to pass properties of `rossGeller` (viz. `rossGeller.FirstName` and `rossGeller.LastName`) to `rossGeller.FullName` function because `FullName` field belongs to the same struct `rossGeller`, then you need to see the [methods](../methods/methods.md) lesson.
 
 ## 1.11 Comparación de estructuras
 

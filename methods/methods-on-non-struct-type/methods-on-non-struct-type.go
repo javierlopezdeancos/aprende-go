@@ -1,4 +1,4 @@
-package methodsonnonstructtype
+package methods_on_non_struct_type
 
 /**
 * So far we have seen methods belonging to struct type but from the definition of the methods,

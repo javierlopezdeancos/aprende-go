@@ -1,4 +1,4 @@
-package acceptbothpointerandvalue
+package accept_both_pointer_and_value
 
 /**
 * When a normal function has a parameter definition, it will only accept the argument of the type
