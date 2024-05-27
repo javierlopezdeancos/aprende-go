@@ -1,4 +1,4 @@
-# Aprende Go en castellano
+# Aprende Go en castellano 🇪🇸
 
 <img src="./images/pet.jpeg" width="200">
 
