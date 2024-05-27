@@ -1,4 +1,3 @@
-- [Referencias](#referencias)
 - [Métodos en Go](#m%C3%A9todos-en-go)
 - [Que es un método?](#que-es-un-m%C3%A9todo)
   - [Métodos con el mismo nombre](#m%C3%A9todos-con-el-mismo-nombre)
@@ -10,10 +9,7 @@
     - [Métodos promocionados](#m%C3%A9todos-promocionados)
   - [Métodos pueden aceptar ambos, punteros y valores](#m%C3%A9todos-pueden-aceptar-ambos-punteros-y-valores)
   - [Métodos en no struct type](#m%C3%A9todos-en-no-struct-type)
-
-# Referencias
-
-[Métodos en Go](https://medium.com/rungo/anatomy-of-methods-in-go-f552aaa8ac4a)
+- [Referencias](#referencias)
 
 # 1. Métodos en Go
 
@@ -717,3 +713,7 @@ HELLO WORLD
 A partir del programa anterior, creamos el método `toUpperCase` que ahora pertenece al tipo `MyString`. Necesitábamos modificar las partes internas de este método para pasar el tipo `string` a la función`strings.ToUpper`, pero lo conseguimos.
 
 Ahora podemos llamar a `str.toUpperCase()` porque str es de tipo `MyString` ya que usamos conversión de tipo en la línea **no. 16** para convertir del tipo de cadena al tipo `MyString`.
+
+# Referencias
+
+[Métodos en Go](https://medium.com/rungo/anatomy-of-methods-in-go-f552aaa8ac4a)

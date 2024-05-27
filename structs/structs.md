@@ -1,4 +1,3 @@
-- [Referencias](#referencias)
 - [¿Qué es una estructura?](#%C2%BFqu%C3%A9-es-una-estructura)
   - [Declarar un tipo de estructura](#declarar-un-tipo-de-estructura)
   - [Creando una estructura](#creando-una-estructura)
@@ -12,14 +11,11 @@
   - [Campos de función](#campos-de-funci%C3%B3n)
   - [Comparación de estructuras](#comparaci%C3%B3n-de-estructuras)
   - [Metadatos de campo de estructura](#metadatos-de-campo-de-estructura)
+- [Referencias](#referencias)
 
-# Referencias
-
-[Estructuras en Go (structs)](https://medium.com/rungo/structures-in-go-76377cc106a2)
+# 1. Estructuras en Go
 
 A diferencia de la Programación Orientada a Objetos tradicional, Go no tiene una arquitectura de clase-objeto. Más bien, tenemos estructuras que contienen estructuras de datos complejas.
-
-# 1. ¿Qué es una estructura?
 
 Una `struct` puede compararse con `class` en el paradigma de la **Programación Orientada a Objetos**. Si no sabe qué es Programación Orientada a Objetos, imagine que `struct` es **una receta que declara los ingredientes y el tipo de cada ingrediente**.
 
@@ -668,3 +664,7 @@ type Employee struct {
 ```
 
 En el ejemplo anterior, estamos utilizando el tipo de estructura `Employee` para fines de **codificación/descodificación JSON**. Lea más sobre la codificación/descodificación de JSON en el tutorial ["Trabajar con JSON"](../example-work-with-json/work-with-json.md)
+
+# Referencias
+
+[Estructuras en Go (structs)](https://medium.com/rungo/structures-in-go-76377cc106a2)

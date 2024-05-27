@@ -1,6 +1,12 @@
-# Referencias
-
-[Punteros en Go (pointers)](https://medium.com/rungo/pointers-in-go-a789eafccd53)
+- [Punteros en Go](#punteros-en-go)
+  - [Cómo acceder a la dirección de memoria de una variable?](#c%C3%B3mo-acceder-a-la-direcci%C3%B3n-de-memoria-de-una-variable)
+  - [Que es un puntero?](#que-es-un-puntero)
+  - [Desreferenciar un puntero](#desreferenciar-un-puntero)
+  - [Cambiar el valor de la variable usando un puntero](#cambiar-el-valor-de-la-variable-usando-un-puntero)
+  - [La función new](#la-funci%C3%B3n-new)
+  - [Pasar un puntero a una función](#pasar-un-puntero-a-una-funci%C3%B3n)
+  - [Aritmética de punteros](#aritm%C3%A9tica-de-punteros)
+- [Referencias](#referencias)
 
 # 1. Punteros en Go
 
@@ -413,3 +419,7 @@ a = [2 6 12]
 ## 1.7 Aritmética de punteros
 
 A diferencia del lenguaje C, donde un puntero puede incrementarse o disminuirse, Go no permite la [aritmética de punteros](https://www.tutorialspoint.com/cprogramming/c_pointer_arithmetic.htm).
+
+# Referencias
+
+[Punteros en Go (pointers)](https://medium.com/rungo/pointers-in-go-a789eafccd53)
