@@ -16,7 +16,6 @@ Dado que podemos instanciar una estructura, debe haber alguna distinción de nom
 
 Podemos decir que `ross` es un tipo de `Employee` (*tipo de estructura*) que tiene propiedades `firstName`, `LastName`, `salary` and `fullTime` (campos de estructura).
 
-
 ## 1.1 Declarar un tipo de estructura
 
 Un `struct type` no es más que un esquema que contiene el plano de los datos que contendrá una estructura. Para simplificar las cosas, necesitamos crear un nuevo tipo derivado para que podamos referirnos fácilmente al tipo de estructura. Usamos la palabra clave `struct` para crear un nuevo tipo de estructura como se muestra en el siguiente ejemplo.
@@ -34,10 +33,10 @@ Vamos a crear un tipo de estructura Empleado como discutimos pero con algunos ca
 
 ```go
 type Employee struct {
-	firstName string
-	lastName string
-	salary int
-	fullTime bool
+  firstName string
+  lastName string
+  salary int
+  fullTime bool
 }
 ```
 
@@ -45,9 +44,9 @@ También puede definir diferentes campos del mismo tipo de datos en la misma lí
 
 ```go
 type Employee struct {
-	firstName, lastName string
-	salary int
-	fullTime bool
+ firstName, lastName string
+ salary int
+ fullTime bool
 }
 ```
 
@@ -56,24 +55,26 @@ type Employee struct {
 Ahora que tenemos una `struct type` `Employee`, creemos una estructura `ross` a partir de ella. Dado que `Employee` es un tipo (*tipo de datos personalizado*), declarar una variable de tipo `Employee` seria lo mismo que de costumbre.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Employee struct {
-	firstName, lastName string
-	salary              int
-	fullTime            bool
+ firstName, lastName string
+ salary              int
+ fullTime            bool
 }
 
 func main() {
-	var ross Employee
-	fmt.Println(ross)
+ var ross Employee
+ fmt.Println(ross)
 }
 ```
 
 **Output**
+
 ```
 {  0 false}
 ```
@@ -83,6 +84,7 @@ func main() {
 El resultado del programa anterior puede parecerte raro, pero está dando el **zero value** de la estructura. Esto sucede porque hemos definido la variable `ross` del tipo de datos `Employee` pero no la hemos inicializado.
 
 El **zero value** de una estructura es una estructura con todos los campos establecidos en sus propios valores cero. Por lo tanto,
+
 - `string` tendrá el valor cero de "" (no se puede imprimir).
 - `int` tendrá el valor cero de 0.
 - `bool` tendrá el valor cero de falso.
@@ -95,34 +97,35 @@ Obtener y configurar un campo de estructura es muy simple. Cuando se crea una va
 
 En el programa anterior, hemos creado una estructura `ross` que tiene 4 campos. Para asignar un valor al campo `firstName`, debe usar la sintaxis `ross.firstName = "ross"`. Démosle a `ross` algo de identidad en este ejemplo:
 
-
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Employee struct {
-	firstName, lastName string
-	salary              int
-	fullTime            bool
+ firstName, lastName string
+ salary              int
+ fullTime            bool
 }
 
 func main() {
-	var ross Employee
-	ross.firstName = "ross"
-	ross.lastName = "Bing"
-	ross.salary = 1200
-	ross.fullTime = true
+ var ross Employee
+ ross.firstName = "ross"
+ ross.lastName = "Bing"
+ ross.salary = 1200
+ ross.fullTime = true
 
-	fmt.Println("ross.firstName =", ross.firstName)
-	fmt.Println("ross.lastName =", ross.lastName)
-	fmt.Println("ross.salary =", ross.salary)
-	fmt.Println("ross.fullTime =", ross.fullTime)
+ fmt.Println("ross.firstName =", ross.firstName)
+ fmt.Println("ross.lastName =", ross.lastName)
+ fmt.Println("ross.salary =", ross.salary)
+ fmt.Println("ross.fullTime =", ross.fullTime)
 }
 ```
 
 **Output**
+
 ```
 ross.firstName = ross
 ross.lastName = Bing
@@ -137,30 +140,32 @@ ross.fullTime = true
 En lugar de crear una estructura vacía (*simplemente declarando una variable con su `zero value`*) y luego asignando valores a sus campos individualmente, podemos crear una estructura con valores de campo inicializados en la misma sintaxis, como una variable.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Employee struct {
-	firstName, lastName string
-	salary              int
-	fullTime            bool
+ firstName, lastName string
+ salary              int
+ fullTime            bool
 }
 
 func main() {
-	ross := Employee{
-		firstName: "ross",
-		lastName:  "Bing",
-		fullTime:  true,
-		salary:    1200,
-	}
+ ross := Employee{
+  firstName: "ross",
+  lastName:  "Bing",
+  fullTime:  true,
+  salary:    1200,
+ }
 
-	fmt.Println(ross)
+ fmt.Println(ross)
 }
 ```
 
 **Output**
+
 ```
 {ross Bing 1200 true}
 ```
@@ -189,33 +194,34 @@ ross := Employee{"Ross", "Geller", 1200, true}
 
 La sintaxis anterior es perfectamente válida. Pero al crear una estructura sin declarar **field name declarations**, debe proporcionar todos los **field name declarations** en el orden en que aparecen en el tipo de estructura.
 
-
 ## 1.5 Estructura anónima
 
 Una estructura anónima es una estructura sin un tipo de estructura derivada definida explícitamente. Hasta ahora, hemos creado el tipo de estructura `Employee` que infiere `ross`. Pero en el caso de una estructura anónima, no definimos ningún tipo de estructura derivada y creamos una estructura definiendo el tipo de estructura en línea y los valores iniciales de los campos de estructura en la misma sintaxis.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func main() {
-	monica := struct {
-		firstName, lastName string
-		salary              int
-		fullTime            bool
-	}{
-		firstName: "Monica",
-		lastName:  "Geller",
-		salary:    1200,
-	}
+ monica := struct {
+  firstName, lastName string
+  salary              int
+  fullTime            bool
+ }{
+  firstName: "Monica",
+  lastName:  "Geller",
+  salary:    1200,
+ }
 
-	fmt.Println(monica)
+ fmt.Println(monica)
 }
 ```
 
 **Output**
+
 ```
 {Monica Geller 1200 false}
 ```
@@ -227,11 +233,13 @@ En el programa anterior, estamos creando una estructura `monica` sin definir un 
 Entonces, estarías adivinando si `ross` es del tipo de `Employee`, ¿cuál es el tipo de `monica` aquí? Al usar la función `fmt.Printf` y la sintaxis de formato `%T`, obtenemos el siguiente resultado.
 
 **Code**
+
 ```go
 fmt.Printf("%T", monica)
 ```
 
 **Output**
+
 ```
 struct {firstName string; lastName string; salary int; fullTime bool}
 ```
@@ -251,30 +259,32 @@ s := &StructType{...}
 Vamos a crear un puntero `ross` que apunte a un valor de estructura.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Employee struct {
-	firstName, lastName string
-	salary              int
-	fullTime            bool
+ firstName, lastName string
+ salary              int
+ fullTime            bool
 }
 
 func main() {
-	ross := &Employee{
-		firstName: "ross",
-		lastName:  "Bing",
-		salary:    1200,
-		fullTime:  true,
-	}
+ ross := &Employee{
+  firstName: "ross",
+  lastName:  "Bing",
+  salary:    1200,
+  fullTime:  true,
+ }
 
-	fmt.Println("firstName", (*ross).firstName)
+ fmt.Println("firstName", (*ross).firstName)
 }
 ```
 
 **Output**
+
 ```
 firstName ross
 ```
@@ -303,26 +313,28 @@ fmt.Println("firstName", ross.firstName) // ross is a pointer
 Puede definir un tipo de estructura sin declarar ningún `field name`. Solo tiene que definir los tipos de datos de campo y Go utilizará las declaraciones de tipos de datos (*keywords*) como nombres de campo.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Data struct {
-	string
-	int
-	bool
+ string
+ int
+ bool
 }
 
 func main() {
-	sample1 := Data{"Monday", 1200, true}
-	sample1.bool = false
+ sample1 := Data{"Monday", 1200, true}
+ sample1.bool = false
 
-	fmt.Println(sample1.string, sample1.int, sample1.bool)
+ fmt.Println(sample1.string, sample1.int, sample1.bool)
 }
 ```
 
 **Output**
+
 ```
 Monday 1200 false
 ```
@@ -335,9 +347,9 @@ Simplemente, en este caso, Go nos ayudó a crear nombres de campo automáticamen
 
 ```go
 type Employee struct {
-	firstName, lastName string
-	salary              int
-	bool                // anonymous field
+ firstName, lastName string
+ salary              int
+ bool                // anonymous field
 }
 ```
 
@@ -346,35 +358,37 @@ type Employee struct {
 Un campo de estructura puede ser de cualquier tipo de datos. Por lo tanto, es perfectamente legal tener un campo de estructura que contenga otra estructura. Por lo tanto, un campo de estructura puede tener un tipo de datos que sea un tipo de estructura. Cuando un campo de estructura tiene un valor de estructura, ese valor de estructura se denomina estructura anidada, ya que está anidado dentro de una estructura principal.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Salary struct {
-	basic     int
-	insurance int
-	allowance int
+ basic     int
+ insurance int
+ allowance int
 }
 
 type Employee struct {
-	firstName, lastName string
-	salary              Salary
-	bool
+ firstName, lastName string
+ salary              Salary
+ bool
 }
 
 func main() {
-	ross := Employee{
-		firstName: "Ross",
-		lastName:  "Geller",
-		bool:      true,
-		salary:    Salary{1100, 50, 50},
-	}
-	fmt.Println(ross)
+ ross := Employee{
+  firstName: "Ross",
+  lastName:  "Geller",
+  bool:      true,
+  salary:    Salary{1100, 50, 50},
+ }
+ fmt.Println(ross)
 }
 ```
 
 **Output**
+
 ```
 {Ross Geller {1100 50 50} true}
 ```
@@ -388,35 +402,37 @@ Al crear una estructura de `ross` del tipo `Employee`, inicializamos todos los c
 Normalmente, accedería a un campo de una estructura usando la sintaxis `struct.field`, como hemos visto antes. Puede acceder al campo de `salary` de la misma manera que `ross.salary` que devuelve una estructura. Luego **puede acceder (o actualizar) los campos de esta estructura anidada usando el mismo enfoque**, como por ejemplo, `ross.salary.basic.` Veamos esto en acción.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Salary struct {
-	basic     int
-	insurance int
-	allowance int
+ basic     int
+ insurance int
+ allowance int
 }
 
 type Employee struct {
-	firstName, lastName string
-	salary              Salary
-	bool
+ firstName, lastName string
+ salary              Salary
+ bool
 }
 
 func main() {
-	ross := Employee{
-		firstName: "Ross",
-		lastName:  "Geller",
-		bool:      true,
-		salary:    Salary{1100, 50, 50},
-	}
-	fmt.Println("Ross's basic salary", ross.salary.basic)
+ ross := Employee{
+  firstName: "Ross",
+  lastName:  "Geller",
+  bool:      true,
+  salary:    Salary{1100, 50, 50},
+ }
+ fmt.Println("Ross's basic salary", ross.salary.basic)
 }
 ```
 
 **Output**
+
 ```
 Ross's basic salary 1100
 ```
@@ -431,9 +447,9 @@ Pero lo realmente genial de `struct` es que **también podemos controlar qué ca
 
 ```go
 type Employee struct {
-	FirstName, LastName string
-	salary int
-	fullTime bool
+ FirstName, LastName string
+ salary int
+ fullTime bool
 }
 ```
 
@@ -446,9 +462,9 @@ Vamos a crear un simple paquete `organization` con el nombre de paquete `org`. P
 package org
 
 type Employee struct {
-	FirstName, LastName string
-	salary              int
-	fullTime            bool
+ FirstName, LastName string
+ salary              int
+ fullTime            bool
 }
 ```
 
@@ -459,18 +475,18 @@ En el paquete principal, podemos importar el tipo de estructura `Employee` como 
 package main
 
 import (
-	"fmt"
-	"org"
+ "fmt"
+ "org"
 )
 
 func main() {
   ross := org.Employee{
-		FirstName: "Ross",
-		LastName:  "Geller",
-		salary:    1200
-	}
+  FirstName: "Ross",
+  LastName:  "Geller",
+  salary:    1200
+ }
 
-	fmt.Println(ross)
+ fmt.Println(ross)
 }
 ```
 
@@ -487,19 +503,19 @@ Esto sucede porque el campo de `salary` no se exporta del tipo de estructura `Em
 package main
 
 import (
-	"fmt"
-	"org"
+ "fmt"
+ "org"
 )
 
 type Employee org.Employee
 
 func main() {
-	ross := Employee{
-		FirstName: "Ross",
-		LastName:  "Geller",
-	}
+ ross := Employee{
+  FirstName: "Ross",
+  LastName:  "Geller",
+ }
 
-	fmt.Println(ross)
+ fmt.Println(ross)
 }
 ```
 
@@ -513,9 +529,9 @@ Por encima de los rendimientos del programa por debajo del resultado.
 
 ¿Qué sucederá en el caso de una estructura anidada?
 
-* Una estructura anidada también debe declararse con una letra mayúscula para que otros paquetes puedan importarla.
-* Los campos de estructura anidados que comienzan con una letra mayúscula se exportan.
-* Si una **estructura anidada es anónima**, sus campos que comienzan con una letra mayúscula estarán disponibles como campos promocionados.
+- Una estructura anidada también debe declararse con una letra mayúscula para que otros paquetes puedan importarla.
+- Los campos de estructura anidados que comienzan con una letra mayúscula se exportan.
+- Si una **estructura anidada es anónima**, sus campos que comienzan con una letra mayúscula estarán disponibles como campos promocionados.
 
 ## 1.10 Campos de función
 
@@ -524,6 +540,7 @@ Si recuerda lo que hablamos en **la función como un tipo** y **la función como
 Así que vamos a crear un campo de función de estructura simple que devuelva el nombre completo de un empleado.
 
 **Code**
+
 ```go
 package main
 
@@ -532,24 +549,25 @@ import "fmt"
 type FullNameType func(string, string) string
 
 type Employee struct {
-	FirstName, LastName string
-	FullName            FullNameType
+ FirstName, LastName string
+ FullName            FullNameType
 }
 
 func main() {
-	rossGeller := Employee{
-		FirstName: "Ross",
-		LastName:  "Geller",
-		FullName: func(firstName string, lastName string) string {
-			return firstName + " " + lastName
-		},
-	}
+ rossGeller := Employee{
+  FirstName: "Ross",
+  LastName:  "Geller",
+  FullName: func(firstName string, lastName string) string {
+   return firstName + " " + lastName
+  },
+ }
 
-	fmt.Println(rossGeller.FullName(rossGeller.FirstName, rossGeller.LastName))
+ fmt.Println(rossGeller.FullName(rossGeller.FirstName, rossGeller.LastName))
 }
 ```
 
 **Output**
+
 ```
 Ross Geller
 ```
@@ -569,34 +587,36 @@ Luego simplemente ejecutamos la función `rossGeller.FullName` con dos argumento
 Dos estructuras son comparables si pertenecen al mismo tipo y tienen los mismos valores de campo.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Employee struct {
-	firstName, lastName string
-	salary              int
+ firstName, lastName string
+ salary              int
 }
 
 func main() {
-	ross := Employee{
-		firstName: "Ross",
-		lastName:  "Geller",
-		salary:    1200,
-	}
+ ross := Employee{
+  firstName: "Ross",
+  lastName:  "Geller",
+  salary:    1200,
+ }
 
-	rossCopy := Employee{
-		firstName: "Ross",
-		lastName:  "Geller",
-		salary:    1200,
-	}
+ rossCopy := Employee{
+  firstName: "Ross",
+  lastName:  "Geller",
+  salary:    1200,
+ }
 
-	fmt.Println(ross == rossCopy)
+ fmt.Println(ross == rossCopy)
 }
 ```
 
 **Output**
+
 ```
 true
 ```
@@ -605,15 +625,15 @@ true
 
 El programa anterior imprime `true` porque tanto `ross` como `rossCopy` pertenecen al mismo tipo de estructura `Employee` y tienen el mismo conjunto de valores de campo.
 
-Sin embargo, si una estructura tiene un tipo de campo que se puede comparar, por ejemplo, el `map` que no es comparable, entonces la estructura no será comparable.
+Sin embargo, **si una estructura tiene un tipo de campo que no se puede comparar**, por ejemplo, el `map` que no es comparable, entonces la estructura no será comparable.
 
 Por ejemplo, si el tipo de estructura `Employee` tiene `leaves` como `map` de tipo de datos, no podríamos hacer la comparación anterior.
 
 ```go
 type Employee struct {
-	firstName, lastName string
-	salary              int
-	leaves              map[string]int
+  firstName, lastName string
+  salary              int
+  leaves              map[string]int
 }
 ```
 
@@ -625,10 +645,10 @@ Esta meta información está definida por el literal de cadena (**lección de le
 
 ```go
 type Employee struct {
-	firstName string `json:"firstName"`
-	lastName  string `json:"lastName"`
-	salary    int    `json: "salary"`
-	fullTime  int    `json: "fullTime"`
+ firstName string `json:"firstName"`
+ lastName  string `json:"lastName"`
+ salary    int    `json: "salary"`
+ fullTime  int    `json: "fullTime"`
 }
 ```
 
