@@ -1,3 +1,18 @@
+- [Referencias](#referencias)
+- [¿Qué es una estructura?](#%C2%BFqu%C3%A9-es-una-estructura)
+  - [Declarar un tipo de estructura](#declarar-un-tipo-de-estructura)
+  - [Creando una estructura](#creando-una-estructura)
+  - [Obtener y rellenar campos de una estructura](#obtener-y-rellenar-campos-de-una-estructura)
+  - [Inicializando una estructura](#inicializando-una-estructura)
+  - [Estructura anónima](#estructura-an%C3%B3nima)
+  - [Puntero a una estructura](#puntero-a-una-estructura)
+  - [Campos anónimos](#campos-an%C3%B3nimos)
+  - [Estructura anidada](#estructura-anidada)
+  - [Campos promocionados](#campos-promocionados)
+  - [Campos de función](#campos-de-funci%C3%B3n)
+  - [Comparación de estructuras](#comparaci%C3%B3n-de-estructuras)
+  - [Metadatos de campo de estructura](#metadatos-de-campo-de-estructura)
+
 # Referencias
 
 [Estructuras en Go (structs)](https://medium.com/rungo/structures-in-go-76377cc106a2)

@@ -69,7 +69,7 @@ Aprende Go en castellano con ejemplos tutoriales y ejercicios.
   * [Función como tipo](./example-functions/functions.md#19-funci%C3%B3n-como-tipo)
   * [Función como valor (función anónima)](./example-functions/functions.md#110-funci%C3%B3n-como-valor-funci%C3%B3n-an%C3%B3nima)
   * [Función como valor (función anónima)](./example-functions/functions.md#111-expresi%C3%B3n-de-funci%C3%B3n-invocada-inmediatamente-iife)
-* [Anatomía de métodos en Go](./methods/methods.md#1-anatomía-de-métodos-en-go)
+* [Métodos en Go](./methods/methods.md#1-anatomía-de-métodos-en-go)
   * [Que es un método?](./methods/methods.md#11-que-es-un-método)
   * [Métodos con el mismo nombre](./methods/methods.md#12-métodos-con-el-mismo-nombre)
   * [Pointer receivers](./methods/methods.md#13-pointer-receivers)

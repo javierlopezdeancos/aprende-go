@@ -1,8 +1,21 @@
+- [Referencias](#referencias)
+- [Anatomía de métodos en Go](#anatom%C3%ADa-de-m%C3%A9todos-en-go)
+- [Que es un método?](#que-es-un-m%C3%A9todo)
+  - [Métodos con el mismo nombre](#m%C3%A9todos-con-el-mismo-nombre)
+  - [Pointer receivers](#pointer-receivers)
+    - [Métodos de llamada con receiver de puntero en valores](#m%C3%A9todos-de-llamada-con-receiver-de-puntero-en-valores)
+  - [Métodos en estructuras anidadas](#m%C3%A9todos-en-estructuras-anidadas)
+    - [Métodos en estructuras anidadas](#m%C3%A9todos-en-estructuras-anidadas)
+    - [Estructuras anidadas anónimamente](#estructuras-anidadas-an%C3%B3nimamente)
+    - [Métodos promocionados](#m%C3%A9todos-promocionados)
+  - [Métodos pueden aceptar ambos, punteros y valores](#m%C3%A9todos-pueden-aceptar-ambos-punteros-y-valores)
+  - [Métodos en no struct type](#m%C3%A9todos-en-no-struct-type)
+
 # Referencias
 
-[Interfaces en Go](https://medium.com/rungo/anatomy-of-methods-in-go-f552aaa8ac4a)
+[Métodos en Go](https://medium.com/rungo/anatomy-of-methods-in-go-f552aaa8ac4a)
 
-# 1. Anatomía de métodos en Go
+# 1. Métodos en Go
 
 Go no es compatible con el paradigma orientado a objetos, pero la `struct` se asemeja a la arquitectura de clases. Para agregar métodos a una estructura, necesitamos usar funciones con un `receiver` (*receptor*).
 
@@ -10,7 +23,7 @@ Go no proporciona clases, pero podemos usar estructuras para crear objetos como 
 
 > Behavior es una acción que un objeto puede realizar. Por ejemplo, `Dog` es un tipo de `Animal` y `Dog` puede `bark`(*ladrar*). Por lo tanto, ladrar es un comportamiento de la clase `Dog`. Por lo tanto, cualquier objeto (instancia) de la clase `Dog` tendrá este comportamiento.
 
-Hemos visto en la lección de [structs](../structs/structs.md), especialmente en la sección de campo de función, que un campo de estructura también puede ser una función. Podemos agregar un campo `bark` de función de tipo que no toma argumentos y devuelve un string `woof woof!`. Esta podría ser una forma de agregar métodos a la estructura.
+Hemos visto en la lección de [structs](../structs/structs.md#campos-de-funci%C3%B3n), especialmente en la sección de campo de función, que un campo de estructura también puede ser una función. Podemos agregar un campo `bark` de función de tipo que no toma argumentos y devuelve un string `woof woof!`. Esta podría ser una forma de agregar métodos a la estructura.
 
 Pero esto no se adhiere al concepto Object Oriented Programing ya que los campos de estructura no tienen idea de la estructura a la que pertenecen. Por lo tanto, los métodos vienen al rescate.
 
@@ -278,23 +291,23 @@ e after name change = {Monica Geller 1200}
 
 Veamos qué cambios hicimos.
 
-* Cambiamos la definición del método para recibir un receptor de puntero utilizando la sintaxis `*Employee`. De esta manera, el receptor `e` es el puntero al objeto de estructura al que se llamó este método.
+- Cambiamos la definición del método para recibir un receptor de puntero utilizando la sintaxis `*Employee`. De esta manera, el receptor `e` es el puntero al objeto de estructura al que se llamó este método.
 
-* Dentro del cuerpo del método, estamos convirtiendo el puntero del receptor al valor del receptor usando la sintaxis de desreferenciación de puntero `(*p)`. Por lo tanto `(*e)` será el valor real de la estructura almacenada en la memoria.
+- Dentro del cuerpo del método, estamos convirtiendo el puntero del receptor al valor del receptor usando la sintaxis de desreferenciación de puntero `(*p)`. Por lo tanto `(*e)` será el valor real de la estructura almacenada en la memoria.
 
-* Entonces cambiamos el valor del campo `name` de la estructura `e`. Cualquier cambio realizado en `e` se reflejará en la estructura original.
+- Entonces cambiamos el valor del campo `name` de la estructura `e`. Cualquier cambio realizado en `e` se reflejará en la estructura original.
 
-* En el método principal, creamos un puntero `ep` que apunta a la estructura `e`.
+- En el método principal, creamos un puntero `ep` que apunta a la estructura `e`.
 
-* Dado que el método `changeName` pertenece al puntero de tipo `Employee` o tipo `*Empleado`, se puede invocar en el valor de tipo `*Empleado`.
+- Dado que el método `changeName` pertenece al puntero de tipo `Employee` o tipo `*Empleado`, se puede invocar en el valor de tipo `*Empleado`.
 
-* Dado que el tipo de `ep` es `*Employee`, podemos llamar al método `changeName` usando la sintaxis `ep.changeName()`. Esto pasará el puntero `ep` al método como receptor (en lugar del valor `e`).
+- Dado que el tipo de `ep` es `*Employee`, podemos llamar al método `changeName` usando la sintaxis `ep.changeName()`. Esto pasará el puntero `ep` al método como receptor (en lugar del valor `e`).
 
 > En el programa anterior, solo creamos el puntero `ep` de `e` solo para llamar al método `changeName` en él, pero también puede usar la sintaxis `(&e).changeName("Monica Geller")` en lugar de crear un nuevo puntero.
 
 ### 1.3.1 Métodos de llamada con receiver de puntero en valores
 
-Si se pregunta, ¿siempre necesito crear un puntero para trabajar con métodos con receptor de puntero? Pero Go ya supuso que se haría esta pregunta.
+Quizá se preguntara, ¿siempre necesito crear un puntero para trabajar con métodos con receptor de puntero? Pero Go ya supuso que se haría esta pregunta.
 
 Reescribamos el ejemplo anterior usando los atajos de Go.
 
@@ -340,9 +353,9 @@ e after name change = {Monica Geller 1200}
 
 El programa anterior funcionará bien como antes. Entonces, qué cambió.
 
-* Si un método tiene un **receiver de puntero**, entonces no necesariamente necesita usar la sintaxis de desreferenciación de puntero `(*e)` para obtener el valor del receptor. Puede usar `e` simplemente, que será la dirección del valor al que apunta el puntero, pero Go entenderá que está tratando de realizar una operación en el valor mismo y, under the hood, convertirá `e` en `(*e)`.
+- Si un método tiene un **receiver de puntero**, entonces no necesariamente necesita usar la sintaxis de desreferenciación de puntero `(*e)` para obtener el valor del receptor. Puede usar `e` simplemente, que será la dirección del valor al que apunta el puntero, pero Go entenderá que está tratando de realizar una operación en el valor mismo y, under the hood, convertirá `e` en `(*e)`.
 
-* Además, no necesariamente necesita llamar a un método desde un puntero si el método tiene un receptor de puntero. En su lugar, se le permite llamar a este método en el valor y Go pasará el puntero del valor como receiver automáticamente.
+- Además, no necesariamente necesita llamar a un método desde un puntero si el método tiene un receptor de puntero. En su lugar, se le permite llamar a este método en el valor y Go pasará el puntero del valor como receiver automáticamente.
 
 > Puede decidir entre el método con receptor de puntero o receiver de valor según su caso de uso. Pero, en general, incluso si no desea mutar el receiver, se prefieren los métodos con receiver de puntero ya que no se crea nueva memoria para las operaciones (en el caso de métodos con receiver de valor).
 
@@ -360,6 +373,7 @@ import "fmt"
 type Contact struct {
  phone, address string
 }
+
 type Employee struct {
  name    string
  salary  int
@@ -412,6 +426,7 @@ import "fmt"
 type Contact struct {
  phone, address string
 }
+
 type Employee struct {
  name    string
  salary  int
