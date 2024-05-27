@@ -1,3 +1,3 @@
-module my-go-examples/example-work-with-json
+module aprende-go/example-work-with-json
 
 go 1.19

@@ -1,3 +1,3 @@
-module my-go-examples/example-imports
+module aprende-go/example-imports
 
 go 1.14

@@ -1,12 +1,12 @@
 package main
 
 import (
+	exportedFields "aprende-go/structs/exported-fields"
+	functionFields "aprende-go/structs/function-fields"
+	nestedInterface "aprende-go/structs/nested-interface"
+	nestedStruct "aprende-go/structs/nested-struct"
+	promotedNestedInterface "aprende-go/structs/promoted-nested-interface"
 	"fmt"
-	exportedFields "my-go-examples/structs/exported-fields"
-	functionFields "my-go-examples/structs/function-fields"
-	nestedInterface "my-go-examples/structs/nested-interface"
-	nestedStruct "my-go-examples/structs/nested-struct"
-	promotedNestedInterface "my-go-examples/structs/promoted-nested-interface"
 )
 
 /*

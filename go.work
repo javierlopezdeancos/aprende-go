@@ -4,7 +4,7 @@ use ./example-functions
 use ./example-ifelse-iterations
 use ./example-imports
 use ./example-interfaces
-use ./example-methods
+use ./methods
 use ./example-streams-and-buffers
 use ./structs
 use ./example-work-with-json

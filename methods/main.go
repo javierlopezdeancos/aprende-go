@@ -6,14 +6,14 @@ package main
  */
 
 import (
+	"aprende-go/example-methods/acceptbothpointerandvalue"
+	"aprende-go/example-methods/anonymouslynestedstruct"
+	"aprende-go/example-methods/methodsonnonstructtype"
+	"aprende-go/example-methods/nestedstruct"
+	"aprende-go/example-methods/pointerreceivers"
+	"aprende-go/example-methods/promotedmethods"
+	"aprende-go/example-methods/samename"
 	"fmt"
-	"my-go-examples/example-methods/acceptbothpointerandvalue"
-	"my-go-examples/example-methods/anonymouslynestedstruct"
-	"my-go-examples/example-methods/methodsonnonstructtype"
-	"my-go-examples/example-methods/nestedstruct"
-	"my-go-examples/example-methods/pointerreceivers"
-	"my-go-examples/example-methods/promotedmethods"
-	"my-go-examples/example-methods/samename"
 )
 
 type employee struct {

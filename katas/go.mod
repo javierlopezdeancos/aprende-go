@@ -1,3 +1,3 @@
-module my-go-examples/katas
+module aprende-go/katas
 
 go 1.18

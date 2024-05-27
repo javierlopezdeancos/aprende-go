@@ -1,8 +1,8 @@
 package main
 
 import (
+	"aprende-go/example-functions/simplefunctionrules"
 	"fmt"
-	"my-go-examples/example-functions/simplefunctionrules"
 )
 
 // A function, in general, is a small piece of code that is dedicated to a perform particular task based on

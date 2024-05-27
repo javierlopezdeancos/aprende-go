@@ -1,3 +1,3 @@
-module my-go-examples/pointers
+module aprende-go/pointers
 
 go 1.19

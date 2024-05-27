@@ -1,9 +1,9 @@
 package main
 
 import (
+	"aprende-go/example-imports/math"
+	"aprende-go/example-imports/math/operations"
 	"fmt"
-	"my-go-examples/example-imports/math"
-	"my-go-examples/example-imports/math/operations"
 )
 
 func main() {

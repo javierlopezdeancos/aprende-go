@@ -6,11 +6,11 @@ package main
  */
 
 import (
+	"aprende-go/example-interfaces/emptyinterface"
+	"aprende-go/example-interfaces/mergeinterfaces"
+	"aprende-go/example-interfaces/multiplesinterfaces"
+	"aprende-go/example-interfaces/pointerreceivers"
 	"fmt"
-	"my-go-examples/example-interfaces/emptyinterface"
-	"my-go-examples/example-interfaces/mergeinterfaces"
-	"my-go-examples/example-interfaces/multiplesinterfaces"
-	"my-go-examples/example-interfaces/pointerreceivers"
 )
 
 type shape interface {
