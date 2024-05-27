@@ -1,12 +1,12 @@
-- [Punteros en Go](#punteros-en-go)
-  - [Cómo acceder a la dirección de memoria de una variable?](#c%C3%B3mo-acceder-a-la-direcci%C3%B3n-de-memoria-de-una-variable)
-  - [Que es un puntero?](#que-es-un-puntero)
-  - [Desreferenciar un puntero](#desreferenciar-un-puntero)
-  - [Cambiar el valor de la variable usando un puntero](#cambiar-el-valor-de-la-variable-usando-un-puntero)
-  - [La función new](#la-funci%C3%B3n-new)
-  - [Pasar un puntero a una función](#pasar-un-puntero-a-una-funci%C3%B3n)
-  - [Aritmética de punteros](#aritm%C3%A9tica-de-punteros)
-- [Referencias](#referencias)
+- [Punteros en Go](#1-punteros-en-go)
+  - [Cómo acceder a la dirección de memoria de una variable?](#11-c%C3%B3mo-acceder-a-la-direcci%C3%B3n-de-memoria-de-una-variable)
+  - [Que es un puntero?](#12-que-es-un-puntero)
+  - [Desreferenciar un puntero](#13-desreferenciar-un-puntero)
+  - [Cambiar el valor de la variable usando un puntero](#14-cambiar-el-valor-de-la-variable-usando-un-puntero)
+  - [La función new](#15-la-funci%C3%B3n-new)
+  - [Pasar un puntero a una función](#16-pasar-un-puntero-a-una-funci%C3%B3n)
+  - [Aritmética de punteros](#17-aritm%C3%A9tica-de-punteros)
+- [Referencias](#2-referencias)
 
 # 1. Punteros en Go
 
