@@ -129,5 +129,5 @@ Algunos ejemplos sobre tutoriales y ejercicios en Go.
     * [Codificador](./example-work-with-json/work-with-json.md#codificador)
     * [Decodificador](./example-work-with-json/work-with-json.md#codificador)
 * Katas
-  [Leap Year](./katas/leapyear/leapyear.md)
-  [String Calculator](./katas/stringcalculator/stringcalculator.md)
+  * [Leap Year](./katas/leapyear/leapyear.md)
+  * [String Calculator](./katas/stringcalculator/stringcalculator.md)
