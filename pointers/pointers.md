@@ -11,23 +11,25 @@ Antes de comenzar a hablar sobre los punteros, aprendamos un par de cosas sobre 
 En Go, puede guardar un número hexadecimal en una variable y Go proporciona una expresión literal para eso. Si un número comienza con 0x, entonces es un número hexadecimal.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func main() {
-	a := 0x00
-	b := 0x0A
-	c := 0xFF
+ a := 0x00
+ b := 0x0A
+ c := 0xFF
 
-	fmt.Printf("variable a of type %T with value %v in hex is %X\n", a, a, a)
-	fmt.Printf("variable b of type %T with value %v in hex is %X\n", b, b, b)
-	fmt.Printf("variable c of type %T with value %v in hex is %X\n", c, c, c)
+ fmt.Printf("variable a of type %T with value %v in hex is %X\n", a, a, a)
+ fmt.Printf("variable b of type %T with value %v in hex is %X\n", b, b, b)
+ fmt.Printf("variable c of type %T with value %v in hex is %X\n", c, c, c)
 }
 ```
 
 **Output**
+
 ```
 variable a of type int with value 0 in hex is 0
 variable b of type int with value 10 in hex is A
@@ -49,23 +51,25 @@ Esa memoria tendrá alguna dirección de memoria (*como una dirección postal*) 
 Para acceder al valor de la dirección (*dato*) representado por una variable, Go proporciona el operador `&` (*ampersand*) que se usa delante del nombre de la variable. Al hacer esto, la expresión `&variable_name` devuelve la dirección de memoria del valor (*dato*) al que hace referencia la variable `variable_name`.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func main() {
-	a := 0x00
-	b := 0x0A
-	c := 0xFF
+ a := 0x00
+ b := 0x0A
+ c := 0xFF
 
-	fmt.Println("&a =", &a)
-	fmt.Println("&b =", &b)
-	fmt.Println("&c =", &c)
+ fmt.Println("&a =", &a)
+ fmt.Println("&b =", &b)
+ fmt.Println("&c =", &c)
 }
 ```
 
 **Output**
+
 ```
 &a = 0xc00001c030
 &b = 0xc00001c038
@@ -93,19 +97,21 @@ A diferencia de guardar el valor hexadecimal en una variable que tiene tipo `int
 La sintaxis para crear o definir un puntero es `var p *Type` donde `Type` es un tipo de datos, el valor (*dato*) al que apuntará. Vamos a crear un puntero simple.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func main() {
-	var pa *int
+ var pa *int
 
-	fmt.Printf("pointer pa of type %T with value %v\n", pa, pa)
+ fmt.Printf("pointer pa of type %T with value %v\n", pa, pa)
 }
 ```
 
 **Output**
+
 ```
 pointer pa of type *int with value <nil>
 ```
@@ -117,17 +123,18 @@ En el ejemplo anterior, hemos creado el puntero `pa` que apunta a los datos de t
 Así que vamos a crear una variable de tipo `int` y hacer que `pa` apunte a ella.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func main() {
-	a := 1
-	var pa *int
-	pa = &a
+ a := 1
+ var pa *int
+ pa = &a
 
-	fmt.Printf("pointer pa of type %T with value %v\n", pa, pa)
+ fmt.Printf("pointer pa of type %T with value %v\n", pa, pa)
 }
 ```
 
@@ -142,20 +149,22 @@ En el ejemplo anterior, hemos creado una variable `d` y le hemos asignado un val
 Posteriormente, hemos asignado la dirección de memoria de la variable a (*su valor en realidad*) al puntero `pd` usando la expresión `pa = &a`. El programa anterior también se puede escribir con un formato abreviado de asignación de variables.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func main() {
-	a := 1
-	pa := &a
+ a := 1
+ pa := &a
 
-	fmt.Printf("pointer pa of type %T with value %v\n", pa, pa)
+ fmt.Printf("pointer pa of type %T with value %v\n", pa, pa)
 }
 ```
 
 **Output**
+
 ```
 pointer pa of type *int with value 0xc00001c030
 ```
@@ -168,26 +177,27 @@ Cuando imprime el valor de `pa`, devuelve la dirección de memoria a la que apun
 
 Sin embargo, no menciona explícitamente a qué variable o datos apunta. Pero puede encontrar los datos en esa dirección de memoria.
 
-
 ## 1.3 Desreferenciar un puntero
 
 Para averiguar el valor (*dato*) al que apunta un puntero, necesitamos usar el operador `*`, también llamado operador de `desreferenciación` (*dereferencing operator*) que, si se coloca antes de una variable de puntero (*como el operador `&` para obtener la dirección de la memoria*), devuelve los datos en esa memoria.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func main() {
-	a := 1
-	pa := &a
+ a := 1
+ pa := &a
 
-	fmt.Printf("data at %v is %v\n", pa, *pa)
+ fmt.Printf("data at %v is %v\n", pa, *pa)
 }
 ```
 
 **Output**
+
 ```
 data at 0xc000120000 is 1
 ```
@@ -199,22 +209,24 @@ data at 0xc000120000 is 1
 Como vimos en el ejemplo anterior, podemos leer los datos en la ubicación de memoria a la que apunta un puntero, pero también podemos cambiar (escribir) el valor en esa ubicación de memoria.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func main() {
-	a := 1
-	pa := &a
-	*pa = 2
+ a := 1
+ pa := &a
+ *pa = 2
 
-	fmt.Printf("a = %v\n", a)
-	fmt.Printf("data at %v is %v\n", pa, *pa)
+ fmt.Printf("a = %v\n", a)
+ fmt.Printf("data at %v is %v\n", pa, *pa)
 }
 ```
 
 **Output**
+
 ```
 a = 2
 data at 0xc0000b2000 is 2
@@ -228,7 +240,6 @@ Si se pregunta, ¿por qué cambió el valor de la variable? Esto se debe a que s
 
 > La diferencia entre una variable y un puntero es que una variable almacena el valor en una dirección de memoria y el puntero apunta a una dirección de memoria.
 
-
 ## 1.5 La función new
 
 Go proporciona la función `new` integrada que asigna memoria y devuelve un puntero a esa memoria. La sintaxis de la nueva función es la siguiente.
@@ -240,19 +251,21 @@ func new(Type) *Type
 El primer argumento de la nueva función es el tipo de datos y el valor devuelto de esta función es el puntero de ese tipo de datos. Esta función asignará algo de memoria, escribirá un valor cero del Tipo en esa ubicación de memoria y devolverá un puntero a esa ubicación de memoria.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func main() {
-	pa := new(int)
+ pa := new(int)
 
-	fmt.Printf("data at %v is %v\n", pa, *pa)
+ fmt.Printf("data at %v is %v\n", pa, *pa)
 }
 ```
 
 **Output**
+
 ```
 data at 0xc00001c030 is 0
 ```
@@ -263,7 +276,6 @@ data at 0xc00001c030 is 0
 
 Go almacena el valor cero del tipo de datos pasado a la nueva función y devuelve la dirección de memoria de la misma. Por lo tanto, si solo está interesado en un puntero, puede usar la nueva función en lugar de crear una nueva variable y luego un puntero que apunte al valor de la variable.
 
-
 > Por lo tanto, la definición "**Un puntero es una variable que apunta a la dirección de memoria de otra variable**" no es estrictamente cierta. "**Un puntero es una variable que apunta a una dirección de memoria**" es más preciso.
 
 ## 1.6 Pasar un puntero a una función
@@ -271,25 +283,27 @@ Go almacena el valor cero del tipo de datos pasado a la nueva función y devuelv
 Al igual que una variable, puede pasar un puntero a una función. hay dos maneras de hacer esto. Cree un puntero y luego páselo a la función o simplemente pase una dirección de una variable.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func changeValue(p *int) {
-	*p = 2
+ *p = 2
 }
 
 func main() {
-	a := 1
-	pa := &a
-	changeValue(pa)
+ a := 1
+ pa := &a
+ changeValue(pa)
 
-	fmt.Printf("a = %v\n", a)
+ fmt.Printf("a = %v\n", a)
 }
 ```
 
 **Output**
+
 ```
 a = 2
 ```
@@ -303,24 +317,26 @@ En lugar de adoptar este enfoque largo, podemos acortar el ejemplo anterior pasa
 > Dos punteros que apuntan al mismo valor son iguales.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func changeValue(p *int) {
-	*p = 2
+ *p = 2
 }
 
 func main() {
-	a := 1
-	changeValue(&a)
+ a := 1
+ changeValue(&a)
 
-	fmt.Printf("a = %v\n", a)
+ fmt.Printf("a = %v\n", a)
 }
 ```
 
 **Output**
+
 ```
 a = 2
 ```
@@ -332,59 +348,62 @@ En el programa anterior, la sintaxis del argumento de la función `changeValue` 
 Puede pasar un puntero de un tipo de datos compuesto como un `array` a la función.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func changeValue(p *[3]int) {
-	//*p == original array `a`
-	// *p[0] != (*p)[0]
-	(*p)[0] *= 2
-	(*p)[1] *= 3
-	(*p)[2] *= 4
+ //*p == original array `a`
+ // *p[0] != (*p)[0]
+ (*p)[0] *= 2
+ (*p)[1] *= 3
+ (*p)[2] *= 4
 }
 
 func main() {
-	a := [3]int{1, 2, 3}
-	changeValue(&a)
+ a := [3]int{1, 2, 3}
+ changeValue(&a)
 
-	fmt.Printf("a = %v\n", a)
+ fmt.Printf("a = %v\n", a)
 }
 ```
 
 **Output**
+
 ```
 a = [2 6 12]
 ```
 
 [Ejemplo](https://go.dev/play/p/wp2QxYOSSBC)
 
-
 También podríamos escribir el programa anterior usando la sintaxis abreviada proporcionada por Go para acceder a los datos desde un puntero de array.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func changeValue(p *[3]int) {
-	// (*p)[0] == p[0]
-	p[0] *= 2
-	p[1] *= 3
-	p[2] *= 4
+ // (*p)[0] == p[0]
+ p[0] *= 2
+ p[1] *= 3
+ p[2] *= 4
 }
 
 func main() {
-	a := [3]int{1, 2, 3}
-	changeValue(&a)
+ a := [3]int{1, 2, 3}
+ changeValue(&a)
 
-	fmt.Printf("a = %v\n", a)
+ fmt.Printf("a = %v\n", a)
 }
 ```
 
 **Output**
+
 ```
 a = [2 6 12]
 ```

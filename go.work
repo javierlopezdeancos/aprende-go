@@ -8,4 +8,4 @@ use ./example-methods
 use ./example-streams-and-buffers
 use ./structs
 use ./example-work-with-json
-use ./example-pointers
+use ./pointers
