@@ -1,7 +1,7 @@
 go 1.19
 
 use ./functions
-use ./example-ifelse-iterations
+use ./if-else-iterators
 use ./example-imports
 use ./interfaces
 use ./methods

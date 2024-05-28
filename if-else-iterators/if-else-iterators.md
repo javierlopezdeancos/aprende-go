@@ -1,8 +1,31 @@
-# References
-
-[Anatomy of Conditional Statements and Loops in Go](https://medium.com/rungo/anatomy-of-conditional-statements-and-loops-in-go-aa84352cc34d)
-
-[Go Range](https://www.tutorialspoint.com/go/go_range.htm)
+- [Condicionales](#1-condicionales)
+  - [Condicional if](#11-condicional-if)
+  - [Condicional if-else](#12-condicional-if-else)
+  - [Condicional if else if](#13-condicional-if-else-if)
+    - [Estado inicial](#131-estado-inicial)
+  - [Condicional switch](#14-condicional-switch)
+    - [Default case](#141-default-case)
+    - [Múltiples valores en el case](#142-m%C3%BAltiples-valores-en-el-case)
+    - [Inicial statement](#143-inicial-statement)
+    - [Expressionless switch statement](#144-expressionless-switch-statement)
+    - [Fallthrough statement](#145-fallthrough-statement)
+- [Iteradores](#2-iteradores)
+  - [Bucles for](#21-bucles-for)
+    - [Sintaxis del bucle for](#211-sintaxis-del-bucle-for)
+    - [Variantes del bucle for](#212-variantes-del-bucle-for)
+      - [Opcional init statment](#2121-opcional-init-statment)
+      - [Opcional post statment](#2122-opcional-post-statment)
+      - [Opcional init y post statement](#2123-opcional-init-y-post-statement)
+      - [Sin ningún statment](#2124-sin-ning%C3%BAn-statment)
+      - [El break statment](#2125-el-break-statment)
+      - [El continue statement](#2126-el-continue-statement)
+      - [El return statement](#2127-el-return-statement)
+      - [Range](#2128-range)
+        - [Range sobre un array](#21281-range-sobre-un-array)
+        - [Range sobre un map](#21282-range-sobre-un-map)
+          - [Range sobre un map usando keys](#212821-range-sobre-un-map-usando-keys)
+          - [Range sobre un map usando key/value](#212822-range-sobre-un-map-usando-keyvalue)
+- [References](#3-references)
 
 # 1. Condicionales
 
@@ -402,6 +425,7 @@ La instrucción `fallthrough` debe ser la última en un case block, de lo contra
 ## 2.1 Bucles for
 
 ### 2.1.1 Sintaxis del bucle for
+
 ```go
 for init; condition; post {
   ...
@@ -451,6 +475,7 @@ Current number is 6
 ```
 
 ### 2.1.2 Variantes del bucle for
+
 #### 2.1.2.1 Opcional init statment
 
 Go permite colocar el init statment y ejecutarlo fuera del loop pero en ese caso la variable estará accesible fuera del loop.
@@ -631,11 +656,11 @@ Current number is 6
 
 El continue statement es usado para saltar a la siguiente iteracción del bucle for, simplemente:
 
-* Ignora la iteracción actual
+- Ignora la iteracción actual
 
-* Ejecuta el post  statment
+- Ejecuta el post  statment
 
-* Empieza la siguiente iteracción
+- Empieza la siguiente iteracción
 
 ```go
 package main
@@ -729,3 +754,8 @@ func main() {
    }
 }
 ```
+
+# 3. References
+
+[Anatomy of Conditional Statements and Loops in Go](https://medium.com/rungo/anatomy-of-conditional-statements-and-loops-in-go-aa84352cc34d)
+[Go Range](https://www.tutorialspoint.com/go/go_range.htm)
