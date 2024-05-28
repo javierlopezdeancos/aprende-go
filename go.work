@@ -6,7 +6,7 @@ use ./conditionals
 use ./imports
 use ./interfaces
 use ./methods
-use ./example-streams-and-buffers
+use ./streams-and-buffers
 use ./structs
-use ./example-work-with-json
+use ./work-with-json
 use ./pointers

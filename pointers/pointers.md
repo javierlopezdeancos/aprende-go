@@ -84,7 +84,7 @@ func main() {
 
 [Ejemplo](https://go.dev/play/p/15P6SHOBavA)
 
-Vimos esto en la lección de [slices](../example-slices/slices.md) cuando intentábamos demostrar que dos slices pueden hacer referencia a valores del mismo array. En el ejemplo anterior, usando el operador `&`, encontramos la dirección de memoria de la variable `a`, `b` y `c`.
+Vimos esto en la lección de [slices](../slices/slices.md) cuando intentábamos demostrar que dos slices pueden hacer referencia a valores del mismo array. En el ejemplo anterior, usando el operador `&`, encontramos la dirección de memoria de la variable `a`, `b` y `c`.
 
 ## 1.2 Que es un puntero?
 

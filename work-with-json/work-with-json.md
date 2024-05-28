@@ -1,10 +1,25 @@
-# Trabajando con JSON
+- [Trabajando con JSON](#1-trabajando-con-json)
+  - [Introducción](#11-introducci%C3%B3n)
+  - [Codificando JSON](#12-codificando-json)
+    - [Manejo de tipos de datos](#121-manejo-de-tipos-de-datos)
+    - [Tipos de datos abstractos](#122-tipos-de-datos-abstractos)
+    - [Conversión de tipos de datos](#123-conversi%C3%B3n-de-tipos-de-datos)
+    - [Codificando usando Structure Tags](#124-codificando-usando-structure-tags)
+    - [Codificar trabajando con maps](#125-codificar-trabajando-con--maps)
+  - [Decodificando JSON](#13-decodificando-json)
+    - [Manejando estructuras de datos complejas](#131-manejando-estructuras-de-datos-complejas)
+    - [Campos promocionados](#132-campos-promocionados)
+    - [Decodificando usando Structure Tags](#133-decodificando-usando-structure-tags)
+    - [Decodificar trabajando con maps](#134-decodificar-trabajando-con-maps)
+    - [Usando Unmarshaler and TextUnmarshaler](#135-usando-unmarshaler-and-textunmarshaler)
+  - [Codificador y Decodificador](#14-codificador-y-decodificador)
+    - [Codificador](#141-codificador)
+    - [Decodificador](#142-decodificador)
+- [Referencias](#2-referencias)
 
-## Referencias
+# 1. Trabajando con JSON
 
-[Working with JSON in Go](https://medium.com/rungo/working-with-json-in-go-7e3a37c5a07b)
-
-## Introducción
+## 1.1 Introducción
 
 En Javascript, podemos usar la función `JSON.parse(json_string)` para convertir un JSON string en un objeto Javascript.
 
@@ -22,7 +37,7 @@ Mientras **decodificamos** un `JSON string`, necesitamos un contenedor que pueda
 
 Analicemos las API proporcionadas por el codificador y decodificador de JSON de Go. Go proporciona la mayoría de las API de codificación / decodificación en el paquete `encoding / json`.
 
-## Codificando JSON
+## 1.2 Codificando JSON
 
 Para codificar un JSON a partir de una estructura de datos adecuada, utilizamos la función `json.Marshal` proporcionada por el paquete `json`. Esta función tiene la siguiente sintaxis.
 
@@ -121,7 +136,7 @@ Program exited.
 
 Esta vez, no tuvimos que preocuparnos por eliminar ningún campo del JSON, ya que estamos usando un `map` para codificar los datos. Es posible que sientas que el mapa es el camino correcto a seguir para la codificación JSON, pero el struct aporta muchas características, simplemente no se pueden comparar.
 
-### Manejo de tipos de datos
+### 1.2.1 Manejo de tipos de datos
 
 Como hemos aprendido, JSON admite principalmente 6 tipos de datos, `string`, `number`, `boolean`, `null`, `array` and `object`. Esta puede ser una gran noticia para un desarrollador de JavaScript porque todos los tipos de datos se suponen en JavaScript, pero en Go, debemos considerar varios tipos de datos durante la codificación.
 
@@ -137,7 +152,7 @@ Como hemos aprendido, JSON admite principalmente 6 tipos de datos, `string`, `nu
 
 6. **Array**: Un valor `array` o un `slice` es codificado como un `JSON array value` excepto por el slide de bytes (`[]byte`).
 
-### Tipos de datos abstractos
+### 1.2.2 Tipos de datos abstractos
 
 En los ejemplos anteriores, hemos codificado valores de tipos de datos concretos como `int`, `string`, `bool`, etc. Agreguemos valores de datos más complejos como `struct`, `map` e `interface` a un objeto y veamos cómo se codifica en JSON.
 
@@ -365,7 +380,7 @@ Program exited.
 
 El campo `Secondary` es nulo porque el valor del campo `Secondary` en la estructura `john` es nulo (el valor cero de una interfaz es nulo). El campo `Primary` es un objeto JSON porque el campo `Primary` es una interfaz y tiene un puntero a la estructura del perfil como valor concreto.
 
-### Conversión de tipos de datos
+### 1.2.3 Conversión de tipos de datos
 
 A veces, no queremos codificar un valor de un campo tal como está, sino proporcionar un valor personalizado para el `marshaling`. Esto se puede lograr implementando la interfaz `json.Marshaler` o `encoding.TextMarshaler`.
 
@@ -459,7 +474,7 @@ Cuando `Marshal` encuentra un valor de tipo `TextMarshaler`, llamará al método
 Program exited.
 ```
 
-### Codificando usando Structure Tags
+### 1.2.4 Codificando usando Structure Tags
 
 Un `struct` puede contener metadatos adicionales que otros programas pueden usar para procesar ese campo de manera diferente. Estos metadatos se asignan a un campo mediante un literal de `string` (`raw string`, cadena sin formato `[``]` o `interpreted string` cadena interpretada `[“”]`)
 
@@ -550,13 +565,13 @@ Las `structure tags` proporcionan una gran ayuda para tratar los campos promocio
 
 Sin embargo, las etiquetas nos dan más control sobre las promociones de campos usando esta simple regla. Los campos en conflicto (etiquetados o no etiquetados) se agrupan por los nombres de campo JSON y los campos menos anidados se seleccionan para la clasificación.
 
-### Codificar trabajando con  maps
+### 1.2.5 Codificar trabajando con maps
 
 En el ejemplo de mapa anterior, vimos que un `map` con un `string` o `int` se puede codificar como JSON y todas las keys `int` se convierten a JSON. Sin embargo, el mapa en Go puede ser más complejo y sus keys pueden ser de un tipo de datos complejo.
 
 En tales casos, si las claves de un mapa implementan la interfaz `encoding.TextMarshaler, Marshal` intentará obtener la key JSON de la función `MarshalText()` en su lugar, mientras que los valores pueden ser cualquier cosa (como valores de estructura).
 
-## Decodificando JSON
+## 1.3 Decodificando JSON
 
 Decodificar JSON es un poco complicado porque necesitamos traducir algunos datos basados en texto en una estructura de datos compleja. Para decodificar JSON en una estructura de datos válida como `map` o `struct`, primero debemos asegurarnos antes de si el JSON es un JSON válido.
 
@@ -677,7 +692,7 @@ Error: json: cannot unmarshal number 1.75 into Go struct field Student.HeightInM
 
 > Si un campo en JSON no contiene el valor del tipo de datos declarado en la estructura, Unmarshal no forzará ese valor a un tipo de datos apropiado del campo y, en su lugar, devolverá un error.
 
-### Manejando estructuras de datos complejas
+### 1.3.1 Manejando estructuras de datos complejas
 
 Si un JSON contiene datos complejos, como un objeto o una array, entonces una estructura debe declarar los campos de los tipos apropiados en orden para desarmar el JSON sin error.
 
@@ -860,7 +875,7 @@ Como podemos ver en el resultado, el valor del campo del `array` `Languages` fue
 
 Dado que el campo `Profile` es un puntero y su valor en el struct `john` no es nulo, `Unmarshal allocates` usa el valor del puntero existente y los valores de campo asignados del JSON. Si el valor del campo `Profile` en JSON fuera nulo, John habría establecido incondicionalmente el valor del campo `Profile` en cero.
 
-### Campos promocionados
+### 1.3.2 Campos promocionados
 
 Si una `struct` contiene un campo de `struct` anidado de forma anónima, el campo de `struct` anidado se promoverá a la estructura principal. Por lo tanto, el JSON debe contener los valores de campo en el objeto principal
 
@@ -930,7 +945,7 @@ From the result of this program above, we can see that Account field was not unm
 
 A partir del resultado del programa anterior, podemos ver que el campo `Account` no se eliminó porque este campo es una estructura anidada anónimamente y esperaba que los valores del campo estuvieran presentes en el objeto principal.
 
-### Decodificando usando Structure Tags
+### 1.3.3 Decodificando usando Structure Tags
 
 En la lección de codificación de JSON, aprendimos que las structure tags pueden ser muy útiles para decidir los nombres de los campos y los criterios de omisión. También podemos usar las structure tags para interpolar nombres de campo JSON para  nombres de campo de struct.
 
@@ -995,7 +1010,7 @@ Unfortunately, omitempty option does not work. You might’ve expected that the 
 
 Desafortunadamente, la opción `omitempty` no funciona. Es posible que esperara que la función `Unmarshal` ignorara un campo si su valor es nulo en el JSON al observar el valor de la opción `omitempty`, pero desafortunadamente ese no es el caso.
 
-### Decodificar trabajando con maps
+### 1.3.4 Decodificar trabajando con maps
 
 Since a JSON contains string keys and values of supported data types, a map of type map[string]interface{} is a suitable candidate for storing JSON data. We can pass a pointer to nil or non-nil pointer of the map to the Unmarshal function and all JSON field values will be populated inside the map.
 
@@ -1123,7 +1138,7 @@ Recuerde, por el momento, `john` es una `interface` y para acceder a los valores
 johnData := john.(map[string]interface{})
 ```
 
-### Usando Unmarshaler and TextUnmarshaler
+### 1.3.5 Usando Unmarshaler and TextUnmarshaler
 
 Un `struct` puede asumir la responsabilidad de `unmarshaling` los datos JSON por sí solo. En tal caso, el valor del campo debe implementar la interfaz `json.Unmarshaler` que proporciona la declaración del método `UnmarshalJSON`.
 
@@ -1226,11 +1241,11 @@ main.Student{FirstName:"John", Profile:main.Profile{Username:"JOHNDOE91", Follow
 
 Si un campo implementa la interfaz `encoding.TextUnmarshaler` y el valor del campo JSON es un `string`, `Unmarshal` llama al método `UnmarshalText` de ese valor con la forma sin comillas de la cadena.
 
-## Codificador y Decodificador
+## 1.4 Codificador y Decodificador
 
 Go proporciona los tipos de estructura json/Encoder y json/Decoder para codificar JSON de un flujo de datos y decodificar JSON en un flujo de datos. Esto es útil para procesar JSON ya que hay algunos datos disponibles.
 
-### Codificador
+### 1.4.1 Codificador
 
 El tipo de estructura json/Encoder le permite crear una estructura que contiene un objeto `io.Writer` y proporciona el método `Encode()` para codificar JSON desde un objeto y escribir en este objeto `io.Writer`.
 
@@ -1288,7 +1303,7 @@ Program exited.
 
 > En el ejemplo anterior, hemos usado un `*Buffer` porque implementa la interfaz `io.Writer` implementando el método `Write`.
 
-### Decodificador
+### 1.4.2 Decodificador
 
 El tipo de estructura json/Decoder le permite crear una estructura que contiene un objeto `io.Reader` y proporciona el método `Decode()` para decodificar JSON de este objeto `io.Writer` y escribir en un objeto.
 
@@ -1349,3 +1364,7 @@ monica: main.Person{Name:"Monica Geller", Age:27}
 
 Program exited.
 ```
+
+# 2. Referencias
+
+- [Referencias](./work-with-json/work-with-json.md#referencias)

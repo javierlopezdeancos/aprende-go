@@ -1,7 +1,7 @@
 package main
 
 import (
-	"aprende-go/example-streams-and-buffers/ioreader"
+	"aprende-go/streams-and-buffers/ioreader"
 	"bytes"
 	"fmt"
 	"io"

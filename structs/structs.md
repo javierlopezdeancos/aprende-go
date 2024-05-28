@@ -452,7 +452,7 @@ Ross's basic salary 1100
 
 ## 1.9 Campos promocionados
 
-Como hemos visto en la lección de [paquetes](../example-packages/packages.md), cualquier variable o tipo que comience con una letra mayúscula se exporta desde ese paquete. En el caso de las estructuras, nos aseguramos de que todas nuestras estructuras utilizadas en esta lección se exporten, por lo tanto, comienzan con una letra mayúscula, a saber. `Employee`, `Salary`, `Data`, etc.
+Como hemos visto en la lección de [paquetes](../packages/packages.md), cualquier variable o tipo que comience con una letra mayúscula se exporta desde ese paquete. En el caso de las estructuras, nos aseguramos de que todas nuestras estructuras utilizadas en esta lección se exporten, por lo tanto, comienzan con una letra mayúscula, a saber. `Employee`, `Salary`, `Data`, etc.
 
 Pero lo realmente genial de `struct` es que **también podemos controlar qué campos de una estructura exportada son visibles fuera del paquete (*o exportados*)**. Para exportar los nombres de campo de una estructura, debemos seguir el mismo enfoque de letras mayúsculas.
 
@@ -663,7 +663,7 @@ type Employee struct {
 }
 ```
 
-En el ejemplo anterior, estamos utilizando el tipo de estructura `Employee` para fines de **codificación/descodificación JSON**. Lea más sobre la codificación/descodificación de JSON en el tutorial ["Trabajar con JSON"](../example-work-with-json/work-with-json.md)
+En el ejemplo anterior, estamos utilizando el tipo de estructura `Employee` para fines de **codificación/descodificación JSON**. Lea más sobre la codificación/descodificación de JSON en el tutorial ["Trabajar con JSON"](../work-with-json/work-with-json.md)
 
 # 2. Referencias
 
