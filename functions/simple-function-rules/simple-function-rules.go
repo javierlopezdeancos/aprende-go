@@ -1,4 +1,4 @@
-package simplefunctionrules
+package simple_function_rules
 
 import "fmt"
 

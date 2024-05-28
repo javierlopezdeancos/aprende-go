@@ -546,7 +546,7 @@ Por encima de los rendimientos del programa por debajo del resultado.
 
 ## 1.10 Campos de función
 
-Si recuerda lo que hablamos en **la función como un tipo** y **la función como un valor** de la lección de [funciones](../example-functions/functions.md), puede adivinar que los campos de estructura también pueden ser funciones.
+Si recuerda lo que hablamos en **la función como un tipo** y **la función como un valor** de la lección de [funciones](../functions/functions.md), puede adivinar que los campos de estructura también pueden ser funciones.
 
 Así que vamos a crear un campo de función de estructura simple que devuelva el nombre completo de un empleado.
 

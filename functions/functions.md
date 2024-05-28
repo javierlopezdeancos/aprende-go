@@ -1,6 +1,16 @@
-# Referencias
-
-[Anatomía de funciones en Go](https://medium.com/rungo/the-anatomy-of-functions-in-go-de56c050fe11)
+- [Funciones](#1-funciones)
+  - [Qué es una función](#11-qu%C3%A9-es-una-funci%C3%B3n)
+  - [Convención de nombres para funciones](#12-convenci%C3%B3n-de-nombres-para-funciones)
+  - [Parámetros en funciones.](#13-par%C3%A1metros-en-funciones)
+  - [Valor de retorno](#14-valor-de-retorno)
+  - [Multiples valores de retorno](#15-multiples-valores-de-retorno)
+  - [Valores de retorno nombrados](#16-valores-de-retorno-nombrados)
+  - [Función recursiva](#17-funci%C3%B3n-recursiva)
+  - [defer keyword](#18-defer-keyword)
+  - [Función como tipo](#19-funci%C3%B3n-como-tipo)
+  - [Función como valor función anónima](#110-funci%C3%B3n-como-valor-funci%C3%B3n-an%C3%B3nima)
+  - [Expresión de función invocada inmediatamente IIFE](#111-expresi%C3%B3n-de-funci%C3%B3n-invocada-inmediatamente-iife)
+- [Referencias](#2-referencias)
 
 # 1. Funciones
 
@@ -15,7 +25,7 @@ Estos valores de entrada brindan información adicional a una función y son tot
 En Go, una función se define usando la palabra clave `func`.
 
 ```go
-func dosomething() {
+func doSomething() {
     fmt.Println("Hello World!")
 }
 ```
@@ -32,7 +42,7 @@ Hello World!
 
 Go recomienda escribir los nombres de las funciones en palabras simples o `camelCase`. Incluso los nombres de las funciones under_score son válidos, pero no son idiomáticos en Go.
 
-## 1.3 Parámetros en funciones.
+## 1.3 Parámetros en funciones
 
 Como vimos anteriormente, una función puede tomar valores de entrada para su ejecución. Estos valores de entrada se proporcionan en una llamada de función, llamada argumentos. También se pueden pasar uno o varios argumentos a una función.
 
@@ -46,15 +56,16 @@ package main
 import "fmt"
 
 func greet(user string) {
-	fmt.Println("Hello " + user)
+ fmt.Println("Hello " + user)
 }
 
 func main() {
-	greet("John Doe")
+ greet("John Doe")
 }
 ```
 
 **Output**
+
 ```
 Hello John Doe
 ```
@@ -62,18 +73,19 @@ Hello John Doe
 [Ejemplo 2. Sumar dos enteros](https://play.golang.org/p/QUNdCtGO4sA)
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func add(a int, b int) {
-	c := a + b
-	fmt.Println(c)
+ c := a + b
+ fmt.Println(c)
 }
 
 func main() {
-	add(1, 5)
+ add(1, 5)
 }
 ```
 
@@ -85,16 +97,17 @@ package main
 import "fmt"
 
 func add(a, b int) {
-	c := a + b
-	fmt.Println(c)
+ c := a + b
+ fmt.Println(c)
 }
 
 func main() {
-	add(1, 5)
+ add(1, 5)
 }
 ```
 
 **Output**
+
 ```
 6
 ```
@@ -106,22 +119,24 @@ func main() {
 Una función también puede devolver un valor que se puede imprimir o asignar a otra variable.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func add(a, b int) int64 {
-	return int64(a + b)
+ return int64(a + b)
 }
 
 func main() {
-	result := add(1, 5)
-	fmt.Println(result)
+ result := add(1, 5)
+ fmt.Println(result)
 }
 ```
 
 **Output**
+
 ```
 6
 ```
@@ -130,7 +145,6 @@ En caso de que una función devuelva un valor, debe especificar el tipo de datos
 
 En el programa anterior, nos aseguramos de que el valor de retorno coincida con el tipo de retorno de una función al convertir el tipo de resultado (originalmente `int`) en `int64`.
 
-
 ## 1.5 Multiples valores de retorno
 
 A diferencia de otros lenguajes de programación, Go puede devolver múltiples valores de la función. En este caso, debemos especificar los tipos de devolución de los valores (al igual que arriba) entre paréntesis justo después de los paréntesis del parámetro de función.
@@ -138,22 +152,24 @@ A diferencia de otros lenguajes de programación, Go puede devolver múltiples v
 [Example](https://go.dev/play/p/TSSbha-8g9f)
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func addMult(a, b int) (int, int) {
-	return a + b, a * b
+ return a + b, a * b
 }
 
 func main() {
-	addRes, multRes := addMult(2, 5)
-	fmt.Println(addRes, multRes)
+ addRes, multRes := addMult(2, 5)
+ fmt.Println(addRes, multRes)
 }
 ```
 
 **Output**
+
 ```
 7 10
 ```
@@ -167,22 +183,24 @@ En el caso de múltiples valores devueltos pero solo está interesado en un solo
 [Ejemplo](https://go.dev/play/p/eqLywlCdAAW)
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func addMult(a, b int) (int, int) {
-	return a + b, a * b
+ return a + b, a * b
 }
 
 func main() {
-	_, multRes := addMult(2, 5)
-	fmt.Println(multRes)
+ _, multRes := addMult(2, 5)
+ fmt.Println(multRes)
 }
 ```
 
 **Output**
+
 ```
 10
 ```
@@ -198,25 +216,27 @@ Estas variables se crearán automáticamente y estarán disponibles dentro del c
 [Example](https://go.dev/play/p/7mjltVetYS8)
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func addMult(a, b int) (add int, mul int) {
-	add = a + b
-	mul = a * b
+ add = a + b
+ mul = a * b
 
-	return // necessary
+ return // necessary
 }
 
 func main() {
-	addRes, multRes := addMult(2, 5)
-	fmt.Println(addRes, multRes)
+ addRes, multRes := addMult(2, 5)
+ fmt.Println(addRes, multRes)
 }
 ```
 
 **Output**
+
 ```
 7 10
 ```
@@ -226,25 +246,27 @@ También puede combinar valores devueltos con nombre cuando contienen el mismo t
 [Ejemplo](https://go.dev/play/p/UBtP7nnBD8_c)
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func addMult(a, b int) (add, mul int) {
-	add = a + b
-	mul = a * b
+ add = a + b
+ mul = a * b
 
-	return // necessary
+ return // necessary
 }
 
 func main() {
-	addRes, multRes := addMult(2, 5)
-	fmt.Println(addRes, multRes)
+ addRes, multRes := addMult(2, 5)
+ fmt.Println(addRes, multRes)
 }
 ```
 
 **Output**
+
 ```
 7 10
 ```
@@ -268,11 +290,11 @@ Un ejemplo simple de una función recursiva es el `factorial de n`. ¡Una fórmu
 ```go
 // n! = n*(n-1)! where n > 0
 func getFactorial(num int) int {
-	if num > 1 {
-		return num * getFactorial(num-1)
-	} else {
-		return 1 // 1! == 1
-	}
+ if num > 1 {
+  return num * getFactorial(num-1)
+ } else {
+  return 1 // 1! == 1
+ }
 }
 ```
 
@@ -297,16 +319,16 @@ import "fmt"
 
 // n! = n×(n-1)! where n >0
 func getFactorial(num int) int {
-	if num > 1 {
-		return num * getFactorial(num-1)
-	}
+ if num > 1 {
+  return num * getFactorial(num-1)
+ }
 
-	return 1 // 1! == 1
+ return 1 // 1! == 1
 }
 
 func main() {
-	f := getFactorial(4)
-	fmt.Println(f)
+ f := getFactorial(4)
+ fmt.Println(f)
 }
 ```
 
@@ -323,25 +345,27 @@ func main() {
 Profundicemos en el ejemplo para entenderlo mejor.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func sayDone() {
-	fmt.Println("I am done")
+ fmt.Println("I am done")
 }
 
 func main() {
-	fmt.Println("main started")
+ fmt.Println("main started")
 
-	defer sayDone()
+ defer sayDone()
 
-	fmt.Println("main finished")
+ fmt.Println("main finished")
 }
 ```
 
 **Output**
+
 ```
 main started
 main finished
@@ -355,29 +379,31 @@ Cuando `main` se ejecuta en la función principal, imprimirá `main started` int
 Podemos pasar parámetros para aplazar la función si es compatible, pero hay un problema oculto. Vamos a crear una función simple con argumentos.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func endTime(timestamp string) {
-	fmt.Println("Program ended at", timestamp)
+ fmt.Println("Program ended at", timestamp)
 }
 
 func main() {
-	time := "1 PM"
+ time := "1 PM"
 
-	defer endTime(time)
+ defer endTime(time)
 
-	time = "2 PM"
+ time = "2 PM"
 
-	fmt.Println("doing something")
-	fmt.Println("main finished")
-	fmt.Println("time is", time)
+ fmt.Println("doing something")
+ fmt.Println("main finished")
+ fmt.Println("time is", time)
 }
 ```
 
 **Output**
+
 ```
 doing something
 main finished
@@ -394,27 +420,28 @@ En el programa anterior, aplazamos la ejecución de la función `endTime`, lo qu
 Escribamos varias tareas diferidas y veamos a qué nos referimos:
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func greet(message string) {
-	fmt.Println("greeting: ", message)
+ fmt.Println("greeting: ", message)
 }
 
 func main() {
-	fmt.Println("Call one")
+ fmt.Println("Call one")
 
-	defer greet("Greet one")
+ defer greet("Greet one")
 
-	fmt.Println("Call two")
+ fmt.Println("Call two")
 
-	defer greet("Greet two")
+ defer greet("Greet two")
 
-	fmt.Println("Call three")
+ fmt.Println("Call three")
 
-	defer greet("Greet three")
+ defer greet("Greet three")
 }
 ```
 
@@ -498,29 +525,31 @@ Esto puede ser útil si está pasando una función como argumento a otra funció
 Vamos a crear una función de suma y resta, y veamos cómo se comparan.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func add(a int, b int) int {
-	return a + b
+ return a + b
 }
 
 func subtract(a int, b int) int {
-	return a - b
+ return a - b
 }
 
 func main() {
-	fmt.Printf("Type of function add is			%T\n", add)
-	fmt.Printf("Type of function subtract is		%T\n", subtract)
+ fmt.Printf("Type of function add is   %T\n", add)
+ fmt.Printf("Type of function subtract is  %T\n", subtract)
 }
 ```
 
 **Output**
+
 ```
-Type of function add is			func(int, int) int
-Type of function subtract is		func(int, int) int
+Type of function add is   func(int, int) int
+Type of function subtract is  func(int, int) int
 ```
 
 Puedes ver el ejemplo completo [aquí](https://play.golang.org/p/LxOPPRvq4Ta)
@@ -530,33 +559,35 @@ Entonces puede ver que tanto la función de `add` como la de `subtract` tienen e
 Vamos a crear una función que tome dos números enteros y el tercer argumento, una función que haga una operación matemática con esos dos números. Usaremos la función de `add` y `subtract` como el tercer parámetro de esta función.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func add(a int, b int) int {
-	return a + b
+ return a + b
 }
 
 func subtract(a int, b int) int {
-	return a - b
+ return a - b
 }
 
 func calc(a int, b int, f func(int, int) int) int {
-	r := f(a, b)
-	return r
+ r := f(a, b)
+ return r
 }
 
 func main() {
-	addResult := calc(5, 3, add)
-	subResult := calc(5, 3, subtract)
-	fmt.Println("5+3 =", addResult)
-	fmt.Println("5-3 =", subResult)
+ addResult := calc(5, 3, add)
+ subResult := calc(5, 3, subtract)
+ fmt.Println("5+3 =", addResult)
+ fmt.Println("5-3 =", subResult)
 }
 ```
 
 **Output**
+
 ```
 5+3 = 8
 5-3 = 2
@@ -569,35 +600,37 @@ Puedes ver el ejemplo completo [aquí](https://play.golang.org/p/z3lwQPAhNLJ)
 Podemos crear un `tipo derivado` que simplificará las cosas. Podemos reescribir el programa anterior como
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func add(a int, b int) int {
-	return a + b
+ return a + b
 }
 
 func subtract(a int, b int) int {
-	return a - b
+ return a - b
 }
 
 type CalcFunc func(int, int) int
 
 func calc(a int, b int, f CalcFunc) int {
-	r := f(a, b) // calling add(a,b) or substract(a,b)
-	return r
+ r := f(a, b) // calling add(a,b) or substract(a,b)
+ return r
 }
 
 func main() {
-	addResult := calc(5, 3, add)
-	subResult := calc(5, 3, subtract)
-	fmt.Println("5+3 =", addResult)
-	fmt.Println("5-3 =", subResult)
+ addResult := calc(5, 3, add)
+ subResult := calc(5, 3, subtract)
+ fmt.Println("5+3 =", addResult)
+ fmt.Println("5-3 =", subResult)
 }
 ```
 
 **Output**
+
 ```
 5+3 = 8
 5-3 = 2
@@ -626,21 +659,23 @@ fmt.Println(add) // <nil>
 Una función en Go también puede ser un valor. Esto significa que puede asignar una función a una variable.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 var add = func(a int, b int) int {
-	return a + b
+ return a + b
 }
 
 func main() {
-	fmt.Println("5+3 =", add(5, 3))
+ fmt.Println("5+3 =", add(5, 3))
 }
 ```
 
 **Output**
+
 ```
 5+3 = 8
 ```
@@ -656,40 +691,43 @@ Si viene del mundo de `JavaScript`, sabe qué es la expresión de función invoc
 Como hemos visto en un ejemplo anterior, una función anónima definida como
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 var add = func(a int, b int) int {
-	return a + b
+ return a + b
 }
 
 func main() {
-	fmt.Println("5+3 =", add(5, 3))
+ fmt.Println("5+3 =", add(5, 3))
 }
 ```
 
 Donde, `add` es una función anónima. Algunos pueden argumentar que no es realmente anónimo porque aún podemos referirnos a la función de agregar desde cualquier lugar de la función `main` (*en otros casos, desde cualquier lugar del programa*). Pero no en el caso de que una función se invoque o ejecute inmediatamente. Modifiquemos el ejemplo anterior.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 func main() {
-	sum := func(a int, b int) int {
-		return a + b
-	}(3, 5)
+ sum := func(a int, b int) int {
+  return a + b
+ }(3, 5)
 
-	fmt.Println("5+3 =", sum)
+ fmt.Println("5+3 =", sum)
 }
 ```
 
 En el programa anterior, observe la definición de la función. La primera parte de `func` a `}` define la función mientras que después `(3, 5)` la ejecuta. Por lo tanto, `sum` es el valor devuelto por la ejecución de una función. Por lo tanto, el programa anterior produce el siguiente resultado:
 
 **Output**
+
 ```
 5+3 = 8
 ```
@@ -697,3 +735,7 @@ En el programa anterior, observe la definición de la función. La primera parte
 Puedes ver el ejemplo [aquí](https://go.dev/play/p/yxRJr51OxzY)
 
 > La función invocada inmediatamente también se puede usar fuera de la función principal en un contexto global. Esto puede ser útil cuando necesita crear una variable global utilizando el valor de retorno de la ejecución **de una función** y no desea revelar la función a las otras partes de su programa.
+
+# 2. Referencias
+
+[Anatomía de funciones en Go](https://medium.com/rungo/the-anatomy-of-functions-in-go-de56c050fe11)

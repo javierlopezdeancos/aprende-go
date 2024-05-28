@@ -1,7 +1,7 @@
 package main
 
 import (
-	"aprende-go/example-functions/simplefunctionrules"
+	simpleFunctionRules "aprende-go/functions/simple-function-rules"
 	"fmt"
 )
 
@@ -22,7 +22,7 @@ func main() {
 
 	fmt.Println()
 	fmt.Println("A simple function")
-	simplefunctionrules.DoSomeThing()
+	simpleFunctionRules.DoSomeThing()
 
 	/******************************************/
 	/*       Function name convention        */
@@ -43,11 +43,11 @@ func main() {
 	fmt.Println("Function parameters")
 	fmt.Println()
 	fmt.Println("Print greeting message")
-	simplefunctionrules.PrintUserName("Javi")
+	simpleFunctionRules.PrintUserName("Javi")
 
 	fmt.Println()
 	fmt.Println("Print sum of to integers (2, 4)")
-	simplefunctionrules.PrintAdd(2, 4)
+	simpleFunctionRules.PrintAdd(2, 4)
 
 	/****************************************/
 	/*            Return value             */
@@ -57,7 +57,7 @@ func main() {
 	fmt.Println("Return value")
 	fmt.Println()
 	fmt.Println("Return sum of to integers (3, 5)")
-	fmt.Println(simplefunctionrules.Add(3, 5))
+	fmt.Println(simpleFunctionRules.Add(3, 5))
 
 	/****************************************/
 	/*        Multiple return values       */
@@ -68,7 +68,7 @@ func main() {
 	fmt.Println()
 	fmt.Println()
 	fmt.Println("Return sum and mult of to integers (2, 3)")
-	add, mult := simplefunctionrules.AddAndMult(2, 3)
+	add, mult := simpleFunctionRules.AddAndMult(2, 3)
 	fmt.Println("Sum", add)
 	fmt.Println("Mult", mult)
 
@@ -80,7 +80,7 @@ func main() {
 	fmt.Println("Named  return values")
 	fmt.Println()
 	fmt.Println("Return sum and mult of to integers (6, 3)")
-	div, multiply := simplefunctionrules.DivAndMult(6, 3)
+	div, multiply := simpleFunctionRules.DivAndMult(6, 3)
 	fmt.Println("Div", div)
 	fmt.Println("Mult", multiply)
 
@@ -92,7 +92,7 @@ func main() {
 	fmt.Println("Recursive function")
 	fmt.Println()
 	fmt.Println("Return factorial 4")
-	fact := simplefunctionrules.GetFactorial(4)
+	fact := simpleFunctionRules.GetFactorial(4)
 	fmt.Println("fact", fact)
 
 	/****************************************/
@@ -105,7 +105,7 @@ func main() {
 	fmt.Println("Defer keyword")
 	fmt.Println()
 	fmt.Println("main started")
-	defer simplefunctionrules.SayDone()
+	defer simpleFunctionRules.SayDone()
 	fmt.Println("main finished")
 
 	/****************************************/
@@ -115,18 +115,18 @@ func main() {
 	fmt.Println()
 	fmt.Println("Function as type")
 	fmt.Println()
-	fmt.Printf("Type of function add is			%T\n", simplefunctionrules.Add)
-	fmt.Printf("Type of function subtract is		%T\n", simplefunctionrules.Subtract)
+	fmt.Printf("Type of function add is			%T\n", simpleFunctionRules.Add)
+	fmt.Printf("Type of function subtract is		%T\n", simpleFunctionRules.Subtract)
 
-	addResult := simplefunctionrules.Calc(5, 3, simplefunctionrules.Add)
-	subResult := simplefunctionrules.Calc(5, 3, simplefunctionrules.Subtract)
+	addResult := simpleFunctionRules.Calc(5, 3, simpleFunctionRules.Add)
+	subResult := simpleFunctionRules.Calc(5, 3, simpleFunctionRules.Subtract)
 
 	fmt.Println()
 	fmt.Println("5 + 3 =", addResult)
 	fmt.Println("5 - 3 =", subResult)
 
-	addResultPlus := simplefunctionrules.CalcPlus(6, 10, simplefunctionrules.Add)
-	subResultPlus := simplefunctionrules.CalcPlus(6, 10, simplefunctionrules.Subtract)
+	addResultPlus := simpleFunctionRules.CalcPlus(6, 10, simpleFunctionRules.Add)
+	subResultPlus := simpleFunctionRules.CalcPlus(6, 10, simpleFunctionRules.Subtract)
 
 	fmt.Println()
 	fmt.Println("6 + 10 =", addResultPlus)
@@ -139,7 +139,7 @@ func main() {
 	fmt.Println()
 	fmt.Println("Function as value (anonymous function)")
 	fmt.Println()
-	simplefunctionrules.SayYeah()
+	simpleFunctionRules.SayYeah()
 
 	/**********************************************************/
 	/*    Immediately-invoked function expression (IIFE)     */
