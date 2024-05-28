@@ -1,6 +1,6 @@
 go 1.19
 
-use ./example-functions
+use ./functions
 use ./example-ifelse-iterations
 use ./example-imports
 use ./interfaces
