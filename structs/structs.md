@@ -667,4 +667,5 @@ En el ejemplo anterior, estamos utilizando el tipo de estructura `Employee` para
 
 # 2. Referencias
 
+[Documentación oficial de golang acerca de structs](https://go.dev/ref/spec#Struct_types)
 [Estructuras en Go (structs)](https://medium.com/rungo/structures-in-go-76377cc106a2)

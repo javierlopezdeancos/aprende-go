@@ -320,7 +320,7 @@ value given to explain function is of type 'main.Rect' with value {5.5 4.5}
 
 En el programa anterior, hemos creado un tipo `string` personalizado `MyString` y un tipo de estructura `Rect`. Dado que la función `explain` acepta un argumento del tipo **empty interface**, podemos pasar una variable de tipo `MyString`, `Rect` u otros.
 
-Dado que todos los tipos implementan una interfaz vacía `interface{}`, esto es perfectamente legal. De nuevo **polimorfismo** para la victoria. El parámetro  `i` de la función `explain` es un tipo de interfaz pero su valor dinámico apuntará a cualquier valor que le hayamos pasado a la función como argumento.
+Dado que todos los tipos implementan una interfaz vacía `interface{}`, esto es perfectamente legal. De nuevo **polimorfismo** for the win!!. El parámetro  `i` de la función `explain` es un tipo de interfaz pero su valor dinámico apuntará a cualquier valor que le hayamos pasado a la función como argumento.
 
 ## 1.5 Interfaces multiples
 
@@ -436,7 +436,7 @@ func main() {
 
 **Output**
 
-```
+```text
 area of c of type Cube is 54
 volume of c of type Cube is 27
 ```
@@ -449,20 +449,20 @@ Ahora, podemos usar métodos de `Area` y `Volume` en `c` ya que `c` es una estru
 
 **¡Tener cuidado!** En la sintaxis de type assertion (*aserción de tipos*) `i.(Type)`, si no puedo obtener el valor dinámico de `Type` porque `Type` no implementa la interfaz, entonces el compilador de Go generará un error de compilación.
 
-```
+```text
 impossible type assertion:
 XYZ does not implement Shape (missing Area method)
 ```
 
 Pero si `Type` implementa la interfaz pero no tiene un valor concreto de `Type` (*porque es nulo en este momento*), entonces Go lanzará un panic en el tiempo de ejecución.
 
-```
+```text
 panic: interface conversion: main.Shape is nil, not main.Cube
 ```
 
 Afortunadamente, para evitar el **panic en el tiempo de ejecución**, hay otra variante de sintaxis de aserción de tipo que fallará silenciosamente.
 
-```
+```text
 value, ok := i.(Type)
 ```
 
@@ -512,7 +512,7 @@ func main() {
 
 **Output**
 
-```
+```text
 dynamic value of Shape 's' with value {3} implements interface Object? true
 dynamic value of Shape 's' with value <nil> implements interface Skin? false
 ```
@@ -528,7 +528,6 @@ panic: interface conversion: main.Cube is not main.Skin: missing method Color
 ```
 
 > Tome nota, necesitamos usar la aserción de tipo para obtener el valor dinámico de una interfaz de modo que podamos acceder a las propiedades de ese valor dinámico. Como por ejemplo, no puede acceder a los campos de una estructura en el objeto de tipo interfaz, incluso si tiene un valor dinámico de estructura.
-
 > En pocas palabras, acceder a cualquier cosa que no esté representada por el tipo de interfaz provocará un panic error en tiempo de ejecución. Así que asegúrese de usar la aserción de tipo cuando sea necesario.
 
 La aserción de tipo no solo se usa para verificar si una interfaz tiene un valor concreto de algún tipo dado, sino también para **convertir una variable dada de un tipo de interfaz a un tipo de interfaz diferente** (consulte el ejemplo anterior o [este ejemplo](https://go.dev/play/p/GUpJKfGQC6D)).
@@ -630,7 +629,7 @@ func main() {
 
 **Output**
 
-```
+```text
 i stored string  HELLO WORLD
 i stored int 52
 i stored something else true
@@ -693,7 +692,7 @@ func main() {
 
 **Output**
 
-```
+```text
 dynamic type and value of interface m of static type Material is'main.Cube' and '{3}'
 dynamic type and value of interface s of static type Shape is'main.Cube' and '{3}'
 dynamic type and value of interface o of static type Object is'main.Cube' and '{3}'
@@ -746,7 +745,7 @@ En el programa anterior, el método `Area` pertenece al tipo `*Rect`, por lo que
 
 **Output**
 
-```
+```text
 ./prog.go:25:16: cannot use r (variable of type Rect) as type Shape in variable declaration:
  Rect does not implement Shape (Area method has pointer receiver)
 
@@ -810,7 +809,7 @@ func main() {
 
 **Output**
 
-```
+```text
 area of rectangle is 20
 perimeter of rectangle is 18
 ```
@@ -850,4 +849,5 @@ Cuando varios tipos implementan la misma interfaz, resulta fácil trabajar con e
 
 # 2. Referencias
 
+[Documentación oficial de golang acerca de interfaces](https://go.dev/ref/spec#Interface_types)
 [Interfaces en Go](https://medium.com/rungo/interfaces-in-go-ab1601159b3a)

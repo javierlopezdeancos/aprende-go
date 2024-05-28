@@ -422,4 +422,5 @@ A diferencia del lenguaje C, donde un puntero puede incrementarse o disminuirse,
 
 # 2. Referencias
 
+[Documentación oficial de golang acerca de punteros](https://go.dev/ref/spec#Pointer_types)
 [Punteros en Go (pointers)](https://medium.com/rungo/pointers-in-go-a789eafccd53)
