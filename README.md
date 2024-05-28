@@ -126,6 +126,13 @@ Aprende Go en castellano con ejemplos tutoriales y ejercicios.
   * [Codificador y Decodificador](./work-with-json/work-with-json.md#14-codificador-y-decodificador)
     * [Codificador](./work-with-json/work-with-json.md#141-codificador)
     * [Decodificador](./work-with-json/work-with-json.md#142-decodificador)
+* [Goroutines en Go](./goroutines/goroutines.md#1-goroutines-en-go)
+  * [Introducción](./goroutines/goroutines.md#11-introducci%C3%B3n)
+  * [Corrutinas en Go](./goroutines/goroutines.md#12-corrutinas-en-go)
+  * [WaitGroups en Go](./goroutines/goroutines.md#13-waitgroups-en-go)
+    * [El método Add](./goroutines/goroutines.md#131-el-m%C3%A9todo-add)
+    * [El Método Done](./goroutines/goroutines.md#132-el-m%C3%A9todo-done)
+  * [Funciones anónimas en goroutines](./goroutines/goroutines.md#14-funciones-an%C3%B3nimas-en-goroutines)
 * Katas
   * [Leap Year](./katas/leapyear/leapyear.md)
   * [String Calculator](./katas/stringcalculator/stringcalculator.md)
