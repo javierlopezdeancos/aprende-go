@@ -2,7 +2,7 @@ go 1.19
 
 use ./functions
 use ./if-else-iterators
-use ./example-imports
+use ./imports
 use ./interfaces
 use ./methods
 use ./example-streams-and-buffers

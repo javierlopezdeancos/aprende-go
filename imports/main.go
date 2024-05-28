@@ -1,8 +1,8 @@
 package main
 
 import (
-	"aprende-go/example-imports/math"
-	"aprende-go/example-imports/math/operations"
+	"aprende-go/imports/math"
+	"aprende-go/imports/math/operations"
 	"fmt"
 )
 
