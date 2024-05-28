@@ -30,7 +30,7 @@ func doSomething() {
 }
 ```
 
-Esta función se puede llamar desde cualquier lugar dentro del cuerpo de una función en el programa. Por ejemplo, tenemos la función `dosomething` que imprime algunos caracteres en la salida estándar.
+Esta función se puede llamar desde cualquier lugar dentro del cuerpo de una función en el programa. Por ejemplo, tenemos la función `doSomething` que imprime algunos caracteres en la salida estándar.
 
 ```
 Hello World!
@@ -738,4 +738,5 @@ Puedes ver el ejemplo [aquí](https://go.dev/play/p/yxRJr51OxzY)
 
 # 2. Referencias
 
+[Documentación oficial de golang acerca de funciones](https://go.dev/ref/spec#Function_types)
 [Anatomía de funciones en Go](https://medium.com/rungo/the-anatomy-of-functions-in-go-de56c050fe11)
