@@ -665,6 +665,6 @@ type Employee struct {
 
 En el ejemplo anterior, estamos utilizando el tipo de estructura `Employee` para fines de **codificación/descodificación JSON**. Lea más sobre la codificación/descodificación de JSON en el tutorial ["Trabajar con JSON"](../example-work-with-json/work-with-json.md)
 
-# Referencias
+# 2. Referencias
 
 [Estructuras en Go (structs)](https://medium.com/rungo/structures-in-go-76377cc106a2)

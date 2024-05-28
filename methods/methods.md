@@ -714,6 +714,6 @@ A partir del programa anterior, creamos el método `toUpperCase` que ahora perte
 
 Ahora podemos llamar a `str.toUpperCase()` porque str es de tipo `MyString` ya que usamos conversión de tipo en la línea **no. 16** para convertir del tipo de cadena al tipo `MyString`.
 
-# Referencias
+# 2. Referencias
 
 [Métodos en Go](https://medium.com/rungo/anatomy-of-methods-in-go-f552aaa8ac4a)

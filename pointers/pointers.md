@@ -420,6 +420,6 @@ a = [2 6 12]
 
 A diferencia del lenguaje C, donde un puntero puede incrementarse o disminuirse, Go no permite la [aritmética de punteros](https://www.tutorialspoint.com/cprogramming/c_pointer_arithmetic.htm).
 
-# Referencias
+# 2. Referencias
 
 [Punteros en Go (pointers)](https://medium.com/rungo/pointers-in-go-a789eafccd53)
