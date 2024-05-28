@@ -6,10 +6,10 @@ package main
  */
 
 import (
-	"aprende-go/example-interfaces/emptyinterface"
-	"aprende-go/example-interfaces/mergeinterfaces"
-	"aprende-go/example-interfaces/multiplesinterfaces"
-	"aprende-go/example-interfaces/pointerreceivers"
+	emptyInterfaces "aprende-go/interfaces/empty-interface"
+	mergeInterfaces "aprende-go/interfaces/merge-interfaces"
+	multiplesInterfaces "aprende-go/interfaces/multiples-interfaces"
+	pointerReceivers "aprende-go/interfaces/pointer-receivers"
 	"fmt"
 )
 
@@ -128,8 +128,8 @@ func main() {
 
 	fmt.Println()
 	fmt.Println("Empty interface")
-	emptyinterface.Explain("hello world")
-	emptyinterface.Explain(52)
+	emptyInterfaces.Explain("hello world")
+	emptyInterfaces.Explain(52)
 
 	/****************************************/
 	/*       Multiple interfaces            */
@@ -137,18 +137,18 @@ func main() {
 
 	// A type can implement multiple interfaces
 
-	c := multiplesinterfaces.Cube{Side: 3}
+	c := multiplesInterfaces.Cube{Side: 3}
 
-	var sm multiplesinterfaces.Shape = c
-	var o multiplesinterfaces.Object = c
+	var sm multiplesInterfaces.Shape = c
+	var o multiplesInterfaces.Object = c
 
 	fmt.Println()
 	fmt.Println("Multiples interfaces")
 	fmt.Println("Area: ", sm.Area())
 	fmt.Println("Volume: ", o.Volume())
 
-	var sta multiplesinterfaces.Shape = multiplesinterfaces.Cube{Side: 10}
-	c = sta.(multiplesinterfaces.Cube)
+	var sta multiplesInterfaces.Shape = multiplesInterfaces.Cube{Side: 10}
+	c = sta.(multiplesInterfaces.Cube)
 
 	/**************************************/
 	/*          Type assertion            */
@@ -200,11 +200,11 @@ func main() {
 
 	fmt.Println()
 	fmt.Println("Embedding interfaces")
-	cmi := mergeinterfaces.Cube{20}
+	cmi := mergeInterfaces.Cube{20}
 
-	var smi mergeinterfaces.Shape = cmi
-	var omi mergeinterfaces.Object = cmi
-	var mmi mergeinterfaces.Material = cmi
+	var smi mergeInterfaces.Shape = cmi
+	var omi mergeInterfaces.Object = cmi
+	var mmi mergeInterfaces.Material = cmi
 
 	fmt.Printf("Dynamic type '%T' and value '%v' of interface mmi of static type Material\n", mmi, mmi)
 	fmt.Printf("Dynamic type '%T' and value '%v' of interface smi of static type Shape\n", smi, smi)
@@ -219,8 +219,8 @@ func main() {
 	fmt.Println()
 	fmt.Println("Pointer vs value receivers")
 
-	r := pointerreceivers.Rectangle{Width: 20, Height: 10}
-	var spr pointerreceivers.Shape = &r
+	r := pointerReceivers.Rectangle{Width: 20, Height: 10}
+	var spr pointerReceivers.Shape = &r
 
 	area := spr.Area()
 	perimeter := spr.Perimeter()

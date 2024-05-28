@@ -1,4 +1,4 @@
-package pointerreceivers
+package pointer_receivers
 
 // Shape interface with Area method
 type Shape interface {

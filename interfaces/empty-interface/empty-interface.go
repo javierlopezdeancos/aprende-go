@@ -1,4 +1,4 @@
-package emptyinterface
+package empty_interface
 
 import (
 	"fmt"

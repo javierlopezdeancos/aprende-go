@@ -1,10 +1,19 @@
-# Referencias
-
-[Interfaces en Go](https://medium.com/rungo/interfaces-in-go-ab1601159b3a)
-
-Las interfaces en Go no imponen un tipo para implementar métodos, pero las interfaces son herramientas muy poderosas. Un tipo puede optar por implementar métodos de una interfaz. Usando interfaces, un valor se puede representar en múltiples tipos, también conocido como polimorfismo.
+- [Que es una interfaz?](#1-que-es-una-interfaz)
+  - [Declaración de interfaz](#12-declaraci%C3%B3n-de-interfaz)
+  - [Implementación de interfaz](#13-implementaci%C3%B3n-de-interfaz)
+  - [Interfaz vacía](#14-interfaz-vac%C3%ADa)
+  - [Interfaces multiples](#15-interfaces-multiples)
+  - [Type assertion](#16-type-assertion)
+  - [Type switch](#17-type-switch)
+  - [Interfaces Embebidas](#18-interfaces-embebidas)
+  - [Pointer vs Value receiver](#19-pointer-vs-value-receiver)
+  - [Comparación de interfaces](#110-comparaci%C3%B3n-de-interfaces)
+  - [Uso de interfaces](#111-uso-de-interfaces)
+- [Referencias](#2-referencias)
 
 # 1. Que es una interfaz?
+
+Las interfaces en Go no imponen un tipo para implementar métodos, pero las interfaces son herramientas muy poderosas. Un tipo puede optar por implementar métodos de una interfaz. Usando interfaces, un valor se puede representar en múltiples tipos, también conocido como polimorfismo.
 
 Hablamos mucho sobre el objeto y el comportamiento en las lecciones de [`structs`](../structs/structs.md) y [`methods`](../methods/methods.md). También vimos cómo una estructura (y otros tipos) pueden implementar métodos. Una interfaz es otra pieza de un rompecabezas que acerca a Go al paradigma de la programación orientada a objetos.
 
@@ -18,7 +27,7 @@ Si es un programador de programación orientada a objetos, es posible que haya u
 
 Si un tipo implementa un método con nombre y firma definidos en una interfaz, entonces ese tipo implementa esa interfaz. Es como decir **"si camina como un pato, nada como un pato y grazna como un pato, entonces es un pato"**.
 
-## Declaración de interfaz
+## 1.2 Declaración de interfaz
 
 Al igual que `struct`, necesitamos crear un tipo derivado para simplificar la declaración de la interfaz usando la palabra clave interface.
 
@@ -38,24 +47,26 @@ Dado que la interfaz es un tipo como una estructura, podemos crear una variable 
 > Al igual que en un tipo de estructura, no hay absolutamente ninguna necesidad de crear un tipo derivado para una interfaz.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Shape interface {
-	Area() float64
-	Perimeter() float64
+ Area() float64
+ Perimeter() float64
 }
 
 func main() {
-	var s Shape
-	fmt.Println("value of s is", s)
-	fmt.Printf("type of s is %T\n", s)
+ var s Shape
+ fmt.Println("value of s is", s)
+ fmt.Printf("type of s is %T\n", s)
 }
 ```
 
 **Output**
+
 ```
 value of s is <nil>
 type of s is <nil>
@@ -73,46 +84,48 @@ Cuando usamos la función `Println` del paquete `fmt` con el argumento de interf
 
 > Pero en realidad, el tipo de interfaz es `Shape`, que es su tipo estático.
 
-## Implementación de interfaz
+## 1.3 Implementación de interfaz
 
 Declaremos los métodos `Area` y `Perimeter` con firmas proporcionadas por la interfaz `Shape`. Además, creemos la estructura `Shape` y hagamos que implemente la interfaz `Shape` (*implementando estos métodos*).
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Shape interface {
-	Area() float64
-	Perimeter() float64
+ Area() float64
+ Perimeter() float64
 }
 
 type Rect struct {
-	width  float64
-	height float64
+ width  float64
+ height float64
 }
 
 func (r Rect) Area() float64 {
-	return r.width * r.height
+ return r.width * r.height
 }
 
 func (r Rect) Perimeter() float64 {
-	return 2 * (r.width + r.height)
+ return 2 * (r.width + r.height)
 }
 
 func main() {
-	var s Shape
-	s = Rect{5.0, 4.0}
-	r := Rect{5.0, 4.0}
-	fmt.Printf("type of s is %T\n", s)
-	fmt.Printf("value of s is %v\n", s)
-	fmt.Println("area of rectange s", s.Area())
-	fmt.Println("s == r is", s == r)
+ var s Shape
+ s = Rect{5.0, 4.0}
+ r := Rect{5.0, 4.0}
+ fmt.Printf("type of s is %T\n", s)
+ fmt.Printf("value of s is %v\n", s)
+ fmt.Println("area of rectange s", s.Area())
+ fmt.Println("s == r is", s == r)
 }
 ```
 
 **Output**
+
 ```test
 type of s is main.Rect
 value of s is {5 4}
@@ -145,59 +158,61 @@ Además, podemos ver que podemos comparar `s` con `r` ya que ambas variables tie
 Cambiemos el tipo dinámico y el valor dinámico de `s`.
 
 **Code**
+
 ```go
 package main
 
 import (
-	"fmt"
-	"math"
+ "fmt"
+ "math"
 )
 
 type Shape interface {
-	Area() float64
-	Perimeter() float64
+ Area() float64
+ Perimeter() float64
 }
 
 type Rect struct {
-	width  float64
-	height float64
+ width  float64
+ height float64
 }
 
 type Circle struct {
-	radius float64
+ radius float64
 }
 
 func (r Rect) Area() float64 {
-	return r.width * r.height
+ return r.width * r.height
 }
 
 func (r Rect) Perimeter() float64 {
-	return 2 * (r.width + r.height)
+ return 2 * (r.width + r.height)
 }
 
 func (c Circle) Area() float64 {
-	return math.Pi * c.radius * c.radius
+ return math.Pi * c.radius * c.radius
 }
 
 func (c Circle) Perimeter() float64 {
-	return 2 * math.Pi * c.radius
+ return 2 * math.Pi * c.radius
 }
 
 func main() {
-	var s Shape = Rect{10, 3}
+ var s Shape = Rect{10, 3}
 
-	fmt.Printf("type of s is %T\n", s)
-	fmt.Printf("value of s is %v\n", s)
-	fmt.Printf("value of s is %0.2f\n\n", s.Area())
+ fmt.Printf("type of s is %T\n", s)
+ fmt.Printf("value of s is %v\n", s)
+ fmt.Printf("value of s is %0.2f\n\n", s.Area())
 
-	s = Circle{10}
-	fmt.Printf("type of s is %T\n", s)
-	fmt.Printf("value of s is %v\n", s)
-	fmt.Printf("value of s is %0.2f\n", s.Area())
+ s = Circle{10}
+ fmt.Printf("type of s is %T\n", s)
+ fmt.Printf("value of s is %v\n", s)
+ fmt.Printf("value of s is %0.2f\n", s.Area())
 }
 ```
 
 **Output**
+
 ```
 type of s is main.Rect
 value of s is {10 3}
@@ -215,35 +230,37 @@ Supongo que ahora puedes relacionar por qué el tipo y el valor de la interfaz s
 ¿Puedes adivinar qué pasará con el siguiente programa?
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Shape interface {
-	Area() float64
-	Perimeter() float64
+ Area() float64
+ Perimeter() float64
 }
 
 type Rect struct {
-	width  float64
-	height float64
+ width  float64
+ height float64
 }
 
 func (r Rect) Area() float64 {
-	return r.width * r.height
+ return r.width * r.height
 }
 
 func main() {
-	var s Shape = Rect{10, 3}
-	fmt.Println(s)
+ var s Shape = Rect{10, 3}
+ fmt.Println(s)
 }
 ```
 
 **Output**
+
 ```
 ./prog.go:20:16: cannot use Rect{…} (value of type Rect) as type Shape in variable declaration:
-	Rect does not implement Shape (missing Perimeter method)
+ Rect does not implement Shape (missing Perimeter method)
 ```
 
 [Ejemplo](https://go.dev/play/p/pwhIwfHFzF9)
@@ -252,7 +269,7 @@ En el programa anterior, eliminamos el método `Perimeter`. Este programa no com
 
 Debería ser obvio a partir del error anterior que para implementar con éxito una interfaz, debe implementar todos los métodos declarados por la interfaz con firmas exactas.
 
-## Interfaz vacía
+## 1.4 Interfaz vacía
 
 Cuando una interfaz tiene cero métodos, se denomina interfaz vacía. Esto está representado por la `interface{}`. Dado que la interfaz vacía no tiene métodos, **todos los tipos implementan esta interfaz implícitamente**.
 
@@ -267,6 +284,7 @@ Como puede ver, `Println` es una función variable que acepta argumentos de tipo
 Vamos a crear una función `explain` que acepta un argumento de tipo **empty interface** y explica el **dynamic value & type** de la interfaz.
 
 **Code**
+
 ```go
 package main
 
@@ -275,23 +293,24 @@ import "fmt"
 type MyString string
 
 type Rect struct {
-	width  float64
-	height float64
+ width  float64
+ height float64
 }
 
 func explain(i interface{}) {
-	fmt.Printf("value given to explain function is of type '%T' with value %v\n", i, i)
+ fmt.Printf("value given to explain function is of type '%T' with value %v\n", i, i)
 }
 
 func main() {
-	ms := MyString("Hello World!")
-	r := Rect{5.5, 4.5}
-	explain(ms)
-	explain(r)
+ ms := MyString("Hello World!")
+ r := Rect{5.5, 4.5}
+ explain(ms)
+ explain(r)
 }
 ```
 
 **Output**
+
 ```
 value given to explain function is of type 'main.MyString' with value Hello World!
 value given to explain function is of type 'main.Rect' with value {5.5 4.5}
@@ -303,46 +322,48 @@ En el programa anterior, hemos creado un tipo `string` personalizado `MyString` 
 
 Dado que todos los tipos implementan una interfaz vacía `interface{}`, esto es perfectamente legal. De nuevo **polimorfismo** para la victoria. El parámetro  `i` de la función `explain` es un tipo de interfaz pero su valor dinámico apuntará a cualquier valor que le hayamos pasado a la función como argumento.
 
-## Interfaces multiples
+## 1.5 Interfaces multiples
 
 Un tipo puede implementar múltiples interfaces. Vamos a ver un ejemplo.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Shape interface {
-	Area() float64
+ Area() float64
 }
 
 type Object interface {
-	Volume() float64
+ Volume() float64
 }
 
 type Cube struct {
-	side float64
+ side float64
 }
 
 func (c Cube) Area() float64 {
-	return 6 * (c.side * c.side)
+ return 6 * (c.side * c.side)
 }
 
 func (c Cube) Volume() float64 {
-	return c.side * c.side * c.side
+ return c.side * c.side * c.side
 }
 
 func main() {
-	c := Cube{3}
-	var s Shape = c
-	var o Object = c
-	fmt.Println("volume of s of interface type Shape is", s.Area())
-	fmt.Println("area of o of interface type Object is", o.Volume())
+ c := Cube{3}
+ var s Shape = c
+ var o Object = c
+ fmt.Println("volume of s of interface type Shape is", s.Area())
+ fmt.Println("area of o of interface type Object is", o.Volume())
 }
 ```
 
 **Output**
+
 ```
 volume of s of interface type Shape is 54
 area of o of interface type Object is 27
@@ -372,47 +393,49 @@ Este programa no se compilará debido a que el tipo estático de `s` es `Shape` 
 
 Para que funcione, necesitamos extraer de alguna manera el valor dinámico de estas interfaces, que es una estructura de tipo `Cube` y `Cube` implementa estos métodos. Esto se puede hacer usando **aserción de tipo**.
 
-## Type assertion
+## 1.6 Type assertion
 
 Podemos averiguar el valor dinámico subyacente de una interfaz usando la sintaxis **i.(Type)** donde `i` es una variable de tipo interfaz y `Type` es un tipo que implementa la interfaz. Go verificará si el tipo dinámico de `i` es idéntico a `Type` y devolverá el valor dinámico si es posible.
 
 Reescribamos el ejemplo anterior y extraigamos el valor dinámico de la interfaz.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Shape interface {
-	Area() float64
+ Area() float64
 }
 
 type Object interface {
-	Volume() float64
+ Volume() float64
 }
 
 type Cube struct {
-	side float64
+ side float64
 }
 
 func (c Cube) Area() float64 {
-	return 6 * (c.side * c.side)
+ return 6 * (c.side * c.side)
 }
 
 func (c Cube) Volume() float64 {
-	return c.side * c.side * c.side
+ return c.side * c.side * c.side
 }
 
 func main() {
-	var s Shape = Cube{3}
-	c := s.(Cube)
-	fmt.Println("area of c of type Cube is", c.Area())
-	fmt.Println("volume of c of type Cube is", c.Volume())
+ var s Shape = Cube{3}
+ c := s.(Cube)
+ fmt.Println("area of c of type Cube is", c.Area())
+ fmt.Println("volume of c of type Cube is", c.Volume())
 }
 ```
 
 **Output**
+
 ```
 area of c of type Cube is 54
 volume of c of type Cube is 27
@@ -448,45 +471,47 @@ En la sintaxis anterior, podemos verificar usando la variable `ok` si `i` tiene 
 ¿Cómo sabríamos si el valor subyacente de una interfaz implementa otras interfaces? Esto también es posible usando type assertion (*aserción de tipo*). Si `Type` en la sintaxis de aserción de tipo es una interfaz, Go comprobará si el tipo dinámico de `i` implementa la interfaz `Type`.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Shape interface {
-	Area() float64
+ Area() float64
 }
 
 type Object interface {
-	Volume() float64
+ Volume() float64
 }
 
 type Skin interface {
-	Color() float64
+ Color() float64
 }
 
 type Cube struct {
-	side float64
+ side float64
 }
 
 func (c Cube) Area() float64 {
-	return 6 * (c.side * c.side)
+ return 6 * (c.side * c.side)
 }
 
 func (c Cube) Volume() float64 {
-	return c.side * c.side * c.side
+ return c.side * c.side * c.side
 }
 
 func main() {
-	var s Shape = Cube{3}
-	value1, ok1 := s.(Object)
-	fmt.Printf("dynamic value of Shape 's' with value %v implements interface Object? %v\n", value1, ok1)
-	value2, ok2 := s.(Skin)
-	fmt.Printf("dynamic value of Shape 's' with value %v implements interface Skin? %v\n", value2, ok2)
+ var s Shape = Cube{3}
+ value1, ok1 := s.(Object)
+ fmt.Printf("dynamic value of Shape 's' with value %v implements interface Object? %v\n", value1, ok1)
+ value2, ok2 := s.(Skin)
+ fmt.Printf("dynamic value of Shape 's' with value %v implements interface Skin? %v\n", value2, ok2)
 }
 ```
 
 **Output**
+
 ```
 dynamic value of Shape 's' with value {3} implements interface Object? true
 dynamic value of Shape 's' with value <nil> implements interface Skin? false
@@ -509,6 +534,7 @@ panic: interface conversion: main.Cube is not main.Skin: missing method Color
 La aserción de tipo no solo se usa para verificar si una interfaz tiene un valor concreto de algún tipo dado, sino también para **convertir una variable dada de un tipo de interfaz a un tipo de interfaz diferente** (consulte el ejemplo anterior o [este ejemplo](https://go.dev/play/p/GUpJKfGQC6D)).
 
 **Code**
+
 ```go
 package main
 
@@ -517,51 +543,52 @@ import "reflect"
 
 // person interface
 type Person interface {
-	getFullName() string
+ getFullName() string
 }
 
 // salaried interface
 type Salaried interface {
-	getSalary() int
+ getSalary() int
 }
 
 // Employee struct represents an employee in an organization
 type Employee struct {
-	firstName string
-	lastName string
-	salary int
+ firstName string
+ lastName string
+ salary int
 }
 
 // using this method, Employee implements Person interface
 func (e Employee) getFullName() string {
-	return e.firstName + " " + e.lastName
+ return e.firstName + " " + e.lastName
 }
 
 // using this method, Employee implements Salaried interface
 func (e Employee) getSalary() int {
-	return e.salary
+ return e.salary
 }
 
 func main() {
-	var johnP Person = Employee{"John", "Adams", 2000}
+ var johnP Person = Employee{"John", "Adams", 2000}
 
-	// show john's salary
-	fmt.Printf("full name : %v \n", reflect.ValueOf(johnP).Interface())
+ // show john's salary
+ fmt.Printf("full name : %v \n", reflect.ValueOf(johnP).Interface())
 
-	// convert john Person to Salaried type
-	johnS := johnP.(Salaried)
+ // convert john Person to Salaried type
+ johnS := johnP.(Salaried)
 
-	fmt.Printf("salary : %v \n", johnS.getSalary()
+ fmt.Printf("salary : %v \n", johnS.getSalary()
 }
 ```
 
 **Output**
+
 ```
 full name : {John Adams 2000}
 salary : 2000
 ```
 
-## Type switch
+## 1.7 Type switch
 
 Hemos visto una **interfaz vacía** y su uso. Reconsideremos la función `explain` que vimos antes. Como el tipo de argumento de la función `explain` es una **interfaz vacía**, podemos pasarle cualquier argumento.
 
@@ -574,33 +601,35 @@ Esto se puede hacer usando el **Type switch**. La sintaxis para el type switch e
 > Pero esta sintaxis solo funcionará en un `switch`.
 
 **Code**
+
 ```go
 package main
 
 import (
-	"fmt"
-	"strings"
+ "fmt"
+ "strings"
 )
 
 func explain(i interface{}) {
-	switch i.(type) {
-	case string:
-		fmt.Println("i stored string ", strings.ToUpper(i.(string)))
-	case int:
-		fmt.Println("i stored int", i)
-	default:
-		fmt.Println("i stored something else", i)
-	}
+ switch i.(type) {
+ case string:
+  fmt.Println("i stored string ", strings.ToUpper(i.(string)))
+ case int:
+  fmt.Println("i stored int", i)
+ default:
+  fmt.Println("i stored something else", i)
+ }
 }
 
 func main() {
-	explain("Hello World")
-	explain(52)
-	explain(true)
+ explain("Hello World")
+ explain(52)
+ explain(true)
 }
 ```
 
 **Output**
+
 ```
 i stored string  HELLO WORLD
 i stored int 52
@@ -615,53 +644,55 @@ Usando la declaración `i.(type)` dentro del `switch`, estamos obteniendo acceso
 
 En el caso del `string`, usamos la función `strings.ToUpper` para convertir el `string` a mayúsculas. Pero dado que solo acepta el tipo de datos `string`, necesitábamos obtener el valor dinámico subyacente. Por lo tanto, usamos **type assertion**.
 
-## Interfaces Embebidas
+## 1.8 Interfaces Embebidas
 
 En Go, una interfaz no puede implementar otras interfaces ni extenderlas, pero podemos crear una nueva interfaz fusionando dos o más interfaces. Reescribamos nuestro programa `Shape-Cube`.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Shape interface {
-	Area() float64
+ Area() float64
 }
 
 type Object interface {
-	Volume() float64
+ Volume() float64
 }
 
 type Material interface {
-	Shape
-	Object
+ Shape
+ Object
 }
 
 type Cube struct {
-	side float64
+ side float64
 }
 
 func (c Cube) Area() float64 {
-	return 6 * (c.side * c.side)
+ return 6 * (c.side * c.side)
 }
 
 func (c Cube) Volume() float64 {
-	return c.side * c.side * c.side
+ return c.side * c.side * c.side
 }
 
 func main() {
-	c := Cube{3}
-	var m Material = c
-	var s Shape = c
-	var o Object = c
-	fmt.Printf("dynamic type and value of interface m of static type Material is'%T' and '%v'\n", m, m)
-	fmt.Printf("dynamic type and value of interface s of static type Shape is'%T' and '%v'\n", s, s)
-	fmt.Printf("dynamic type and value of interface o of static type Object is'%T' and '%v'\n", o, o)
+ c := Cube{3}
+ var m Material = c
+ var s Shape = c
+ var o Object = c
+ fmt.Printf("dynamic type and value of interface m of static type Material is'%T' and '%v'\n", m, m)
+ fmt.Printf("dynamic type and value of interface s of static type Shape is'%T' and '%v'\n", s, s)
+ fmt.Printf("dynamic type and value of interface o of static type Object is'%T' and '%v'\n", o, o)
 }
 ```
 
 **Output**
+
 ```
 dynamic type and value of interface m of static type Material is'main.Cube' and '{3}'
 dynamic type and value of interface s of static type Shape is'main.Cube' and '{3}'
@@ -674,48 +705,50 @@ En el programa anterior, dado que `Cube` implementa el método `Area` y `Volume`
 
 Esto es posible porque, al igual que la **estructura anidada de forma anónima**, todos los métodos de las interfaces anidadas se promocionan a interfaces principales.
 
-## `Pointer` vs `Value` receiver
+## 1.9 `Pointer` vs `Value` receiver
 
 Hasta ahora, en este tutorial, hemos visto methods with value receivers (*métodos con receptores de valor*). ¿La interfaz estará bien con el método que acepta el receptor del puntero? Vamos a ver.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Shape interface {
-	Area() float64
-	Perimeter() float64
+ Area() float64
+ Perimeter() float64
 }
 
 type Rect struct {
-	width  float64
-	height float64
+ width  float64
+ height float64
 }
 
 func (r *Rect) Area() float64 {
-	return r.width * r.height
+ return r.width * r.height
 }
 
 func (r Rect) Perimeter() float64 {
-	return 2 * (r.width + r.height)
+ return 2 * (r.width + r.height)
 }
 
 func main() {
-	r := Rect{5.0, 4.0}
-	var s Shape = r
-	area := s.Area()
-	fmt.Println("area of rectangle is", area)
+ r := Rect{5.0, 4.0}
+ var s Shape = r
+ area := s.Area()
+ fmt.Println("area of rectangle is", area)
 }
 ```
 
 En el programa anterior, el método `Area` pertenece al tipo `*Rect`, por lo que su receptor obtendrá el puntero de la variable de tipo `Area`. Sin embargo, el programa anterior no se compilará y Go arrojará un error de compilación.
 
 **Output**
+
 ```
 ./prog.go:25:16: cannot use r (variable of type Rect) as type Shape in variable declaration:
-	Rect does not implement Shape (Area method has pointer receiver)
+ Rect does not implement Shape (Area method has pointer receiver)
 
 Go build failed.
 ```
@@ -741,40 +774,42 @@ Para que este programa funcione, en lugar de asignar un valor del tipo `Rect` a 
 Reescribamos el programa anterior con este concepto.
 
 **Code**
+
 ```go
 package main
 
 import "fmt"
 
 type Shape interface {
-	Area() float64
-	Perimeter() float64
+ Area() float64
+ Perimeter() float64
 }
 
 type Rect struct {
-	width  float64
-	height float64
+ width  float64
+ height float64
 }
 
 func (r *Rect) Area() float64 {
-	return r.width * r.height
+ return r.width * r.height
 }
 
 func (r Rect) Perimeter() float64 {
-	return 2 * (r.width + r.height)
+ return 2 * (r.width + r.height)
 }
 
 func main() {
-	r := Rect{5.0, 4.0}
-	var s Shape = &r // assigned pointer
-	area := s.Area()
-	perimeter := s.Perimeter()
-	fmt.Println("area of rectangle is", area)
-	fmt.Println("perimeter of rectangle is", perimeter)
+ r := Rect{5.0, 4.0}
+ var s Shape = &r // assigned pointer
+ area := s.Area()
+ perimeter := s.Perimeter()
+ fmt.Println("area of rectangle is", area)
+ fmt.Println("perimeter of rectangle is", perimeter)
 }
 ```
 
 **Output**
+
 ```
 area of rectangle is 20
 perimeter of rectangle is 18
@@ -790,25 +825,29 @@ Parece que Go está feliz de pasar una **copia del valor del puntero** como rece
 
 > Sin embargo, desearía que Go pudiera haber procesado la llamada al método en interfaces similares a la estructura para que no tengamos que preocuparnos por la conversión del puntero. Pero **podría deberse a la seguridad y la capacidad de la interfaz para almacenar datos**.
 
-## Comparación de interfaces
+## 1.10 Comparación de interfaces
 
-* Se pueden comparar dos interfaces con los operadores `==` y `!=`. Dos interfaces son siempre iguales si los valores dinámicos subyacentes son `nil`, lo que significa que dos `nil` interfaces son siempre iguales, por lo tanto, la operación `==` devuelve `true`.
+- Se pueden comparar dos interfaces con los operadores `==` y `!=`. Dos interfaces son siempre iguales si los valores dinámicos subyacentes son `nil`, lo que significa que dos `nil` interfaces son siempre iguales, por lo tanto, la operación `==` devuelve `true`.
 
 ```go
 var a, b interface{}
 fmt.Println( a == b ) // true
 ```
 
-* Si estas interfaces no son `nil`, entonces sus tipos dinámicos (*el tipo de sus valores concretos*) deberían ser los mismos y los valores concretos deberían ser iguales.
+- Si estas interfaces no son `nil`, entonces sus tipos dinámicos (*el tipo de sus valores concretos*) deberían ser los mismos y los valores concretos deberían ser iguales.
 
-* Si los tipos dinámicos de la interfaz **no son comparables**, como por ejemplo, `slice`, `map` and `function`, o el valor concreto de una interfaz es una estructura de datos compleja como `slice` or `array` que contiene estos valores incomparables, entonces `==` o `!=` operaciones dará como resultado un **runtime panic** (*panic en tiempo de ejecución*).
+- Si los tipos dinámicos de la interfaz **no son comparables**, como por ejemplo, `slice`, `map` and `function`, o el valor concreto de una interfaz es una estructura de datos compleja como `slice` or `array` que contiene estos valores incomparables, entonces `==` o `!=` operaciones dará como resultado un **runtime panic** (*panic en tiempo de ejecución*).
 
-* Si una interfaz es nula, entonces la operación `==` siempre devolverá `false`.
+- Si una interfaz es nula, entonces la operación `==` siempre devolverá `false`.
 
-## Uso de interfaces
+## 1.11 Uso de interfaces
 
 Hemos aprendido que son las interfaces y vimos que pueden tomar diferentes formas. Esa es la definición de polimorfismo.
 
 Las interfaces son muy útiles en el caso de funciones y métodos en los que necesita argumentos de tipos dinámicos, como la función `Println`, que acepta cualquier tipo de valores.
 
 Cuando varios tipos implementan la misma interfaz, resulta fácil trabajar con ellos. Por lo tanto, siempre que podamos usar interfaces, deberíamos hacerlo.
+
+# 2. Referencias
+
+[Interfaces en Go](https://medium.com/rungo/interfaces-in-go-ab1601159b3a)

@@ -1,4 +1,4 @@
-package mergeinterfaces
+package multiples_interfaces
 
 // Shape interface with Area method
 type Shape interface {
@@ -8,12 +8,6 @@ type Shape interface {
 // Object interface with Volume method
 type Object interface {
 	Volume() float64
-}
-
-// Material interface merge between Object and Shape interfaces
-type Material interface {
-	Shape
-	Object
 }
 
 // Cube type with Side prop

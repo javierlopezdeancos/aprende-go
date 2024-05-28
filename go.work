@@ -3,7 +3,7 @@ go 1.19
 use ./example-functions
 use ./example-ifelse-iterations
 use ./example-imports
-use ./example-interfaces
+use ./interfaces
 use ./methods
 use ./example-streams-and-buffers
 use ./structs
