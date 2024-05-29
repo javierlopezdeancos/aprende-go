@@ -738,5 +738,6 @@ Puedes ver el ejemplo [aquí](https://go.dev/play/p/yxRJr51OxzY)
 
 # 2. Referencias
 
-[Documentación oficial de golang acerca de funciones](https://go.dev/ref/spec#Function_types)
+[Function types](https://go.dev/ref/spec#Function_types)
 [Anatomía de funciones en Go](https://medium.com/rungo/the-anatomy-of-functions-in-go-de56c050fe11)
+[Defer statements](https://go.dev/ref/spec#Defer_statements)

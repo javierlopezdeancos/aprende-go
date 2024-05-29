@@ -353,4 +353,7 @@ func main() {
 
 # 2. References
 
-[Go Range](https://www.tutorialspoint.com/go/go_range.htm)
+- [For statements](https://go.dev/ref/spec#For_statements)
+- [Go Range](https://www.tutorialspoint.com/go/go_range.htm)
+- [Break statements](https://go.dev/ref/spec#Break_statements)
+- [Continue statements](https://go.dev/ref/spec#Continue_statements)

@@ -716,5 +716,5 @@ Ahora podemos llamar a `str.toUpperCase()` porque str es de tipo `MyString` ya q
 
 # 2. Referencias
 
-[Documentación oficial de golang acerca de métodos](https://go.dev/ref/spec#Method_declarations)
+[Methods declarations](https://go.dev/ref/spec#Method_declarations)
 [Métodos en Go](https://medium.com/rungo/anatomy-of-methods-in-go-f552aaa8ac4a)

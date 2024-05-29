@@ -407,4 +407,5 @@ La instrucción `fallthrough` debe ser la última en un case block, de lo contra
 
 # 2. References
 
+[Logical operators](https://go.dev/ref/spec#Logical_operators)
 [Anatomy of Conditional Statements and Loops in Go](https://medium.com/rungo/anatomy-of-conditional-statements-and-loops-in-go-aa84352cc34d)
