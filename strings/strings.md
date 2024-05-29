@@ -1,5 +1,5 @@
 - [Strings en Go](#1-strings-en-go)
-  - [Longitud de una cadena](#11-longitud-de-una-cadena)
+  - [Longitud de un string](#11-longitud-de-un-string)
   - [Usando un loop for/range en un string](#12-usando-un-loop-forrange-en-un-string)
   - [Que es una runa](#13-que-es-una-runa)
   - [Strings son inmutables](#14-strings-son-inmutables)
@@ -9,13 +9,15 @@
 
 # 1. Strings en Go
 
-Strings en Go merecen especial atención porque se implementan de manera muy diferente en Go en comparación con otros lenguajes.
+Los strings en go merecen especial atención porque se implementan de manera muy diferente en go en comparación con otros lenguajes.
 
-Las cadenas **se definen entre comillas dobles "..." y no entre comillas simples, a diferencia de JavaScript**. Las cadenas en Go están codificadas en UTF-8 de forma predeterminada, lo que tiene más sentido en el siglo XXI.
+Las cadenas **se definen entre comillas dobles "..."** y no entre comillas simples, a diferencia de JavaScript. Las cadenas en go están codificadas en `UTF-8` de forma predeterminada.
 
-Como UTF-8 admite el juego de caracteres ASCII, no necesita preocuparse por la codificación en la mayoría de los casos.
+Como `UTF-8` admite el juego de caracteres `ASCII`, no necesita preocuparse por la codificación en la mayoría de los casos.
 
-Escribamos un programa simple. Para definir una variable vacía de tipo `string`, utilice la palabra clave `string`.
+Para definir una variable vacía de tipo `string`, utilice la palabra clave `string`.
+
+Veamoslo en un ejemplo:
 
 ```go
 package main
@@ -37,9 +39,9 @@ Hello World
 
 [Ejemplo](https://go.dev/play/p/vMDoeaV3RCY)
 
-## 1.1 Longitud de una cadena
+## 1.1 Longitud de un string
 
-Para encontrar la longitud de una cadena, puede usar la función `len`. La función `len` está disponible en el tiempo de ejecución de Go, por lo que no es necesario importarla desde ningún paquete.
+Para obtener la longitud de un string, puede usar la función `len`. La función `len` está disponible en tiempo de ejecución en go, por lo que no es necesario importarla desde ningún paquete.
 
 ```go
 package main
@@ -59,12 +61,12 @@ func main() {
 
 [Ejemplo](https://go.dev/play/p/Kqj-TJMFyXP)
 
-> [!TIP]
-> `len` es una función universal para encontrar la longitud de cualquier tipo de datos, no es exclusiva de `strings`. Aprenderemos más sobre las funciones integradas de Go en próximos tutoriales.
+> [!IMPORTANT]
+> `len` es una función universal para encontrar la longitud de cualquier tipo de datos, no es exclusiva de `strings`.
 
 En el programa anterior, `len(s)` imprimirá 11 en la consola ya que la cadena `s` tiene 11 caracteres, incluido un carácter de espacio.
 
-Todos los caracteres de la cadena `Hello World` son caracteres ASCII válidos, por lo que esperamos que cada carácter ocupe solo un byte en la memoria (ya que los caracteres ASCII en UTF-8 ocupan 8 bits o 1 byte).
+Todos los caracteres de la cadena `Hello World` son caracteres `ASCII` válidos, por lo que esperamos que cada carácter ocupe solo un byte en la memoria (ya que **los caracteres `ASCII` en `UTF-8` ocupan `8 bits` o `1 byte`**).
 
 Verifiquemos eso usando un bucle `for` en la cadena `s`.
 
@@ -90,9 +92,23 @@ func main() {
 
 [Ejemplo](https://go.dev/play/p/cE32NenaYmN)
 
-¡Guau! Supongo que esperabas que `s[i]` fuera una letra en la cadena `s` donde `i` es el índice del carácter en la cadena que comienza en 0. Entonces, ¿qué es esto? Bueno, estos son el valor decimal de los caracteres `ASCII/UTF-8` en la cadena `Hello World` (consulte la [tabla](http://www.asciichart.com)).
+Supongo que esperabas que `s[i]` fuera una letra en el string `s` donde `i` es el índice del carácter en el string que comienza en 0. Entonces, ¿qué es esto? Bueno, estos son los valores decimales de los caracteres `ASCII/UTF-8` en el string `Hello World` (consulte la [tabla](http://www.asciichart.com)).
 
-**En Go, una cadena string es, de hecho, un slice de bytes de solo lectura**. Por ahora, imagina que un `slice` es como una matriz simple.
+```text
+H - 72
+e - 101
+l - 108
+l - 108
+o - 111
+  - 32
+W - 87
+o - 111
+r - 114
+l - 108
+d - 100
+```
+
+**En go, un string es, de hecho, un slice de bytes de solo lectura**. Por ahora, imagina que un `slice` es como una matriz simple.
 
 En el ejemplo anterior, estamos iterando sobre un slice de bytes (valores de la matriz uint8). Por lo tanto, `s[i]` imprime el valor decimal del byte que contiene el carácter. Pero para ver caracteres individuales, puede usar la cadena de formato `%c` en la declaración `Printf`. También puede usar la cadena de formato `%v` para ver el valor del byte y `%T` para ver el tipo de datos del valor.
 
@@ -142,15 +158,15 @@ uint8 uint8 uint8 uint8 uint8 uint8 uint8 uint8 uint8 uint8 uint8
 
 Como puedes ver, cada letra muestra un número decimal que contiene `8 bits` o `1 byte` de memoria en el tipo `uint8`.
 
-Como sabemos, los caracteres `UTF-8` se pueden definir en un tamaño de memoria desde 1 byte (compatible con ASCII) hasta 4 bytes. Por lo tanto, en Go, todos los caracteres se representan en el tipo de datos `int32` (tamaño de 4 bytes). Una unidad de código es el número de bits que utiliza una codificación para una sola celda unitaria. Entonces, UTF-8 usa 8 bits y UTF-16 usa 16 bits para una unidad de código, eso significa que **UTF-8 necesita un mínimo de 8 bits o 1 byte para representar un carácter**.
+Como sabemos, los caracteres `UTF-8` se pueden definir en un tamaño de memoria desde 1 byte (compatible con ASCII) hasta 4 bytes. Por lo tanto, en go, todos los caracteres se representan en el tipo de datos `int32` (tamaño de 4 bytes). Una unidad de código es el número de bits que utiliza una codificación para una sola celda unitaria. Entonces, `UTF-8` usa `8 bits` y `UTF-16` usa `16 bits` para una unidad de código, eso significa que **`UTF-8` necesita un mínimo de `8 bits` o `1 byte` para representar un carácter**.
 
-Pero la pregunta más importante es, si todos los caracteres en `UTF-8` están representados en `int32`, entonces ¿por qué obtenemos el tipo `uint8` en el ejemplo anterior? Como se dijo anteriormente, en Go, una cadena es una porción de bytes de solo lectura. Cuando usamos la función len en una cadena, calcula la longitud de ese segmento.
+Pero la pregunta más importante es, si todos los caracteres en `UTF-8` están representados en `int32`, entonces ¿por qué obtenemos el tipo `uint8` en el ejemplo anterior? Como se dijo anteriormente, en go, un string es una porción de bytes de solo lectura. Cuando usamos la función `len` en un string, calcula la longitud de ese slice.
 
-Cuando usamos el bucle for, recorre el segmento y devuelve un byte a la vez o una unidad de código a la vez. Como hasta ahora, todos nuestros caracteres estaban en el conjunto de caracteres ASCII, el byte proporcionado por el bucle for era un carácter válido o una unidad de código era, de hecho, un `code point`.
+Cuando usamos el bucle for, recorre el slice y devuelve un byte a la vez o una unidad de código a la vez. Como hasta ahora, todos nuestros caracteres estaban en el conjunto de caracteres `ASCII`, el byte proporcionado por el bucle for era un carácter válido o una unidad de código era, de hecho, un `code point`.
 
 Por lo tanto, `%c` en la declaración `Printf` podría imprimir un carácter válido de ese valor de byte. Pero como sabemos, el `code point` `UTF-8` o el valor de carácter se pueden representar mediante series de uno o más bytes (máximo 4 bytes). **¿Qué pasará en el bucle for que vimos antes si introducimos caracteres que no sean ASCII?**
 
-Reemplacemos `o` en Hola por `õ` [letra o minúscula latina con tilde](http://www.utf8-chartable.de) que tiene una representación unicode `U+00F5` y está representado por 2 unidades de código (2 bytes) `c3` `b5` (representación hexadecimal). Entonces, en lugar de `6f` para el carácter `o`, deberíamos esperar `c3` `b5` para el carácter `õ`.
+Reemplacemos `o` en Hola por `õ` [letra o minúscula latina con tilde](http://www.utf8-chartable.de) que tiene una representación unicode `U+00F5` y está representado por 2 unidades de código (2 bytes) `c3 b5` (representación hexadecimal). Entonces, en lugar de `6f` para el carácter `o`, deberíamos esperar `c3 b5` para el carácter `õ`.
 
 ```go
 package main
@@ -160,23 +176,23 @@ import (
 )
 
 func main() {
-  u := "Hellõ World"
-  fmt.Println("len(u)", len(u))
+  s := "Hellõ World"
+  fmt.Println("len(u)", len(s))
 
-  for i := 0; i < len(u); i++ {
-  fmt.Printf("%c ", u[i])
+  for i := 0; i < len(s); i++ {
+  fmt.Printf("%c ", s[i])
   }
 
   fmt.Println("")
 
-  for i := 0; i < len(u); i++ {
-  fmt.Printf("%v ", u[i])
+  for i := 0; i < len(s); i++ {
+  fmt.Printf("%v ", s[i])
   }
 
   fmt.Println("")
 
-  for i := 0; i < len(u); i++ {
-  fmt.Printf("%x ", u[i])
+  for i := 0; i < len(s); i++ {
+  fmt.Printf("%x ", s[i])
   }
 
   fmt.Println("")
@@ -192,11 +208,11 @@ H e l l Ã µ   W o r l d
 
 [Ejemplo](https://go.dev/play/p/rhueGpn4pDc)
 
-Del resultado anterior obtuvimos `c3 b5` en lugar de `6f` pero los caracteres de `Hellõ World` no se imprimieron muy bien. También vemos que `len(u)` devuelve 12 porque len cuenta el número de bytes en una cadena y eso causó este problema.
+Del resultado anterior obtuvimos `c3 b5` en lugar de `6f` pero los caracteres de `Hellõ World` no se imprimieron muy bien. También vemos que `len(s)` devuelve 12 porque len cuenta el número de bytes en una cadena y esto genero este problema.
 
-Como indexar una cadena (usando un bucle for en ella) se accede a bytes individuales, no a caracteres. Por lo tanto, c3 (195 decimal) en UTF-8 representa Ã y b5 (181 decimal) representa µ.
+Como indexar un string (usando un bucle for) se accede a bytes individuales, no a caracteres. Por lo tanto, `c3` (195 decimal) en `UTF-8` representa `Ã` y `b5` (181 decimal) representa `µ`.
 
-Para evitar el caos anterior, **Go introduce el tipo de datos runa** que es un alias de `int32` y les explicaba (pero aún no lo he demostrado) que Go representa un carácter en el tipo de datos `int32`.
+Para evitar el caos anterior, **go introduce el tipo de datos `rune`** que es un alias de `int32` y les explicaba (pero aún no lo he demostrado) que go representa un carácter en el tipo de datos `int32`.
 
 > [!NOTE]
 > Una respuesta interesante sobre por qué runa es int32 y no uint32 (ya que el valor del `code point` de carácter no puede ser negativo y el tipo de datos int32 puede contener valores tanto negativos como positivos) está [aquí](https://stackoverflow.com/questions/24714665/why-is-rune-in-golang-an-alias-for-int32-and-not-uint32).

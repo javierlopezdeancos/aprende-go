@@ -7,7 +7,7 @@ Aprende Go en castellano con ejemplos tutoriales y ejercicios.
 ## Summary
 
 - [Strings en Go](./strings/strings.md#1-strings-en-go)
-  - [Longitud de una cadena](./strings/strings.md#11-longitud-de-una-cadena)
+  - [Longitud de un string](./strings/strings.md#11-longitud-de-un-string)
   - [Usando un loop for/range en un string](./strings/strings.md#12-usando-un-loop-forrange-en-un-string)
   - [Que es una runa](./strings/strings.md#13-que-es-una-runa)
   - [Strings son inmutables](./strings/strings.md#14-strings-son-inmutables)
