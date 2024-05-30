@@ -44,7 +44,7 @@ func main() {
 Hello World
 ```
 
-[Ejemplo](https://go.dev/play/p/vMDoeaV3RCY)
+[Ejemplo en vivo](https://go.dev/play/p/vMDoeaV3RCY)
 
 Strings en go son `Unicode compliant` y son `UTF-8 Encoded`.
 
@@ -68,7 +68,7 @@ func main() {
 11
 ```
 
-[Ejemplo](https://go.dev/play/p/Kqj-TJMFyXP)
+[Ejemplo en vivo](https://go.dev/play/p/Kqj-TJMFyXP)
 
 > [!IMPORTANT]
 > `len` es una función universal para encontrar la longitud de cualquier tipo de datos, no es exclusiva de `strings`.
@@ -102,7 +102,7 @@ func main() {
 }
 ```
 
-[Ejemplo](https://play.golang.org/p/KBQg1qagnfC)
+[Ejemplo en vivo](https://play.golang.org/p/KBQg1qagnfC)
 
 La salida impresa de este ejemplo seria
 
@@ -146,7 +146,7 @@ func main() {
 72 101 108 108 111 32 87 111 114 108 100
 ```
 
-[Ejemplo](https://go.dev/play/p/cE32NenaYmN)
+[Ejemplo en vivo](https://go.dev/play/p/cE32NenaYmN)
 
 Supongo que esperabas que `s[i]` fuera una letra en el string `s` donde `i` es el índice del carácter en el string que comienza en 0. Entonces, ¿qué es esto? Bueno, estos son los valores decimales de los caracteres `ASCII/UTF-8` en el string `Hello World` (consulte la [tabla](http://www.asciichart.com)).
 
@@ -210,7 +210,7 @@ H e l l o   W o r l d
 uint8 uint8 uint8 uint8 uint8 uint8 uint8 uint8 uint8 uint8 uint8
 ```
 
-[Ejemplo](https://go.dev/play/p/wwqhgHcTeIU)
+[Ejemplo en vivo](https://go.dev/play/p/wwqhgHcTeIU)
 
 Como puedes ver, cada letra muestra un número decimal que contiene `8 bits` o `1 byte` de memoria en el tipo `uint8`.
 
@@ -262,7 +262,7 @@ H e l l Ã µ   W o r l d
 48 65 6c 6c c3 b5 20 57 6f 72 6c 64
 ```
 
-[Ejemplo](https://go.dev/play/p/rhueGpn4pDc)
+[Ejemplo en vivo](https://go.dev/play/p/rhueGpn4pDc)
 
 Del resultado anterior obtuvimos `c3 b5` en lugar de `6f` pero los caracteres de `Hellõ World` no se imprimieron muy bien. También vemos que `len(s)` devuelve 12 porque len cuenta el número de bytes en una cadena y esto genero este problema.
 
@@ -319,7 +319,7 @@ H e l l õ   W o r l d
 int32 int32 int32 int32 int32 int32 int32 int32 int32 int32 int32
 ```
 
-[Ejemplo](https://go.dev/play/p/ELgL-upVnz_r)
+[Ejemplo en vivo](https://go.dev/play/p/ELgL-upVnz_r)
 
 Convertimos una cadena en una porción de runas mediante **conversión de tipos**. Observe `f5` en el resultado anterior en lugar de `c3` `b5`.
 
@@ -359,7 +359,7 @@ character at index 10 is l
 character at index 11 is d
 ```
 
-[Ejemplo](https://go.dev/play/p/Xet2cJbywLH)
+[Ejemplo en vivo](https://go.dev/play/p/Xet2cJbywLH)
 
 En el programa anterior, perdimos el índice 5 porque el quinto byte es la segunda `code unit` del carácter `õ`. Si no necesitas el valor del índice, puedes ignorarlo usando _ (`blank identifier`) en su lugar.
 
@@ -401,7 +401,7 @@ Characters: H e l l o   W o r l d
 Bytes: 48 65 6c 6c 6f 20 57 6f 72 6c 64
 ```
 
-[Ejemplo](https://play.golang.org/p/ZkXmyVNsqv7)
+[Ejemplo en vivo](https://play.golang.org/p/ZkXmyVNsqv7)
 
 En la línea número 17 del programa anterior, el selector de formato `%c` se utiliza para imprimir los caracteres del string en el método `printChars`.
 
@@ -490,7 +490,7 @@ f5 245 int32
 
 El programa anterior imprimirá `f5 245` `int32` que es un valor hexadecimal/decimal y un tipo de datos de valor de `code point` de `õ` en la tabla UTF.
 
-[Ejemplo](https://go.dev/play/p/QNBsDunKTrJ)
+[Ejemplo en vivo](https://go.dev/play/p/QNBsDunKTrJ)
 
 Una runa es un tipo incorporado en go y es el alias de `int32`. Rune representa un `code point` unicode en go. No importa cuántos bytes ocupe el punto de código, puede representarse mediante una runa. Modifiquemos el programa anterior para imprimir caracteres usando una runa:
 
@@ -538,7 +538,7 @@ func main() {
 }
 ```
 
-[Ejemplo](https://play.golang.org/p/n8rsfagm2SJ)
+[Ejemplo en vivo](https://play.golang.org/p/n8rsfagm2SJ)
 
 En la línea no. 16 del programa anterior, el string se convierte en un slice de runas. Luego lo recorremos y mostramos los caracteres. Este programa imprime:
 
@@ -576,7 +576,7 @@ func main() {
 Go build failed.
 ```
 
-[Ejemplo](https://go.dev/play/p/9Uu5LqNqVkb)
+[Ejemplo en vivo](https://go.dev/play/p/9Uu5LqNqVkb)
 
 El programa anterior no se compilará y el compilador arrojará un error, no se puede asignar a `s[0]` ya que la cadena `s` es un slice de bytes de solo lectura.
 
@@ -598,18 +598,19 @@ package main
 import (
   "fmt"
 )
-1
+
 func mutate(s []rune) string {
 	s[0] = 'a'
 	return string(s)
 }
+
 func main() {
   h := "hello"
   fmt.Println(mutate([]rune(h)))
 }
 ```
 
-[Ejemplo](https://play.golang.org/p/GL1cm17IP1)`
+[Ejemplo en vivo](https://play.golang.org/p/GL1cm17IP1)`
 
 Cuya salida seria
 
@@ -648,7 +649,7 @@ Hello,\n
  "World"!
 ```
 
-[Ejemplo](https://go.dev/play/p/9Ir-0Lxx0u3)
+[Ejemplo en vivo](https://go.dev/play/p/9Ir-0Lxx0u3)
 
 Podemos ver que el formato original del string con una nueva línea, tabulación y las dobles comillas se mantuvieron en la salida y el carácter de nueva línea \n no afecto en nada mientras que se descartó el retorno de carro \r.
 
@@ -678,7 +679,7 @@ value of character b is 98 of type int32
 hence 'b' > 'a' is true
 ```
 
-[Ejemplo](https://go.dev/play/p/lxGiJzNeNWO)
+[Ejemplo en vivo](https://go.dev/play/p/lxGiJzNeNWO)
 
 Dado que el valor `int32` de `b` es mayor que `a`, la expresión `'b' > 'a'` será verdadera. Veamos otro ejemplo.
 
@@ -710,7 +711,7 @@ value of character ™ is 8482 of type int32
 hence '℻' > '™' is true
 ```
 
-[Ejemplo](https://go.dev/play/p/aw8Sv8Vto-c)
+[Ejemplo en vivo](https://go.dev/play/p/aw8Sv8Vto-c)
 
 Como sabemos que los caracteres internamente no son más que `int32`, podemos hacer todo tipo de comparaciones con ellos. Por ejemplo, un bucle for entre dos rangos de valores de caracteres.
 
@@ -737,7 +738,7 @@ character = 'e' with decimal value 101
 character = 'f' with decimal value 102
 ```
 
-[Ejemplo](https://go.dev/play/p/kS4vxuSSmWg)
+[Ejemplo en vivo](https://go.dev/play/p/kS4vxuSSmWg)
 
 
 ## 1.8 Comparacion de strings
@@ -771,7 +772,7 @@ func main() {
 }
 ```
 
-[Ejemplo](https://play.golang.org/p/JEAMexbvJ1s)
+[Ejemplo en vivo](https://play.golang.org/p/JEAMexbvJ1s)
 
 En la función `compareStrings` anterior, la línea no. 8 compara si los dos `str1` y `str2` son iguales usando el operador `==`. Si son iguales, imprime el mensaje correspondiente y la función retorna.
 
@@ -798,7 +799,7 @@ func main() {
 }
 ```
 
-[Ejemplo](https://play.golang.org/p/Vr9pf8X8xO)
+[Ejemplo en vivo](https://play.golang.org/p/Vr9pf8X8xO)
 
 `byteSlice` en la línea no. 8 del programa anterior contiene los bytes hexadecimales codificados en `UTF-8` de la cadena `Café`. El programa imprime
 
@@ -826,7 +827,7 @@ func main() {
 Café
 ```
 
-[Ejemplo](https://play.golang.org/p/jgsRowW6XN)
+[Ejemplo en vivo](https://play.golang.org/p/jgsRowW6XN)
 
 Los valores decimales también funcionan y el programa anterior también imprimirá `Café`.
 
@@ -846,7 +847,7 @@ func main() {
 }
 ```
 
-[Ejemplo](https://play.golang.org/p/m8wTMOpYJP)
+[Ejemplo en vivo](https://play.golang.org/p/m8wTMOpYJP)
 
 En el programa anterior, `runeSlice` contiene los `code points` uinicode de la cadena `Señor` en hexadecimal. El programa imprime una salida:
 
@@ -875,7 +876,7 @@ func main() {
 }
 ```
 
-[Ejemplo](https://play.golang.org/p/RCL8SGkrBe9)
+[Ejemplo en vivo](https://play.golang.org/p/RCL8SGkrBe9)
 
 En el programa anterior, en la línea no. 10, `string1` se concatena con la `string2` con un espacio en el medio. Este programa imprime,
 
@@ -902,7 +903,7 @@ func main() {
 }
 ```
 
-[Ejemplo](https://play.golang.org/p/AgqI29aQQDu)
+[Ejemplo en vivo](https://play.golang.org/p/AgqI29aQQDu)
 
 En la línea no. 10 del programa anterior, `%s %s` es la entrada del selector de formato para `Sprintf`. Este selector de formato toma dos strings como entrada y tiene un espacio entre ellas. Esto concatenará los dos strings con un espacio en el medio. El string resultante se almacena en `result`. Este programa también imprime,
 

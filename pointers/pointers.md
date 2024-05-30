@@ -42,7 +42,7 @@ variable b of type int with value 10 in hex is A
 variable c of type int with value 255 in hex is FF
 ```
 
-[Ejemplo](https://go.dev/play/p/NnAJ5go4dfz)
+[Ejemplo en vivo](https://go.dev/play/p/NnAJ5go4dfz)
 
 Del ejemplo anterior, podemos ver que los valores representados en el sistema **hexadecimal** se guardan en el sistema **decimal** con tipo de datos `int`.
 
@@ -82,7 +82,7 @@ func main() {
 &c = 0xc00001c040
 ```
 
-[Ejemplo](https://go.dev/play/p/15P6SHOBavA)
+[Ejemplo en vivo](https://go.dev/play/p/15P6SHOBavA)
 
 Vimos esto en la lección de [slices](../slices/slices.md) cuando intentábamos demostrar que dos slices pueden hacer referencia a valores del mismo array. En el ejemplo anterior, usando el operador `&`, encontramos la dirección de memoria de la variable `a`, `b` y `c`.
 
@@ -148,7 +148,7 @@ func main() {
 pointer pa of type *int with value 0xc00001c030
 ```
 
-[Ejemplo](https://go.dev/play/p/LHlGgDwSpH6)
+[Ejemplo en vivo](https://go.dev/play/p/LHlGgDwSpH6)
 
 En el ejemplo anterior, hemos creado una variable `a` y le hemos asignado un valor inicial de `1`. Go guardará un número entero 1 en algún lugar de la RAM. Luego hemos creado el puntero `pa` que puede apuntar a un valor `int`.
 
@@ -175,7 +175,7 @@ func main() {
 pointer pa of type *int with value 0xc00001c030
 ```
 
-[Ejemplo](https://go.dev/play/p/la95cObwviy)
+[Ejemplo en vivo](https://go.dev/play/p/la95cObwviy)
 
 En el formato abreviado, Go interpretará que estamos tratando de crear un puntero porque estamos asignando la dirección de memoria de una variable (*usando el operador &*) a la variable que estamos tratando de crear.
 
@@ -208,7 +208,7 @@ func main() {
 data at 0xc000120000 is 1
 ```
 
-[Ejemplo](https://go.dev/play/p/TnS5HySFnA9)
+[Ejemplo en vivo](https://go.dev/play/p/TnS5HySFnA9)
 
 ## 1.4 Cambiar el valor de la variable usando un puntero
 
@@ -238,7 +238,7 @@ a = 2
 data at 0xc0000b2000 is 2
 ```
 
-[Ejemplo](https://go.dev/play/p/yv9QmgmVQCK)
+[Ejemplo en vivo](https://go.dev/play/p/yv9QmgmVQCK)
 
 Como puede ver en el ejemplo anterior, la sintaxis `*pa` lee el valor de la ubicación de memoria señalada por el puntero, pero se puede usar la misma expresión para escribir un nuevo valor en la misma ubicación de memoria.
 
@@ -276,7 +276,7 @@ func main() {
 data at 0xc00001c030 is 0
 ```
 
-[Ejemplo](https://go.dev/play/p/WCVmwQCS6cG)
+[Ejemplo en vivo](https://go.dev/play/p/WCVmwQCS6cG)
 
 ¿Esperaba que el valor (*dato*) en la ubicación de la memoria devuelto por la nueva función fuera nulo? Bueno, *el zero value de un puntero es nulo*, lo que significa que el puntero no apunta a ninguna memoria, pero cuando el puntero lo apunta a una ubicación de memoria, la memoria no puede estar vacía, debe contener algunos datos.
 
@@ -314,7 +314,7 @@ func main() {
 a = 2
 ```
 
-[Ejemplo](https://go.dev/play/p/CZof2zNT9Jo)
+[Ejemplo en vivo](https://go.dev/play/p/CZof2zNT9Jo)
 
 En el programa anterior, pasamos el puntero `pa` como argumento a la función `changeValue`. Este puntero apunta al valor de la variable `a`. Por lo tanto, dentro de la función, podemos escribir un nuevo valor en la dirección de memoria señalada por el puntero pa que también muta el valor de la variable `a`.
 
@@ -347,7 +347,7 @@ func main() {
 a = 2
 ```
 
-[Ejemplo](https://go.dev/play/p/kr-LTGyjZs0)
+[Ejemplo en vivo](https://go.dev/play/p/kr-LTGyjZs0)
 
 En el programa anterior, la sintaxis del argumento de la función `changeValue` indica a Go que estamos esperando un puntero, especialmente la parte `*int` (*declaración de tipo*) del argumento `p`.
 
@@ -382,7 +382,7 @@ func main() {
 a = [2 6 12]
 ```
 
-[Ejemplo](https://go.dev/play/p/wp2QxYOSSBC)
+[Ejemplo en vivo](https://go.dev/play/p/wp2QxYOSSBC)
 
 También podríamos escribir el programa anterior usando la sintaxis abreviada proporcionada por Go para acceder a los datos desde un puntero de array.
 

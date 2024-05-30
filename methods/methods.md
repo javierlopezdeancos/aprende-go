@@ -63,7 +63,7 @@ func main() {
 Ross Geller
 ```
 
-[Ejemplo](https://go.dev/play/p/ANE_IN9cmk4)
+[Ejemplo en vivo](https://go.dev/play/p/ANE_IN9cmk4)
 
 En el programa anterior, hemos creado una estructura simple de tipo `Employee` que tiene dos campos string, `FirstName` y `LastName`. Luego definimos la función `fullName` que toma dos strings de argumentos y devuelve un string. La función `fullName` devuelve el nombre completo de un empleado concatenando estos dos strings.
 
@@ -113,7 +113,7 @@ func main() {
 Ross Geller
 ```
 
-[Ejemplo](https://go.dev/play/p/68JWEHO9Yep)
+[Ejemplo en vivo](https://go.dev/play/p/68JWEHO9Yep)
 
 En el programa anterior, hemos definido el método `fullName` que no toma ningún argumento pero devuelve una cadena. Como podemos ver en la declaración del receiver, este método pertenece al tipo `Employee`.
 
@@ -173,7 +173,7 @@ Area of rectangle rect = 20.00
 Area of circle cir = 78.54
 ```
 
-[Ejemplo](https://go.dev/play/p/3f_MScaNXUw)
+[Ejemplo en vivo](https://go.dev/play/p/3f_MScaNXUw)
 
 En el programa anterior, hemos creado los tipos de estructura `Rect` y `Circle` y hemos creado dos métodos del mismo nombre `Area` con el tipo de receptor `Rect` y `Circle`. Cuando llamamos al método `Area()` en `Rect` y `Circle`, se ejecutan sus respectivos métodos.
 
@@ -223,7 +223,7 @@ e before name change = {Ross Geller 1200}
 e after name change = {Ross Geller 1200}
 ```
 
-[Ejemplo](https://go.dev/play/p/cV-W27SGcnl)
+[Ejemplo en vivo](https://go.dev/play/p/cV-W27SGcnl)
 
 En el programa anterior, hemos llamado al método `changeName` en la estructura de tipo `Employee`. En el método, estamos mutando el valor del campo `name` de esa estructura.
 
@@ -283,7 +283,7 @@ e before name change = {Ross Geller 1200}
 e after name change = {Monica Geller 1200}
 ```
 
-[Ejemplo](https://go.dev/play/p/PfSQ_GP-GPN)
+[Ejemplo en vivo](https://go.dev/play/p/PfSQ_GP-GPN)
 
 Veamos qué cambios hicimos.
 
@@ -345,7 +345,7 @@ e before name change = {Ross Geller 1200}
 e after name change = {Monica Geller 1200}
 ```
 
-[Ejemplo](https://go.dev/play/p/D2zm7lpSme4)
+[Ejemplo en vivo](https://go.dev/play/p/D2zm7lpSme4)
 
 El programa anterior funcionará bien como antes. Entonces, qué cambió.
 
@@ -402,7 +402,7 @@ e before phone change = {Ross Geller 1200 {011 8080 8080 New Delhi, India}}
 e after phone change = {Ross Geller 1200 {011 1010 1222 New Delhi, India}}
 ```
 
-[Ejemplo](https://go.dev/play/p/8_QhLqqb9Ot)
+[Ejemplo en vivo](https://go.dev/play/p/8_QhLqqb9Ot)
 
 En el ejemplo anterior, hemos definido el método `changePhone` en `*Employee` que recibe el puntero de `e`. Dentro de este método, podemos acceder a las propiedades de `e` que también contiene la estructura anidada de tipo `Contact`.
 
@@ -458,7 +458,7 @@ e before phone change = {Ross Geller 1200 {011 8080 8080 New Delhi, India}}
 e after phone change = {Ross Geller 1200 {011 1010 1222 New Delhi, India}}
 ```
 
-[Ejemplo](https://go.dev/play/p/DBikGzozbAy)
+[Ejemplo en vivo](https://go.dev/play/p/DBikGzozbAy)
 
 ### 1.4.2 Estructuras anidadas anónimamente
 
@@ -511,7 +511,7 @@ e before phone change = {Ross Geller 1200 {011 8080 8080 New Delhi, India}}
 e after phone change = {Ross Geller 1200 {011 1010 1222 New Delhi, India}}
 ```
 
-[Ejemplo](https://go.dev/play/p/d7D8FYYmiof)
+[Ejemplo en vivo](https://go.dev/play/p/d7D8FYYmiof)
 
 Como podemos ver en el ejemplo anterior, dado que la estructura `contact` está anidada de forma anónima dentro de la estructura `Employee`, sus campos se promoverán a `Employee` y podremos acceder a él en el objeto `e`.
 
@@ -569,7 +569,7 @@ e before phone change = {Ross Geller 1200 {011 8080 8080 New Delhi, India}}
 e after phone change = {Ross Geller 1200 {011 1010 1222 New Delhi, India}}
 ```
 
-[Ejemplo](https://go.dev/play/p/x2L-rR-TKNF)
+[Ejemplo en vivo](https://go.dev/play/p/x2L-rR-TKNF)
 
 Hicimos solo un cambio en el método `changePhone`. En lugar de recibir el tipo `*Empleado`, este método ahora espera un receptor del tipo `*Contact`. Dado que se promocionan los campos de la estructura anidada `Contact`, también se promocionará cualquier método implementado por ella. Por lo tanto, podríamos llamar a `e.changePhone()` como si el tipo `Employee` de struct e implementara el método`changePhone`.
 
@@ -628,7 +628,7 @@ Salary of e = 1500
 e after change = {Monica Geller 1200}
 ```
 
-[Ejemplo](https://go.dev/play/p/tiQQbimhQ8_O)
+[Ejemplo en vivo](https://go.dev/play/p/tiQQbimhQ8_O)
 
 En el programa anterior, definimos el método `changeName` que recibe un puntero pero llamamos al valor `e` que es legal porque Go under the hood le pasará un puntero de `e` (de tipo `*Employee`).
 
@@ -669,7 +669,7 @@ program.go:8: cannot define new methods on non-local type string
 program.go:14: str.toUpperCase undefined (type string has no field or method toUpperCase)
 ```
 
-[Ejemplo](https://go.dev/play/p/FVvIh-YQBLH)
+[Ejemplo en vivo](https://go.dev/play/p/FVvIh-YQBLH)
 
 A partir del programa anterior, creamos el método `toUpperCase` que acepta strings como tipo receiver. Por lo tanto, esperamos que `string.toUpperCase()` funcione y devuelva la versión en mayúsculas del receiver `s`.
 
@@ -708,7 +708,7 @@ func main() {
 HELLO WORLD
 ```
 
-[Ejemplo](https://go.dev/play/p/N-lLB3xPSDM)
+[Ejemplo en vivo](https://go.dev/play/p/N-lLB3xPSDM)
 
 A partir del programa anterior, creamos el método `toUpperCase` que ahora pertenece al tipo `MyString`. Necesitábamos modificar las partes internas de este método para pasar el tipo `string` a la función`strings.ToUpper`, pero lo conseguimos.
 

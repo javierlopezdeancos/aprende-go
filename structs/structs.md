@@ -90,7 +90,7 @@ func main() {
 {  0 false}
 ```
 
-[Ejemplo](https://go.dev/play/p/c_Gf7YCXBJW)
+[Ejemplo en vivo](https://go.dev/play/p/c_Gf7YCXBJW)
 
 El resultado del programa anterior puede parecerte raro, pero está dando el **zero value** de la estructura. Esto sucede porque hemos definido la variable `ross` del tipo de datos `Employee` pero no la hemos inicializado.
 
@@ -144,7 +144,7 @@ ross.salary = 1200
 ross.fullTime = true
 ```
 
-[Ejemplo](https://go.dev/play/p/Fw_Z6uBCinZ)
+[Ejemplo en vivo](https://go.dev/play/p/Fw_Z6uBCinZ)
 
 ## 1.4 Inicializando una estructura
 
@@ -181,7 +181,7 @@ func main() {
 {ross Bing 1200 true}
 ```
 
-[Ejemplo](https://play.golang.org/p/FGJ0Ja4WM-F)
+[Ejemplo en vivo](https://play.golang.org/p/FGJ0Ja4WM-F)
 
 Hemos usado la notación abreviada (*usando la sintaxis `:=`*) para crear la variable `ross` para que Go pueda inferir el tipo `Employee` automáticamente. El orden de aparición de los campos de struct no importa, como puedes ver, hemos inicializado el campo `fullTime` antes que el campo de `salary`.
 
@@ -237,7 +237,7 @@ func main() {
 {Monica Geller 1200 false}
 ```
 
-[Ejemplo](https://go.dev/play/p/Np7Y8LuOdql)
+[Ejemplo en vivo](https://go.dev/play/p/Np7Y8LuOdql)
 
 En el programa anterior, estamos creando una estructura `monica` sin definir un `type struct` derivado. Esto es útil cuando no desea reutilizar un tipo de estructura.
 
@@ -300,7 +300,7 @@ func main() {
 firstName ross
 ```
 
-[Ejemplo](https://go.dev/play/p/fph03X-T-bu)
+[Ejemplo en vivo](https://go.dev/play/p/fph03X-T-bu)
 
 En el programa anterior, dado que `ross` es un puntero, necesitamos usar la `dereferencing syntax` de `*ross` para obtener el valor real de la estructura a la que apunta y usar `(*ross).firstName` para acceder al `firstName` de ese valor de estructura.
 
@@ -448,7 +448,7 @@ func main() {
 Ross's basic salary 1100
 ```
 
-[Ejemplo](https://go.dev/play/p/jVs385qTwZo)
+[Ejemplo en vivo](https://go.dev/play/p/jVs385qTwZo)
 
 ## 1.9 Campos promocionados
 
@@ -583,7 +583,7 @@ func main() {
 Ross Geller
 ```
 
-[Ejemplo](https://go.dev/play/p/U73YGQcWkwa)
+[Ejemplo en vivo](https://go.dev/play/p/U73YGQcWkwa)
 
 En el programa anterior, hemos definido el `struct type` `Employee` que tiene dos campos `string` y un campo `function`. Solo por simplicidad, hemos creado un **derived function type** `FullNameType`.
 
@@ -632,7 +632,7 @@ func main() {
 true
 ```
 
-[Ejemplo](https://go.dev/play/p/AFkN-AxDSk5)
+[Ejemplo en vivo](https://go.dev/play/p/AFkN-AxDSk5)
 
 El programa anterior imprime `true` porque tanto `ross` como `rossCopy` pertenecen al mismo tipo de estructura `Employee` y tienen el mismo conjunto de valores de campo.
 

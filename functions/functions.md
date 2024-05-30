@@ -180,7 +180,7 @@ En el caso de múltiples valores devueltos pero solo está interesado en un solo
 
 *Esto es necesario porque si se define una variable pero no se usa en Go, el compilador se queja.*
 
-[Ejemplo](https://go.dev/play/p/eqLywlCdAAW)
+[Ejemplo en vivo](https://go.dev/play/p/eqLywlCdAAW)
 
 **Code**
 
@@ -243,7 +243,7 @@ func main() {
 
 También puede combinar valores devueltos con nombre cuando contienen el mismo tipo de datos que se muestra a continuación. Sin embargo, cuando usamos el valor de retorno con nombre, todos los valores de retorno con nombre deben definirse con sus tipos de datos.
 
-[Ejemplo](https://go.dev/play/p/UBtP7nnBD8_c)
+[Ejemplo en vivo](https://go.dev/play/p/UBtP7nnBD8_c)
 
 **Code**
 
@@ -308,7 +308,7 @@ Dado que hay una llamada de función, la función `getFactorial` se vuelve a lla
 
 Tan pronto como eso suceda, toda la `pila de llamadas` se resolverá una por una y eventualmente se resolverá la primera llamada `getFactorial`.
 
-[Ejemplo](https://go.dev/play/p/xg1_zTFUsd5)
+[Ejemplo en vivo](https://go.dev/play/p/xg1_zTFUsd5)
 
 **Code**
 
@@ -372,7 +372,7 @@ main finished
 I am done
 ```
 
-[Ejemplo](https://play.golang.org/p/x4JfXO3DEng)
+[Ejemplo en vivo](https://play.golang.org/p/x4JfXO3DEng)
 
 Cuando `main` se ejecuta en la función principal, imprimirá `main started` intentando después ejecutar `sayDone` pero se mantiene en la lista de espera debido a la keyword `defer`. Luego se imprime `main finished` y cuando la función principal deja de ejecutarse, entonces se ejecuta `sayDone()`.
 

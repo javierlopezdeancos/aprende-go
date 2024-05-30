@@ -72,7 +72,7 @@ value of s is <nil>
 type of s is <nil>
 ```
 
-[Ejemplo](https://go.dev/play/p/oGRDKbrEJYb)
+[Ejemplo en vivo](https://go.dev/play/p/oGRDKbrEJYb)
 
 Están sucediendo muchas cosas en este ejemplo, así que permitirme explicar algunos conceptos sobre las interfaces. Una interfaz tiene dos tipos. El tipo estático de una interfaz es la propia interfaz, por ejemplo, `Shape` en el programa anterior. Una interfaz no tiene un **valor estático**, sino que apunta a un **valor dinámico**.
 
@@ -133,7 +133,7 @@ area of rectange s 20
 s == r is true
 ```
 
-[Ejemplo](https://play.golang.org/p/Hb__pA7Xp5V)
+[Ejemplo en vivo](https://play.golang.org/p/Hb__pA7Xp5V)
 
 En el programa anterior, hemos creado la interfaz `Shape` y el tipo de estructura `Rect`. Luego definimos métodos como `Area` y `Perimeter` que pertenecen al tipo `Rect`, por lo tanto, `Rect` implementó esos métodos.
 
@@ -263,7 +263,7 @@ func main() {
  Rect does not implement Shape (missing Perimeter method)
 ```
 
-[Ejemplo](https://go.dev/play/p/pwhIwfHFzF9)
+[Ejemplo en vivo](https://go.dev/play/p/pwhIwfHFzF9)
 
 En el programa anterior, eliminamos el método `Perimeter`. Este programa no compilará y el compilador arrojará un error.
 
@@ -369,7 +369,7 @@ volume of s of interface type Shape is 54
 area of o of interface type Object is 27
 ```
 
-[Ejemplo](https://go.dev/play/p/YgW3NBxp8Fh)
+[Ejemplo en vivo](https://go.dev/play/p/YgW3NBxp8Fh)
 
 En el programa anterior, creamos la interfaz `Shape` con el método `Area` y la interfaz `Object` con el método `Volume`. Dado que el tipo de estructura `Cube` implementa ambos métodos, implementa ambas interfaces. Por lo tanto, podemos asignar un valor de tipo de estructura `Cube` a la variable de tipo `Shape` u `Object`.
 
@@ -441,7 +441,7 @@ area of c of type Cube is 54
 volume of c of type Cube is 27
 ```
 
-[Ejemplo](https://go.dev/play/p/0e1XTpjuXJ_e)
+[Ejemplo en vivo](https://go.dev/play/p/0e1XTpjuXJ_e)
 
 El programa anterior, la variable de interfaz `s` de tipo `Shape` tiene el valor dinámico de `struct type Cube`. Usando notación abreviada, hemos extraído ese valor con la sintaxis `s.(Cube)` en la variable `c`.
 
@@ -517,7 +517,7 @@ dynamic value of Shape 's' with value {3} implements interface Object? true
 dynamic value of Shape 's' with value <nil> implements interface Skin? false
 ```
 
-[Ejemplo](https://go.dev/play/p/Iu84WAzDEwx)
+[Ejemplo en vivo](https://go.dev/play/p/Iu84WAzDEwx)
 
 Dado que el tipo dinámico de `s` es `Cube` y `Cube` implementa la interfaz `Object`, la primera aserción tiene éxito. El `value1` es una interfaz de tipo `Object` y también apunta al valor dinámico de `s` (impreso por la función `Printf`).
 
@@ -635,7 +635,7 @@ i stored int 52
 i stored something else true
 ```
 
-[Ejemplo](https://go.dev/play/p/ItSSq3VDMbB)
+[Ejemplo en vivo](https://go.dev/play/p/ItSSq3VDMbB)
 
 En el programa anterior, modificamos la función `explain` para usar un **type switch**. Cuando se llama a una función de explicación con cualquier tipo, `i` recibe su **valor dinámico** y su **tipo dinámico**.
 
