@@ -1,17 +1,20 @@
 - [Strings en Go](#1-strings-en-go)
   - [Longitud de un string](#11-longitud-de-un-string)
-  - [Usando un loop for/range en un string](#12-usando-un-loop-forrange-en-un-string)
-  - [Que es una runa](#13-que-es-una-runa)
-  - [Strings son inmutables](#14-strings-son-inmutables)
-  - [Strings usando backtick comillas invertidas](#15-strings-usando-backtick-comillas-invertidas)
-  - [Comparacion de caracteres](#16-comparacion-de-caracteres)
+  - [Accediendo a bytes individuales de un string](#12-accediendo-a-bytes-individuales-de-un-string)
+  - [Usando un loop for/range en un string](#13-usando-un-loop-forrange-en-un-string)
+  - [Que es una runa](#14-que-es-una-runa)
+  - [Strings son inmutables](#15-strings-son-inmutables)
+  - [Strings usando backtick comillas invertidas](#16-strings-usando-backtick-comillas-invertidas)
+  - [Comparacion de caracteres](#17-comparacion-de-caracteres)
 - [Referencias](#2-referencias)
 
 # 1. Strings en Go
 
 Los strings en go merecen especial atención porque se implementan de manera muy diferente en go en comparación con otros lenguajes.
 
-Las cadenas **se definen entre comillas dobles "..."** y no entre comillas simples, a diferencia de JavaScript. Las cadenas en go están codificadas en `UTF-8` de forma predeterminada.
+Un string es una porción de bytes en Go. Se pueden crear strings encerrando un conjunto de caracteres entre comillas dobles `" "`.
+
+Los strings **se definen entre comillas dobles "..."** y no entre comillas simples, a diferencia de JavaScript. Los strings en go están codificadas en `UTF-8` de forma predeterminada.
 
 Como `UTF-8` admite el juego de caracteres `ASCII`, no necesita preocuparse por la codificación en la mayoría de los casos.
 
@@ -38,6 +41,8 @@ Hello World
 ```
 
 [Ejemplo](https://go.dev/play/p/vMDoeaV3RCY)
+
+Strings en go son `Unicode compliant` y son `UTF-8 Encoded`.
 
 ## 1.1 Longitud de un string
 
@@ -66,7 +71,11 @@ func main() {
 
 En el programa anterior, `len(s)` imprimirá 11 en la consola ya que la cadena `s` tiene 11 caracteres, incluido un carácter de espacio.
 
+## 1.2 Accediendo a bytes individuales de un string
+
 Todos los caracteres de la cadena `Hello World` son caracteres `ASCII` válidos, por lo que esperamos que cada carácter ocupe solo un byte en la memoria (ya que **los caracteres `ASCII` en `UTF-8` ocupan `8 bits` o `1 byte`**).
+
+Dado que una cadena es un slice de bytes, es posible acceder a cada byte de un string.
 
 Verifiquemos eso usando un bucle `for` en la cadena `s`.
 
@@ -271,7 +280,7 @@ Esto sucedió porque al convertir la cadena `s` en un slice de runas, `c3 b5` se
 
 Además, obtuvimos la longitud 11 de la cadena `s`, lo cual es correcto, porque hay 11 runas en el segmento (o 11 `code point` o 11 caracteres). Y también demostramos que un `code point`  o un carácter en Go está representado por el tipo de datos `int32`.
 
-## 1.2 Usando un loop for/range en un string
+## 1.3 Usando un loop for/range en un string
 
 Si usa `range` dentro de un bucle for, `range` devolverá `runa` y el indice del byte del carácter.
 
@@ -307,11 +316,110 @@ character at index 11 is d
 
 En el programa anterior, perdimos el índice 5 porque el quinto byte es la segunda `code unit` del carácter `õ`. Si no necesitas el valor del índice, puedes ignorarlo usando _ (`blank identifier`) en su lugar.
 
-## 1.3 Que es una runa
+Podemos ver otro ejemplo
 
-Un string es una slice de bytes o enteros uint8, así de simple. Cuando usamos el bucle `for/range`, obtenemos runa porque cada carácter del string está representado por el tipo de datos de runa.
+```go
+package main
 
-En Go, **un carácter se puede representar entre comillas simples**, también conocido como **carácter literal**. Por lo tanto, cualquier carácter `UTF-8` válido dentro de una comilla simple `(')` es una `runa` y su tipo es `int32`.
+import (
+  "fmt"
+)
+
+func printBytes(s string) {
+  fmt.Printf("Bytes: ")
+  for i := 0; i < len(s); i++ {
+    fmt.Printf("%x ", s[i])
+  }
+}
+
+func printChars(s string) {
+  fmt.Printf("Characters: ")
+  for i := 0; i < len(s); i++ {
+    fmt.Printf("%c ", s[i])
+  }
+}
+
+func main() {
+  name := "Hello World"
+  fmt.Printf("String: %s\n", name)
+  printChars(name)
+  fmt.Printf("\n")
+  printBytes(name)
+}
+```
+
+```text
+String: Hello World
+Characters: H e l l o   W o r l d
+Bytes: 48 65 6c 6c 6f 20 57 6f 72 6c 64
+```
+
+[Ejemplo](https://play.golang.org/p/ZkXmyVNsqv7)
+
+En la línea número 17 del programa anterior, el selector de formato `%c` se utiliza para imprimir los caracteres del string en el método `printChars`.
+
+Aunque el programa del ejemplo anterior parece una forma legítima de acceder a los caracteres individuales de una cadena, tiene el mismo error grave que ya hemos comentado en ejemplos anteriores. Averigüemos cuál es ese error.
+
+```go
+package main
+
+import (
+  "fmt"
+)
+
+func printBytes(s string) {
+  fmt.Printf("Bytes: ")
+  for i := 0; i < len(s); i++ {
+    fmt.Printf("%x ", s[i])
+  }
+}
+
+func printChars(s string) {
+  fmt.Printf("Characters: ")
+  for i := 0; i < len(s); i++ {
+    fmt.Printf("%c ", s[i])
+  }
+}
+
+func main() {
+  name := "Hello World"
+
+  fmt.Printf("String: %s\n", name)
+  printChars(name)
+
+  fmt.Printf("\n")
+  printBytes(name)
+
+  fmt.Printf("\n\n")
+  name = "Señor"
+
+  fmt.Printf("String: %s\n", name)
+  printChars(name)
+
+  fmt.Printf("\n")
+  printBytes(name)
+}
+```
+
+Output
+
+```text
+String: Hello World
+Characters: H e l l o   W o r l d
+Bytes: 48 65 6c 6c 6f 20 57 6f 72 6c 64
+
+String: Señor
+Characters: S e Ã ± o r
+Bytes: 53 65 c3 b1 6f 72
+```
+
+En la línea no. 30 del programa anterior, estamos intentando imprimir los caracteres de `Señor` y el output que obtenemos `S e Ã ± o r`, lo cual es incorrecto. ¿Por qué se rompe este programa para `Señor` cuando funciona perfectamente bien para `Hola Mundo`? La razón es que el `code point` Unicode de `ñ` es `U+00F1` y su codificación `UTF-8` ocupa 2 bytes `c3 y b1`. Estamos intentando imprimir caracteres asumiendo que cada `code point` tendrá una longitud de un byte, lo cual es incorrecto. En la codificación `UTF-8`, un `code point` puede ocupar más de 1 byte. Entonces, ¿cómo solucionamos esto? Aquí, como mencionabamos antes, es donde el tipo runa (`rune`) nos salva.
+
+## 1.4 Que es una runa
+
+Un string es una slice de bytes o enteros `uint8`, así de simple. Cuando usamos el bucle `for/range`, obtenemos runa porque cada carácter del string está representado por el tipo de datos de runa.
+
+En go, **un carácter se puede representar entre comillas simples**, también conocido como **carácter literal**. Por lo tanto, cualquier carácter `UTF-8` válido dentro de una comilla simple `(')` es una `runa` y su tipo es `int32`.
 
 ```go
 package main
@@ -320,6 +428,7 @@ import "fmt"
 
 func main() {
   r := 'õ'
+
   fmt.Printf("%x ", r)
   fmt.Printf("%v ", r)
   fmt.Printf("%T", r)
@@ -336,7 +445,46 @@ El programa anterior imprimirá `f5 245` `int32` que es un valor hexadecimal/dec
 
 [Ejemplo](https://go.dev/play/p/QNBsDunKTrJ)
 
-## 1.4 Strings son inmutables
+Una runa es un tipo incorporado en go y es el alias de `int32`. Rune representa un `code point` unicode en go. No importa cuántos bytes ocupe el punto de código, puede representarse mediante una runa. Modifiquemos el programa anterior para imprimir caracteres usando una runa:
+
+```go
+package main
+
+import (
+ "fmt"
+)
+
+func printBytes(s string) {
+  fmt.Printf("Bytes: ")
+  for i := 0; i < len(s); i++ {
+    fmt.Printf("%x ", s[i])
+  }
+}
+
+func printChars(s string) {
+  fmt.Printf("Characters: ")
+  runes := []rune(s)
+  for i := 0; i < len(runes); i++ {
+    fmt.Printf("%c ", runes[i])
+  }
+}
+
+func main() {
+  name := "Hello World"
+  fmt.Printf("String: %s\n", name)
+  printChars(name)
+  fmt.Printf("\n")
+  printBytes(name)
+  fmt.Printf("\n\n")
+  name = "Señor"
+  fmt.Printf("String: %s\n", name)
+  printChars(name)
+  fmt.Printf("\n")
+  printBytes(name)
+}
+```
+
+## 1.5 Strings son inmutables
 
 Como se ve en la definición anterior de strings, son un slice de bytes de solo lectura. Por lo tanto, si intentamos reemplazar cualquier byte en el segmento, el compilador arrojará un error.
 
@@ -374,7 +522,7 @@ var2 := string(var1) // Hello
 > [!NOTE]
 > Recuerda que, un `byte` es un alias para `unit8` y `rune` es un alias para `int32`. Por lo tanto, puedes usarlos indistintamente.
 
-## 1.5 Strings usando `backtick` (comillas invertidas)
+## 1.6 Strings usando `backtick` (comillas invertidas)
 
 En lugar de comillas dobles, también podemos usar el carácter de comilla invertida backtick (`) para representar una cadena en Go. Usando comillas dobles (“) debes escapar de nuevas líneas, tabulaciones y otros caracteres que no necesitan escaparse entre comillas invertidas.
 
@@ -409,7 +557,7 @@ Hello,\n
 
 Podemos ver que el formato original del string con una nueva línea, tabulación y las dobles comillas se mantuvieron en la salida y el carácter de nueva línea \n no afecto en nada mientras que se descartó el retorno de carro \r.
 
-## 1.6 Comparacion de caracteres
+## 1.7 Comparacion de caracteres
 
 Como el carácter representado entre comillas simples en Go es runa, la runa se puede comparar porque representan `code points` Unicode (valores `int32`). Por lo tanto, si un carácter tiene más valor decimal, será mayor que el carácter que tiene menor.
 
@@ -498,6 +646,7 @@ character = 'f' with decimal value 102
 
 # 2. Referencias
 
-- [Tipo de datos string en go](https://medium.com/rungo/string-data-type-in-go-8af2b639478)
 - [String literals](https://golang.org/ref/spec#String_literals)
 - [Strings types](https://go.dev/ref/spec#String_types)
+- [String data type in go](https://medium.com/rungo/string-data-type-in-go-8af2b639478)
+- [Golangbot strings](https://golangbot.com/strings/)

@@ -1,13 +1,4 @@
 go 1.19
 
-use ./strings
-use ./functions
-use ./iterators
-use ./conditionals
 use ./imports
-use ./interfaces
-use ./methods
 use ./streams-and-buffers
-use ./structs
-use ./work-with-json
-use ./pointers
