@@ -1,4 +1,4 @@
-- [Strings en Go](#1-strings-en-go)
+- [Strings](#1-strings-en-go)
   - [Longitud de un string](#11-longitud-de-un-string)
   - [Accediendo a bytes individuales de un string](#12-accediendo-a-bytes-individuales-de-un-string)
   - [Usando un loop for/range en un string](#13-usando-un-loop-forrange-en-un-string)
@@ -6,6 +6,10 @@
   - [Strings son inmutables](#15-strings-son-inmutables)
   - [Strings usando backtick comillas invertidas](#16-strings-usando-backtick-comillas-invertidas)
   - [Comparacion de caracteres](#17-comparacion-de-caracteres)
+  - [Comparacion de strings](#18-comparacion-de-strings)
+  - [Crear un string a partir de un slice de bytes](#19-crear-un-string-a-partir-de-un-slice-de-bytes)
+  - [Creando un string a partir de un slice de runas](#110-creando-un-string-a-partir-de-un-slice-de-runas)
+  - [Concatenacion de strings](#111-concatenacion-de-strings)
 - [Referencias](#2-referencias)
 
 # 1. Strings en Go
@@ -70,6 +74,49 @@ func main() {
 > `len` es una función universal para encontrar la longitud de cualquier tipo de datos, no es exclusiva de `strings`.
 
 En el programa anterior, `len(s)` imprimirá 11 en la consola ya que la cadena `s` tiene 11 caracteres, incluido un carácter de espacio.
+
+
+Pero tambien la función `RuneCountInString(s string) (n int)` del paquete `utf8` se puede utilizar para encontrar la longitud del string. Este método toma un string como argumento y devuelve el número de runas que contiene.
+
+Como comentamos anteriormente, `len(s)` se usa para encontrar el número de bytes en el string y no devuelve la longitud del mismo. Como ya comentamos, algunos caracteres unicode tienen `code points` que ocupan más de 1 byte. Usar `len` para averiguar la longitud de esas cadenas devolverá la longitud de cadena incorrecta.
+
+```go
+package main
+
+import (
+	"fmt"
+	"unicode/utf8"
+)
+
+func main() {
+	word1 := "Señor"
+	fmt.Printf("String: %s\n", word1)
+	fmt.Printf("Length: %d\n", utf8.RuneCountInString(word1))
+	fmt.Printf("Number of bytes: %d\n", len(word1))
+
+	fmt.Printf("\n")
+	word2 := "Pets"
+	fmt.Printf("String: %s\n", word2)
+	fmt.Printf("Length: %d\n", utf8.RuneCountInString(word2))
+	fmt.Printf("Number of bytes: %d\n", len(word2))
+}
+```
+
+[Ejemplo](https://play.golang.org/p/KBQg1qagnfC)
+
+La salida impresa de este ejemplo seria
+
+```text
+String: Señor
+Length: 5
+Number of bytes: 6
+
+String: Pets
+Length: 4
+Number of bytes: 4
+```
+
+Ye esta salida impresa confirma que, `len(s)` y `RuneCountInString(s)` retornan valores diferentes.
 
 ## 1.2 Accediendo a bytes individuales de un string
 
@@ -282,7 +329,7 @@ Además, obtuvimos la longitud 11 de la cadena `s`, lo cual es correcto, porque 
 
 ## 1.3 Usando un loop for/range en un string
 
-Si usa `range` dentro de un bucle for, `range` devolverá `runa` y el indice del byte del carácter.
+Si usa `range` dentro de un bucle for, `range` devolverá una `rune` y el indice del byte del carácter.
 
 ```go
 package main
@@ -456,6 +503,7 @@ import (
 
 func printBytes(s string) {
   fmt.Printf("Bytes: ")
+
   for i := 0; i < len(s); i++ {
     fmt.Printf("%x ", s[i])
   }
@@ -463,7 +511,9 @@ func printBytes(s string) {
 
 func printChars(s string) {
   fmt.Printf("Characters: ")
+
   runes := []rune(s)
+
   for i := 0; i < len(runes); i++ {
     fmt.Printf("%c ", runes[i])
   }
@@ -471,17 +521,35 @@ func printChars(s string) {
 
 func main() {
   name := "Hello World"
+
   fmt.Printf("String: %s\n", name)
   printChars(name)
   fmt.Printf("\n")
   printBytes(name)
+
   fmt.Printf("\n\n")
+
   name = "Señor"
+
   fmt.Printf("String: %s\n", name)
   printChars(name)
   fmt.Printf("\n")
   printBytes(name)
 }
+```
+
+[Ejemplo](https://play.golang.org/p/n8rsfagm2SJ)
+
+En la línea no. 16 del programa anterior, el string se convierte en un slice de runas. Luego lo recorremos y mostramos los caracteres. Este programa imprime:
+
+```text
+String: Hello World
+Characters: H e l l o   W o r l d
+Bytes: 48 65 6c 6c 6f 20 57 6f 72 6c 64
+
+String: Señor
+Characters: S e ñ o r
+Bytes: 53 65 c3 b1 6f 72
 ```
 
 ## 1.5 Strings son inmutables
@@ -521,6 +589,33 @@ var2 := string(var1) // Hello
 
 > [!NOTE]
 > Recuerda que, un `byte` es un alias para `unit8` y `rune` es un alias para `int32`. Por lo tanto, puedes usarlos indistintamente.
+
+Veamos otro ejemplo en el que haremos esto mismo pero usando una funcion que nosotros mismos crearemos `mutate`
+
+```go
+package main
+
+import (
+  "fmt"
+)
+1
+func mutate(s []rune) string {
+	s[0] = 'a'
+	return string(s)
+}
+func main() {
+  h := "hello"
+  fmt.Println(mutate([]rune(h)))
+}
+```
+
+[Ejemplo](https://play.golang.org/p/GL1cm17IP1)`
+
+Cuya salida seria
+
+```text
+aello
+```
 
 ## 1.6 Strings usando `backtick` (comillas invertidas)
 
@@ -643,6 +738,177 @@ character = 'f' with decimal value 102
 ```
 
 [Ejemplo](https://go.dev/play/p/kS4vxuSSmWg)
+
+
+## 1.8 Comparacion de strings
+
+El operador `==` se utiliza para comparar la igualdad de dos cadenas. Si ambas cadenas son iguales, entonces el resultado es `true`, de lo contrario, es `false`.
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func compareStrings(str1 string, str2 string) {
+	if str1 == str2 {
+		fmt.Printf("%s and %s are equal\n", str1, str2)
+		return
+	}
+	fmt.Printf("%s and %s are not equal\n", str1, str2)
+}
+
+func main() {
+	string1 := "Go"
+	string2 := "Go"
+	compareStrings(string1, string2)
+
+	string3 := "hello"
+	string4 := "world"
+	compareStrings(string3, string4)
+
+}
+```
+
+[Ejemplo](https://play.golang.org/p/JEAMexbvJ1s)
+
+En la función `compareStrings` anterior, la línea no. 8 compara si los dos `str1` y `str2` son iguales usando el operador `==`. Si son iguales, imprime el mensaje correspondiente y la función retorna.
+
+El programa anterior imprime,
+
+```text
+Go and Go are equal
+hello and world are not equal
+```
+
+## 1.9 Crear un string a partir de un slice de bytes
+
+```go
+package main
+
+import (
+  "fmt"
+)
+
+func main() {
+  byteSlice := []byte{0x43, 0x61, 0x66, 0xC3, 0xA9}
+  str := string(byteSlice)
+  fmt.Println(str)
+}
+```
+
+[Ejemplo](https://play.golang.org/p/Vr9pf8X8xO)
+
+`byteSlice` en la línea no. 8 del programa anterior contiene los bytes hexadecimales codificados en `UTF-8` de la cadena `Café`. El programa imprime
+
+```text
+Café
+```
+
+Pero, ¿Qué pasa si tenemos el equivalente decimal de los valores hexadecimales? ¿Funcionará el programa anterior? Vamos a ver.
+
+```go
+package main
+
+import (
+  "fmt"
+)
+
+func main() {
+  byteSlice := []byte{67, 97, 102, 195, 169}//decimal equivalent of {'\x43', '\x61', '\x66', '\xC3', '\xA9'}
+  str := string(byteSlice)
+  fmt.Println(str)
+}
+```
+
+```text
+Café
+```
+
+[Ejemplo](https://play.golang.org/p/jgsRowW6XN)
+
+Los valores decimales también funcionan y el programa anterior también imprimirá `Café`.
+
+## 1.10 Creando un string a partir de un slice de runas
+
+```go
+package main
+
+import (
+  "fmt"
+)
+
+func main() {
+  runeSlice := []rune{0x0053, 0x0065, 0x00f1, 0x006f, 0x0072}
+  str := string(runeSlice)
+  fmt.Println(str)
+}
+```
+
+[Ejemplo](https://play.golang.org/p/m8wTMOpYJP)
+
+En el programa anterior, `runeSlice` contiene los `code points` uinicode de la cadena `Señor` en hexadecimal. El programa imprime una salida:
+
+```text
+Señor
+```
+
+## 1.11 Concatenacion de strings
+
+Hay varias formas de realizar la concatenación de cadenas en go. Veamos un par de ellas.
+
+La forma más sencilla de realizar la concatenación de cadenas es utilizar el operador `+`.
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	string1 := "Go"
+	string2 := "is awesome"
+	result := string1 + " " + string2
+	fmt.Println(result)
+}
+```
+
+[Ejemplo](https://play.golang.org/p/RCL8SGkrBe9)
+
+En el programa anterior, en la línea no. 10, `string1` se concatena con la `string2` con un espacio en el medio. Este programa imprime,
+
+```text
+Go is awesome
+```
+
+La segunda forma de concatenar cadenas es utilizar la función `Sprintf` del paquete `fmt`.
+
+La función `Sprintf` formatea una cadena de acuerdo con el selector de formato de entrada y devuelve la cadena resultante. Reescribamos el programa anterior usando la función `Sprintf`.
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	string1 := "Go"
+	string2 := "is awesome"
+	result := fmt.Sprintf("%s %s", string1, string2)
+	fmt.Println(result)
+}
+```
+
+[Ejemplo](https://play.golang.org/p/AgqI29aQQDu)
+
+En la línea no. 10 del programa anterior, `%s %s` es la entrada del selector de formato para `Sprintf`. Este selector de formato toma dos strings como entrada y tiene un espacio entre ellas. Esto concatenará los dos strings con un espacio en el medio. El string resultante se almacena en `result`. Este programa también imprime,
+
+```text
+Go is awesome
+```
 
 # 2. Referencias
 
