@@ -784,6 +784,7 @@ func main() {
 
 - [Slice types](https://go.dev/ref/spec#Slice_types)
 - [Slice expressions](https://go.dev/ref/spec#Slice_expressions)
+- [Appending and copying slices](https://go.dev/ref/spec#Appending_and_copying_slices)
 - [Making slices, maps and channels](https://go.dev/ref/spec#Making_slices_maps_and_channels)
 - [Slices tricks](https://github.com/golang/go/wiki/SliceTrick)
 - [Arrays and slices](https://golangbot.com/arrays-and-slices/)
