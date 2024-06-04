@@ -76,7 +76,7 @@ Aprende Go en castellano con ejemplos tutoriales y ejercicios.
         - [Range sobre un map](./iterators/iterators.md#11282-range-sobre-un-map)
           - [Range sobre un map usando keys](./iterators/iterators.md#112821-range-sobre-un-map-usando-keys)
           - [Range sobre un map usando key value](./iterators/iterators.md#112822-range-sobre-un-map-usando-key-value)
-- [Maps en go](./maps/maps.md#1-maps-en-go)
+- [Maps](./maps/maps.md#1-maps-en-go)
   - [Que es un map](./maps/maps.md#11-que-es-un-map)
   - [Crear un map vacio](./maps/maps.md#12-crear-un-map-vacio)
   - [Inicializar un map](./maps/maps.md#13-inicializar-un-map)
