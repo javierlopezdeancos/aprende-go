@@ -1,6 +1,6 @@
 # Aprende Go en castellano 🇪🇸
 
-<img src="./images/pet.jpeg" width="200">
+![mascota de golang estudiando](./images/pet.jpeg)
 
 Aprende Go en castellano con ejemplos tutoriales y ejercicios.
 
@@ -122,10 +122,12 @@ Aprende Go en castellano con ejemplos tutoriales y ejercicios.
   - [Función como tipo](./functions/functions.md#19-funci%C3%B3n-como-tipo)
   - [Función como valor (función anónima)](./functions/functions.md#110-funci%C3%B3n-como-valor-funci%C3%B3n-an%C3%B3nima)
   - [Función como valor (función anónima)](./functions/functions.md#111-expresi%C3%B3n-de-funci%C3%B3n-invocada-inmediatamente-iife)
-- [Variadic functions](./functions/variadic-functions.md#1-variadic-functions-in-go)
+- [Variadic functions in go](./functions/variadic-functions.md#1-variadic-functions-in-go)
   - [Que es una variadic function](./functions/variadic-functions.md#11-que-es-una-variadic-function)
+    - [Append es una variadic function](./functions/variadic-functions.md#111-append-es-una-variadic-function)
   - [Crear una variadic function](./functions/variadic-functions.md#12-crear-una-variadic-function)
-  - [Como pasar un slice a una variadic function?](./functions/variadic-functions.md#13-como-pasar-un-slice-a-una-variadic-function)
+  - [Como pasar un slice a una variadic function](./functions/variadic-functions.md#13-como-pasar-un-slice-a-una-variadic-function)
+  - [Slice arguments o Variadic arguments](./functions/variadic-functions.md#14-slice-arguments-o-variadic-arguments)
 - [Métodos](./methods/methods.md#1-métodos-en-go)
   - [Que es un método?](./methods/methods.md#11-que-es-un-método)
   - [Métodos con el mismo nombre](./methods/methods.md#12-métodos-con-el-mismo-nombre)

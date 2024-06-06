@@ -1,7 +1,10 @@
 - [Variadic functions in go](#1-variadic-functions-in-go)
   - [Que es una variadic function](#11-que-es-una-variadic-function)
+    - [Append es una variadic function](#111-append-es-una-variadic-function)
   - [Crear una variadic function](#12-crear-una-variadic-function)
   - [Como pasar un slice a una variadic function](#13-como-pasar-un-slice-a-una-variadic-function)
+  - [Slice arguments o Variadic arguments](#14-slice-arguments-o-variadic-arguments)
+- [Referencias](#2-referencias)
 
 # 1. Variadic functions in go
 
@@ -22,7 +25,19 @@ func f(elem ...Type)
 
 Una sintaxis típica de una `variadic function` se parece al anterior `...` operador llamado `pack operator` indica a Go como almacenar todos los argumentos del tipo `Type` del parametro `elem`, en un slice. Con esta sintaxis, Go crea una variable `elem` del tipo `[]Type` que es un `slice`. Por lo tanto, todos los argumentos pasados ​​a esta función se almacenan en un `slice` `elem`.
 
-Veamos un ejemplo con la funcion `append`
+### 1.1.1 Append es una variadic function
+
+¿Alguna vez te has preguntado cómo la función [`append`](https://golang.org/pkg/builtin/#append) utilizada para agregar valores a un `slice` acepta cualquier cantidad de argumentos? Es porque es una `variadic function`.
+
+Veamos la firma de la función `append`
+
+```go
+func append(slice []Type, elems ...Type) []Type
+```
+
+En esta definición o definición, `elems` es un `variadic params`. Por lo tanto, `append` puede aceptar un número variable de argumentos.
+
+Veamos un ejemplo
 
 ```go
 append([]Type, args, arg2, argsN)
@@ -106,8 +121,7 @@ Hello [4 6]
 
 [Ejemplo en vivo](https://go.dev/play/p/orA0CJtSnBs)
 
-
-## 1.3  Como pasar un slice a una variadic function?
+## 1.3  Como pasar un slice a una variadic function
 
 Un `slice` es una referencia a un `array`, ¿qué sucede cuando pasa un segmento a una `variadic function` usando el `unpack operator`? ¿Go crea nuevos argumentos de `slice` o mantiene los mismos `slices`?
 
@@ -145,6 +159,89 @@ En el programa anterior, modificamos ligeramente la `variadic function` `getMult
 
 > [!WARNING]
 > En el resultado por consola del programa anterior, podemos ver que los valores de los `slices` cambiaron. Esto significa que, en caso de un `slice`, Go, cuando se pasa a una `variadic function` usando el `unpack operator`, usará el `array` al que referencia para construir un nuevo `slice`. Así que ten cuidado.
+
+## 1.4 Slice arguments o Variadic arguments
+
+Si los `variadic arguments` de una función se convierten en un `slice`. Entonces, ¿por qué necesitamos `variadic functions` cuando podemos lograr la misma funcionalidad con una funcion al uso a la que le pasamos `slices`?
+
+Vemos un ejemplo de una función que acepta un  `num int` y un `slice` `nums []int` e imprime la posicion del numero `num` en dicho `slice` si se encuentra en el.
+
+```go
+package main
+
+import (
+    "fmt"
+)
+
+func find(num int, nums []int) {
+	fmt.Printf("type of nums is %T\n", nums)
+
+	found := false
+
+	for i, n := range nums {
+			if n == num {
+					fmt.Println(num, "found at index", i, "in", nums)
+					found = true
+			}
+	}
+
+	if !found {
+			fmt.Println(num, "not found in ", nums)
+	}
+
+	fmt.Printf("\n")
+}
+
+func main() {
+	find(89, []int{89, 90, 95})
+	find(45, []int{56, 67, 45, 90, 109})
+	find(78, []int{38, 56, 98})
+	find(87, []int{})
+}
+```
+
+```text
+type of nums is []int
+89 found at index 0 in [89 90 95]
+
+type of nums is []int
+45 found at index 2 in [56 67 45 90 109]
+
+type of nums is []int
+78 not found in  [38 56 98]
+
+type of nums is []int
+87 not found in  []
+```
+
+[Ejemplo en vivo](https://go.dev/play/p/rG-XRL3yycJ)
+
+A continuación se detallan las ventajas de utilizar `variadic arguments` en lugar de `slices`.
+
+1. No es necesario crear un `slice` durante cada llamada a la función. Si observamos el programa anterior, hemos creado nuevos `slices` durante cada llamada de función.
+
+	```go
+	find(89, []int{89, 90, 95})
+	find(45, []int{56, 67, 45, 90, 109})
+	find(78, []int{38, 56, 98})
+	find(87, []int{})
+	```
+
+	Esta creación de `slices` adicionales se puede evitar cuando se utilizan `variadic arguments`.
+
+2. En la línea siguiente
+
+	```go
+	find(87, []int{})
+	```
+
+ 	estamos creando un `slice` vacío solo para satisfacer la firma de la función `find`. Esto no es totalmente necesario en el caso de  `variadic functions`. En este ultimo caso podriamos haber escrito esta linea como
+
+	```go
+	find(87)
+	```
+
+3. Personalmente creo que el caso de `variadic functions` es más legible que el caso de funciones con `slices` como argumentos.
 
 # 2. Referencias
 
