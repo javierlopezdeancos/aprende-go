@@ -1,7 +1,7 @@
 - [Variadic functions in go](#1-variadic-functions-in-go)
   - [Que es una variadic function](#11-que-es-una-variadic-function)
   - [Crear una variadic function](#12-crear-una-variadic-function)
-  - [Como pasar un slice a una variadic function?](#13-como-pasar-un-slice-a-una-variadic-function)
+  - [Como pasar un slice a una variadic function](#13-como-pasar-un-slice-a-una-variadic-function)
 
 # 1. Variadic functions in go
 
@@ -12,6 +12,9 @@ Una `variadic function` acepta un número infinito de argumentos y todos estos a
 Como hemos visto en una lección de [funciones](../functions/functions.md), una función es un fragmento de código dedicado a realizar un trabajo en particular. Una función toma uno o varios argumentos y puede devolver uno o varios valores.
 
 Las **`variadic functions`** también son funciones, pero pueden tomar un número **infinito** o **variable** de argumentos. Hemos visto esto en la lección de `slices` cuando la función `append` aceptó un número variable de argumentos.
+
+> [!NOTE]
+> Solo el ultimo parámetro de una función puede ser `variadic`.
 
 ```go
 func f(elem ...Type)
