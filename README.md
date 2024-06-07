@@ -1,5 +1,7 @@
 # Aprende Go en castellano 🇪🇸
 
+![GitHub License](https://img.shields.io/github/license/javierlopezdeancos/aprende-go)
+
 ![mascota de golang estudiando](./images/pet.jpeg)
 
 Aprende Go en castellano con ejemplos tutoriales y ejercicios.
