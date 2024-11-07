@@ -136,7 +136,7 @@ Aprende Go en castellano con ejemplos tutoriales y ejercicios.
   - [Cambiar el valor de la variable usando un puntero](./pointers//pointers.md##14-cambiar-el-valor-de-la-variable-usando-un-puntero)
   - [La función new](./pointers//pointers.md##15-la-funci%C3%B3n-new)
   - [Pasar un puntero a una función](./pointers//pointers.md##16-pasar-un-puntero-a-una-funci%C3%B3n)
-  - [Aritmética de punteros](./pointers//pointers.md##17-aritm%C3%A9tica-de-punteros)a-función)
+  - [Aritmética de punteros](./pointers//pointers.md##17-aritm%C3%A9tica-de-punteros)
 - [Estructuras en go (structs)](./structs/structs.md)
   - [¿Qué es una estructura?](./structs/structs.md#1-qu%C3%A9-es-una-estructura)
   - [Declarar un tipo de estructura](./structs/structs.md#11-declarar-un-tipo-de-estructura)
