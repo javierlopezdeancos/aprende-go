@@ -70,7 +70,6 @@ var myMap map[keyType]valueType
 
 Donde `keyType` es el tipo de datos de **map keys**, mientras que `valueType` es el tipo de datos de los **map values**. Un `map` es un tipo de datos compuesto *composite data type** porque está compuesto de tipos de datos primitivos.
 
-
 Declaremos un simple mapa:
 
 ```go
@@ -79,10 +78,10 @@ package main
 import "fmt"
 
 func main() {
-	var m map[string]int
+    var m map[string]int
 
-	fmt.Println(m)
-	fmt.Println("m == nil", m == nil)
+    fmt.Println(m)
+    fmt.Println("m == nil", m == nil)
 }
 ```
 
@@ -113,11 +112,11 @@ package main
 import "fmt"
 
 func main() {
-	age := make(map[string]int)
-	age["mina"] = 28
-	age["john"] = 32
-	age["mike"] = 55
-	fmt.Println("age of john", age["john"])
+    age := make(map[string]int)
+    age["mina"] = 28
+    age["john"] = 32
+    age["mike"] = 55
+    fmt.Println("age of john", age["john"])
 }
 ```
 
@@ -141,13 +140,13 @@ package main
 import "fmt"
 
 func main() {
-	age := map[string]int{
-		"mina": 28,
-		"john": 32,
-		"mike": 55,
-	}
+    age := map[string]int{
+        "mina": 28,
+        "john": 32,
+        "mike": 55,
+    }
 
-	fmt.Println(age)
+    fmt.Println(age)
 }
 ```
 
@@ -169,14 +168,14 @@ package main
 import "fmt"
 
 func main() {
-	age := map[string]int{
-		"mina": 28,
-		"john": 32,
-		"mike": 55,
-	}
+    age := map[string]int{
+        "mina": 28,
+        "john": 32,
+        "mike": 55,
+    }
 
-	fmt.Println(age["mina"])
-	fmt.Println(age["jessy"])
+    fmt.Println(age["mina"])
+    fmt.Println(age["jessy"])
 }
 ```
 
@@ -203,16 +202,16 @@ package main
 import "fmt"
 
 func main() {
-	age := map[string]int{
-		"mina": 28,
-		"john": 32,
-		"mike": 55,
-	}
-	minaAge, minaOk := age["mina"]
-	jessyAge, jessyOk := age["jessy"]
+    age := map[string]int{
+        "mina": 28,
+        "john": 32,
+        "mike": 55,
+    }
+    minaAge, minaOk := age["mina"]
+    jessyAge, jessyOk := age["jessy"]
 
-	fmt.Println(minaAge, minaOk)
-	fmt.Println(jessyAge, jessyOk)
+    fmt.Println(minaAge, minaOk)
+    fmt.Println(jessyAge, jessyOk)
 }
 ```
 
@@ -235,13 +234,13 @@ package main
 import "fmt"
 
 func main() {
-	age := map[string]int{
-		"mina": 28,
-		"john": 32,
-		"mike": 55,
-	}
+    age := map[string]int{
+        "mina": 28,
+        "john": 32,
+        "mike": 55,
+    }
 
-	fmt.Println("len(age) =", len(age))
+    fmt.Println("len(age) =", len(age))
 }
 ```
 
@@ -270,16 +269,16 @@ package main
 import "fmt"
 
 func main() {
-	age := map[string]int{
-		"mina": 28,
-		"john": 32,
-		"mike": 55,
-	}
+    age := map[string]int{
+        "mina": 28,
+        "john": 32,
+        "mike": 55,
+    }
 
-	delete(age, "john")
-	delete(age, "jessy")
+    delete(age, "john")
+    delete(age, "jessy")
 
-	fmt.Println(age)
+    fmt.Println(age)
 }
 ```
 
@@ -306,15 +305,15 @@ package main
 import "fmt"
 
 func main() {
-	age := map[string]int{
-		"mina": 28,
-		"john": 32,
-		"mike": 55,
-	}
+    age := map[string]int{
+        "mina": 28,
+        "john": 32,
+        "mike": 55,
+    }
 
-	for key, value := range age {
-		fmt.Println(key, "=>", value)
-	}
+    for key, value := range age {
+        fmt.Println(key, "=>", value)
+    }
 }
 ```
 
@@ -341,14 +340,14 @@ package main
 import "fmt"
 
 func main() {
-	age := map[bool]string{
-		true:  "YES",
-		false: "NO",
-	}
+    age := map[bool]string{
+        true:  "YES",
+        false: "NO",
+    }
 
-	for key, value := range age {
-		fmt.Println(key, "=>", value)
-	}
+    for key, value := range age {
+        fmt.Println(key, "=>", value)
+    }
 }
 ```
 
@@ -367,15 +366,15 @@ package main
 import "fmt"
 
 func main() {
-	age := map[bool]string{
-		true:  "YES",
-		false: "NO",
-		true:  "YEAH",
-	}
+    age := map[bool]string{
+        true:  "YES",
+        false: "NO",
+        true:  "YEAH",
+    }
 
-	for key, value := range age {
-		fmt.Println(key, "=>", value)
-	}
+    for key, value := range age {
+        fmt.Println(key, "=>", value)
+    }
 }
 ```
 
@@ -397,20 +396,20 @@ package main
 import "fmt"
 
 func main() {
-	var ages map[string]int
+    var ages map[string]int
 
-	age := map[string]int{
-		"mina": 28,
-		"john": 32,
-		"mike": 55,
-	}
+    age := map[string]int{
+        "mina": 28,
+        "john": 32,
+        "mike": 55,
+    }
 
-	ages = age
+    ages = age
 
-	delete(ages, "john")
+    delete(ages, "john")
 
-	fmt.Println("age", age)
-	fmt.Println("ages", ages)
+    fmt.Println("age", age)
+    fmt.Println("ages", ages)
 }
 ```
 
@@ -433,22 +432,22 @@ package main
 import "fmt"
 
 func main() {
-	ages := make(map[string]int)
+    ages := make(map[string]int)
 
-	age := map[string]int{
-		"mina": 28,
-		"john": 32,
-		"mike": 55,
-	}
+    age := map[string]int{
+        "mina": 28,
+        "john": 32,
+        "mike": 55,
+    }
 
-	for key, value := range age {
-		ages[key] = value
-	}
+    for key, value := range age {
+        ages[key] = value
+    }
 
-	delete(ages, "john")
+    delete(ages, "john")
 
-	fmt.Println("age", age)
-	fmt.Println("ages", ages)
+    fmt.Println("age", age)
+    fmt.Println("ages", ages)
 }
 ```
 
@@ -474,8 +473,8 @@ Intentaremos cubrir con los siguientes ejemplos de tests
 - Actualizar un item en un map
 - Eliminar un item de un map
 - Aprender mas acerca de los errores
- 	- Como crear errores que son constantes
- 	- Crear wrappers de errores
+  - Como crear errores que son constantes
+  - Crear wrappers de errores
 
 ## 2.1 Buscar un item en un map por su key
 
@@ -493,14 +492,14 @@ package main
 import "testing"
 
 func TestSearch(t *testing.T) {
-	dictionary := map[string]string{"test": "this is just a test"}
+    dictionary := map[string]string{"test": "this is just a test"}
 
-	got := Search(dictionary, "test")
-	want := "this is just a test"
+    got := Search(dictionary, "test")
+    want := "this is just a test"
 
-	if got != want {
-		t.Errorf("got %q want %q given, %q", got, want, "test")
-	}
+    if got != want {
+        t.Errorf("got %q want %q given, %q", got, want, "test")
+    }
 }
 ```
 
@@ -509,7 +508,6 @@ Declarar un `map` es similar a un `array`. Excepto que comienza con la palabra c
 El tipo de `key` es especial. **Solo puede ser un tipo comparable** porque sin la capacidad de saber si 2 claves son iguales, no tenemos forma de asegurarnos de que estamos obteniendo el valor correcto. Los tipos comparables se explican en profundidad en la [language spec](https://golang.org/ref/spec#Comparison_operators)
 
 El tipo de valor, por otro lado, puede ser del tipo que desee. Incluso puede ser otro `map`.
-
 
 ### 2.1.2 Correr el test
 
@@ -525,7 +523,7 @@ Tendremos que implementar la funcion `Search` para que el test pase.
 package main
 
 func Search(dictionary map[string]string, word string) string {
-	return ""
+    return ""
 }
 ```
 
@@ -539,7 +537,7 @@ got '' want 'this is just a test' given, 'test'.
 
 ```go
 func Search(dictionary map[string]string, word string) string {
-	return dictionary[word]
+    return dictionary[word]
 }
 ```
 
@@ -551,20 +549,20 @@ Obtener un valor de un `map` es lo mismo que obtener un valor de un array de `ma
 
 ```go
 func TestSearch(t *testing.T) {
-	dictionary := map[string]string{"test": "this is just a test"}
+    dictionary := map[string]string{"test": "this is just a test"}
 
-	got := Search(dictionary, "test")
-	want := "this is just a test"
+    got := Search(dictionary, "test")
+    want := "this is just a test"
 
-	assertStrings(t, got, want)
+    assertStrings(t, got, want)
 }
 
 func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got %q want %q", got, want)
+    }
 }
 ```
 
@@ -574,7 +572,7 @@ func assertStrings(t testing.TB, got, want string) {
 + type Dictionary map[string]string
 
 + func (d Dictionary) Search(word string) string {
-+		return d[word]
++        return d[word]
 + }
 ```
 
@@ -586,24 +584,24 @@ import "testing"
 type Dictionary map[string]string
 
 func (d Dictionary) Search(word string) string {
-	return d[word]
+    return d[word]
 }
 
 func TestSearch(t *testing.T) {
-	dictionary := Dictionary{"test": "this is just a test"}
+    dictionary := Dictionary{"test": "this is just a test"}
 
-	got := dictionary.Search("test")
-	want := "this is just a test"
+    got := dictionary.Search("test")
+    want := "this is just a test"
 
-	assertStrings(t, got, want)
+    assertStrings(t, got, want)
 }
 
 func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got %q want %q", got, want)
+    }
 }
 ```
 
@@ -628,25 +626,25 @@ Asi que escribamos nuestros dos casos de uso,
 
 ```go
 func TestSearch(t *testing.T) {
-	dictionary := Dictionary{"test": "this is just a test"}
+    dictionary := Dictionary{"test": "this is just a test"}
 
-	t.Run("known word", func(t *testing.T) {
-		got, _ := dictionary.Search("test")
-		want := "this is just a test"
+    t.Run("known word", func(t *testing.T) {
+        got, _ := dictionary.Search("test")
+        want := "this is just a test"
 
-		assertStrings(t, got, want)
-	})
+        assertStrings(t, got, want)
+    })
 
-	t.Run("unknown word", func(t *testing.T) {
-		_, err := dictionary.Search("unknown")
-		want := "could not find the word you were looking for"
+    t.Run("unknown word", func(t *testing.T) {
+        _, err := dictionary.Search("unknown")
+        want := "could not find the word you were looking for"
 
-		if err == nil {
-			t.Fatal("expected to get an error.")
-		}
+        if err == nil {
+            t.Fatal("expected to get an error.")
+        }
 
-		assertStrings(t, err.Error(), want)
-	})
+        assertStrings(t, err.Error(), want)
+    })
 }
 ```
 
@@ -660,11 +658,10 @@ Tenga en cuenta que, para lanzar el mensaje de error, primero verificamos que el
 
 ```diff
 func (d Dictionary) Search(word string) (string, error) {
--	return d[word]
-+	return d[word], nil
+-    return d[word]
++    return d[word], nil
 }
 ```
-
 
 ```go
 package main
@@ -674,37 +671,37 @@ import "testing"
 type Dictionary map[string]string
 
 func (d Dictionary) Search(word string) (string, error) {
-	return d[word], nil
+    return d[word], nil
 }
 
 func TestSearch(t *testing.T) {
-	dictionary := Dictionary{"test": "this is just a test"}
+    dictionary := Dictionary{"test": "this is just a test"}
 
-	t.Run("known word", func(t *testing.T) {
-		got, _ := dictionary.Search("test")
-		want := "this is just a test"
+    t.Run("known word", func(t *testing.T) {
+        got, _ := dictionary.Search("test")
+        want := "this is just a test"
 
-		assertStrings(t, got, want)
-	})
+        assertStrings(t, got, want)
+    })
 
-	t.Run("unknown word", func(t *testing.T) {
-		_, err := dictionary.Search("unknown")
-		want := "could not find the word you were looking for"
+    t.Run("unknown word", func(t *testing.T) {
+        _, err := dictionary.Search("unknown")
+        want := "could not find the word you were looking for"
 
-		if err == nil {
-			t.Fatal("expected to get an error.")
-		}
+        if err == nil {
+            t.Fatal("expected to get an error.")
+        }
 
-		assertStrings(t, err.Error(), want)
-	})
+        assertStrings(t, err.Error(), want)
+    })
 }
 
 func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got %q want %q", got, want)
+    }
 }
 ```
 
@@ -716,22 +713,21 @@ dictionary_test.go:22: expected to get an error.
 
 ### 2.1.10 Escribir el codigo necesario para que el test pase
 
-
 ```diff
 - import "errors"
 + import (
-+		"errors"
-+	 	"testing"
-+	)
++        "errors"
++         "testing"
++    )
 
 func (d Dictionary) Search(word string) (string, error) {
--	return d[word], nil
-+	definition, ok := d[word]
-+	if !ok {
-+		return "", errors.New("could not find the word you were looking for")
-+	}
+-    return d[word], nil
++    definition, ok := d[word]
++    if !ok {
++        return "", errors.New("could not find the word you were looking for")
++    }
 
-+	return definition, nil
++    return definition, nil
 }
 ```
 
@@ -739,49 +735,49 @@ func (d Dictionary) Search(word string) (string, error) {
 package main
 
 import (
-	"errors"
-	"testing"
+    "errors"
+    "testing"
 )
 
 type Dictionary map[string]string
 
 func (d Dictionary) Search(word string) (string, error) {
-	definition, ok := d[word]
-	if !ok {
-		return "", errors.New("could not find the word you were looking for")
-	}
+    definition, ok := d[word]
+    if !ok {
+        return "", errors.New("could not find the word you were looking for")
+    }
 
-	return definition, nil
+    return definition, nil
 }
 
 func TestSearch(t *testing.T) {
-	dictionary := Dictionary{"test": "this is just a test"}
+    dictionary := Dictionary{"test": "this is just a test"}
 
-	t.Run("known word", func(t *testing.T) {
-		got, _ := dictionary.Search("test")
-		want := "this is just a test"
+    t.Run("known word", func(t *testing.T) {
+        got, _ := dictionary.Search("test")
+        want := "this is just a test"
 
-		assertStrings(t, got, want)
-	})
+        assertStrings(t, got, want)
+    })
 
-	t.Run("unknown word", func(t *testing.T) {
-		_, err := dictionary.Search("unknown")
-		want := "could not find the word you were looking for"
+    t.Run("unknown word", func(t *testing.T) {
+        _, err := dictionary.Search("unknown")
+        want := "could not find the word you were looking for"
 
-		if err == nil {
-			t.Fatal("expected to get an error.")
-		}
+        if err == nil {
+            t.Fatal("expected to get an error.")
+        }
 
-		assertStrings(t, err.Error(), want)
-	})
+        assertStrings(t, err.Error(), want)
+    })
 }
 
 func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got %q want %q", got, want)
+    }
 }
 ```
 
@@ -809,13 +805,13 @@ Podemos deshacernos del magic error en nuestra función `Search` extrayéndolo e
 + var ErrNotFound = errors.New("could not find the word you were looking for")
 
 func (d Dictionary) Search(word string) (string, error) {
-	definition, ok := d[word]
-	if !ok {
--		return "", errors.New("could not find the word you were looking for")
-+		return "", ErrNotFound
-	}
+    definition, ok := d[word]
+    if !ok {
+-        return "", errors.New("could not find the word you were looking for")
++        return "", ErrNotFound
+    }
 
-	return definition, nil
+    return definition, nil
 }
 ```
 
@@ -823,11 +819,11 @@ Añadimos una nueva función assertError
 
 ```diff
 + func assertError(t testing.TB, got, want error) {
-+		t.Helper()
++        t.Helper()
 
-+		if got != want {
-+			t.Errorf("got error %q want %q", got, want)
-+ 	}
++        if got != want {
++            t.Errorf("got error %q want %q", got, want)
++     }
 + }
 ```
 
@@ -835,18 +831,18 @@ Al crear un nuevo helper `assertError`, podemos simplificar nuestra test y comen
 
 ```diff
 t.Run("unknown word", func(t *testing.T) {
--	_, err := dictionary.Search("unknown")
-+	_, got := dictionary.Search("unknown")
+-    _, err := dictionary.Search("unknown")
++    _, got := dictionary.Search("unknown")
 
--	want := "could not find the word you were looking for"
+-    want := "could not find the word you were looking for"
 
--	if err == nil {
--		t.Fatal("expected to get an error.")
--	}
+-    if err == nil {
+-        t.Fatal("expected to get an error.")
+-    }
 
--	assertStrings(t, err.Error(), want)
+-    assertStrings(t, err.Error(), want)
 
-	assertError(t, got, ErrNotFound)
+    assertError(t, got, ErrNotFound)
 })
 ```
 
@@ -856,8 +852,8 @@ Quedando el ejemplo despues de ingresar los cambios del refactor
 package main
 
 import (
-	"errors"
-	"testing"
+    "errors"
+    "testing"
 )
 
 var ErrNotFound = errors.New("could not find the word you were looking for")
@@ -865,45 +861,45 @@ var ErrNotFound = errors.New("could not find the word you were looking for")
 type Dictionary map[string]string
 
 func (d Dictionary) Search(word string) (string, error) {
-	definition, ok := d[word]
-	if !ok {
-		return "", ErrNotFound
-	}
+    definition, ok := d[word]
+    if !ok {
+        return "", ErrNotFound
+    }
 
-	return definition, nil
+    return definition, nil
 }
 
 func TestSearch(t *testing.T) {
-	dictionary := Dictionary{"test": "this is just a test"}
+    dictionary := Dictionary{"test": "this is just a test"}
 
-	t.Run("known word", func(t *testing.T) {
-		got, _ := dictionary.Search("test")
-		want := "this is just a test"
+    t.Run("known word", func(t *testing.T) {
+        got, _ := dictionary.Search("test")
+        want := "this is just a test"
 
-		assertStrings(t, got, want)
-	})
+        assertStrings(t, got, want)
+    })
 
-	t.Run("unknown word", func(t *testing.T) {
-		_, got := dictionary.Search("unknown")
+    t.Run("unknown word", func(t *testing.T) {
+        _, got := dictionary.Search("unknown")
 
-		assertError(t, got, ErrNotFound)
-	})
+        assertError(t, got, ErrNotFound)
+    })
 }
 
 func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got %q want %q", got, want)
+    }
 }
 
 func assertError(t testing.TB, got, want error) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got error %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got error %q want %q", got, want)
+    }
 }
 ```
 
@@ -933,24 +929,24 @@ import "testing"
 type Dictionary map[string]string
 
 func TestAdd(t *testing.T) {
-	dictionary := Dictionary{}
-	dictionary.Add("test", "this is just a test")
+    dictionary := Dictionary{}
+    dictionary.Add("test", "this is just a test")
 
-	want := "this is just a test"
-	got, err := dictionary.Search("test")
-	if err != nil {
-		t.Fatal("should find added word:", err)
-	}
+    want := "this is just a test"
+    got, err := dictionary.Search("test")
+    if err != nil {
+        t.Fatal("should find added word:", err)
+    }
 
-	assertStrings(t, got, want)
+    assertStrings(t, got, want)
 }
 
 func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got %q want %q", got, want)
+    }
 }
 ```
 
@@ -974,24 +970,24 @@ func (d Dictionary) Add(word, definition string) {
 }
 
 func TestAdd(t *testing.T) {
-	dictionary := Dictionary{}
-	dictionary.Add("test", "this is just a test")
+    dictionary := Dictionary{}
+    dictionary.Add("test", "this is just a test")
 
-	want := "this is just a test"
-	got, err := dictionary.Search("test")
-	if err != nil {
-		t.Fatal("should find added word:", err)
-	}
+    want := "this is just a test"
+    got, err := dictionary.Search("test")
+    if err != nil {
+        t.Fatal("should find added word:", err)
+    }
 
-	assertStrings(t, got, want)
+    assertStrings(t, got, want)
 }
 
 func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got %q want %q", got, want)
+    }
 }
 ```
 
@@ -1005,7 +1001,7 @@ dictionary_test.go:31: should find added word: could not find the word you were 
 
 ```diff
 func (d Dictionary) Add(word, definition string) {
-+	d[word] = definition
++    d[word] = definition
 }
 ```
 
@@ -1017,28 +1013,28 @@ import "testing"
 type Dictionary map[string]string
 
 func (d Dictionary) Add(word, definition string) {
-	d[word] = definition
+    d[word] = definition
 }
 
 func TestAdd(t *testing.T) {
-	dictionary := Dictionary{}
-	dictionary.Add("test", "this is just a test")
+    dictionary := Dictionary{}
+    dictionary.Add("test", "this is just a test")
 
-	want := "this is just a test"
-	got, err := dictionary.Search("test")
-	if err != nil {
-		t.Fatal("should find added word:", err)
-	}
+    want := "this is just a test"
+    got, err := dictionary.Search("test")
+    if err != nil {
+        t.Fatal("should find added word:", err)
+    }
 
-	assertStrings(t, got, want)
+    assertStrings(t, got, want)
 }
 
 func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got %q want %q", got, want)
+    }
 }
 ```
 
@@ -1076,33 +1072,33 @@ No hay mucho que refactorizar en nuestra implementación, pero el test podría n
 
 ```diff
 func TestAdd(t *testing.T) {
-	dictionary := Dictionary{}
--	dictionary.Add("test", "this is just a test")
-+	word := "test"
-+	definition := "this is just a test"
+    dictionary := Dictionary{}
+-    dictionary.Add("test", "this is just a test")
++    word := "test"
++    definition := "this is just a test"
 +
-	dictionary.Add(word, definition)
+    dictionary.Add(word, definition)
 
--	want := "this is just a test"
--	got, err := dictionary.Search("test")
--	if err != nil {
--		t.Fatal("should find added word:", err)
--	}
+-    want := "this is just a test"
+-    got, err := dictionary.Search("test")
+-    if err != nil {
+-        t.Fatal("should find added word:", err)
+-    }
 
--	assertStrings(t, got, want)
+-    assertStrings(t, got, want)
 
-	assertDefinition(t, dictionary, word, definition)
+    assertDefinition(t, dictionary, word, definition)
 }
 +
 + func assertDefinition(t testing.TB, dictionary Dictionary, word, definition string) {
-+		t.Helper()
++        t.Helper()
 +
-+		got, err := dictionary.Search(word)
-+		if err != nil {
-+			t.Fatal("should find added word:", err)
-+		}
++        got, err := dictionary.Search(word)
++        if err != nil {
++            t.Fatal("should find added word:", err)
++        }
 +
-+		assertStrings(t, got, definition)
++        assertStrings(t, got, definition)
 +}
 ```
 
@@ -1110,8 +1106,8 @@ func TestAdd(t *testing.T) {
 package main
 
 import (
-	"errors"
-	"testing"
+    "errors"
+    "testing"
 )
 
 var ErrNotFound = errors.New("could not find the word you were looking for")
@@ -1119,44 +1115,44 @@ var ErrNotFound = errors.New("could not find the word you were looking for")
 type Dictionary map[string]string
 
 func (d Dictionary) Search(word string) (string, error) {
-	definition, ok := d[word]
-	if !ok {
-		return "", ErrNotFound
-	}
+    definition, ok := d[word]
+    if !ok {
+        return "", ErrNotFound
+    }
 
-	return definition, nil
+    return definition, nil
 }
 
 func (d Dictionary) Add(word, definition string) {
-	d[word] = definition
+    d[word] = definition
 }
 
 func TestAdd(t *testing.T) {
-	dictionary := Dictionary{}
-	word := "test"
-	definition := "this is just a test"
+    dictionary := Dictionary{}
+    word := "test"
+    definition := "this is just a test"
 
-	dictionary.Add(word, definition)
+    dictionary.Add(word, definition)
 
-	assertDefinition(t, dictionary, word, definition)
+    assertDefinition(t, dictionary, word, definition)
 }
 
 func assertDefinition(t testing.TB, dictionary Dictionary, word, definition string) {
-	t.Helper()
+    t.Helper()
 
-	got, err := dictionary.Search(word)
-	if err != nil {
-		t.Fatal("should find added word:", err)
-	}
-	assertStrings(t, got, definition)
+    got, err := dictionary.Search(word)
+    if err != nil {
+        t.Fatal("should find added word:", err)
+    }
+    assertStrings(t, got, definition)
 }
 
 func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got %q want %q", got, want)
+    }
 }
 ```
 
@@ -1178,41 +1174,41 @@ Nuestro `Add` se ve bien. ¡Excepto que no hemos tenido en cuenta el caso de lo 
 
 ```diff
 func TestAdd(t *testing.T) {
--	dictionary := Dictionary{}
--	word := "test"
--	definition := "this is just a test"
+-    dictionary := Dictionary{}
+-    word := "test"
+-    definition := "this is just a test"
 -
--	dictionary.Add(word, definition)
+-    dictionary.Add(word, definition)
 -
--	assertDefinition(t, dictionary, word, definition)
+-    assertDefinition(t, dictionary, word, definition)
 +
-+	t.Run("new word", func(t *testing.T) {
-+		dictionary := Dictionary{}
-+		word := "test"
-+		definition := "this is just a test"
++    t.Run("new word", func(t *testing.T) {
++        dictionary := Dictionary{}
++        word := "test"
++        definition := "this is just a test"
 +
-+		err := dictionary.Add(word, definition)
++        err := dictionary.Add(word, definition)
 +
-+		assertError(t, err, nil)
-+		assertDefinition(t, dictionary, word, definition)
-+	})
++        assertError(t, err, nil)
++        assertDefinition(t, dictionary, word, definition)
++    })
 +
-+	t.Run("existing word", func(t *testing.T) {
-+		word := "test"
-+		definition := "this is just a test"
-+		dictionary := Dictionary{word: definition}
-+		err := dictionary.Add(word, "new test")
++    t.Run("existing word", func(t *testing.T) {
++        word := "test"
++        definition := "this is just a test"
++        dictionary := Dictionary{word: definition}
++        err := dictionary.Add(word, "new test")
 +
-+		assertError(t, err, ErrWordExists)
-+		assertDefinition(t, dictionary, word, definition)
-+	})
++        assertError(t, err, ErrWordExists)
++        assertDefinition(t, dictionary, word, definition)
++    })
 +
 + func assertError(t testing.TB, got, want error) {
-+ 	t.Helper()
++     t.Helper()
 +
-+ 	if got != want {
-+			t.Errorf("got error %q want %q", got, want)
-+		}
++     if got != want {
++            t.Errorf("got error %q want %q", got, want)
++        }
 + }
 }
 ```
@@ -1221,8 +1217,8 @@ func TestAdd(t *testing.T) {
 package main
 
 import (
-	"errors"
-	"testing"
+    "errors"
+    "testing"
 )
 
 var ErrNotFound = errors.New("could not find the word you were looking for")
@@ -1230,65 +1226,65 @@ var ErrNotFound = errors.New("could not find the word you were looking for")
 type Dictionary map[string]string
 
 func (d Dictionary) Search(word string) (string, error) {
-	definition, ok := d[word]
-	if !ok {
-		return "", ErrNotFound
-	}
+    definition, ok := d[word]
+    if !ok {
+        return "", ErrNotFound
+    }
 
-	return definition, nil
+    return definition, nil
 }
 
 func (d Dictionary) Add(word, definition string) {
-	d[word] = definition
+    d[word] = definition
 }
 
 func TestAdd(t *testing.T) {
-	t.Run("new word", func(t *testing.T) {
-		dictionary := Dictionary{}
-		word := "test"
-		definition := "this is just a test"
+    t.Run("new word", func(t *testing.T) {
+        dictionary := Dictionary{}
+        word := "test"
+        definition := "this is just a test"
 
-		err := dictionary.Add(word, definition)
+        err := dictionary.Add(word, definition)
 
-		assertError(t, err, nil)
-		assertDefinition(t, dictionary, word, definition)
-	})
+        assertError(t, err, nil)
+        assertDefinition(t, dictionary, word, definition)
+    })
 
-	t.Run("existing word", func(t *testing.T) {
-		word := "test"
-		definition := "this is just a test"
-		dictionary := Dictionary{word: definition}
-		err := dictionary.Add(word, "new test")
+    t.Run("existing word", func(t *testing.T) {
+        word := "test"
+        definition := "this is just a test"
+        dictionary := Dictionary{word: definition}
+        err := dictionary.Add(word, "new test")
 
-		assertError(t, err, ErrWordExists)
-		assertDefinition(t, dictionary, word, definition)
-	})
+        assertError(t, err, ErrWordExists)
+        assertDefinition(t, dictionary, word, definition)
+    })
 }
 
 func assertError(t testing.TB, got, want error) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got error %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got error %q want %q", got, want)
+    }
 }
 
 func assertDefinition(t testing.TB, dictionary Dictionary, word, definition string) {
-	t.Helper()
+    t.Helper()
 
-	got, err := dictionary.Search(word)
-	if err != nil {
-		t.Fatal("should find added word:", err)
-	}
-	assertStrings(t, got, definition)
+    got, err := dictionary.Search(word)
+    if err != nil {
+        t.Fatal("should find added word:", err)
+    }
+    assertStrings(t, got, definition)
 }
 
 func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got %q want %q", got, want)
+    }
 }
 ```
 
@@ -1309,13 +1305,13 @@ Para este test, modificamos `Add` para que devuelva un error, que estamos valida
 - var ErrNotFound = errors.New("could not find the word you were looking for")
 
 + var (
-+		ErrNotFound   = errors.New("could not find the word you were looking for")
-+		ErrWordExists = errors.New("cannot add word because it already exists")
++        ErrNotFound   = errors.New("could not find the word you were looking for")
++        ErrWordExists = errors.New("cannot add word because it already exists")
 + )
 
 func (d Dictionary) Add(word, definition string) error {
-	d[word] = definition
-	return nil
+    d[word] = definition
+    return nil
 }
 ```
 
@@ -1341,19 +1337,19 @@ Ahora tenemos dos errores más. Todavía estamos modificando el valor y devolvie
 
 ```diff
 func (d Dictionary) Add(word, definition string) error {
--	d[word] = definition
-+	_, err := d.Search(word)
+-    d[word] = definition
++    _, err := d.Search(word)
 +
-+	switch err {
-+	case ErrNotFound:
-+		d[word] = definition
-+	case nil:
-+		return ErrWordExists
-+	default:
-+		return err
-+	}
++    switch err {
++    case ErrNotFound:
++        d[word] = definition
++    case nil:
++        return ErrWordExists
++    default:
++        return err
++    }
 +
-	return nil
+    return nil
 }
 ```
 
@@ -1363,88 +1359,88 @@ Aquí estamos usando un `switch` para hacer coincidir el error. Tener un `switch
 package main
 
 import (
-	"errors"
-	"testing"
+    "errors"
+    "testing"
 )
 
 var (
-	ErrNotFound   = errors.New("could not find the word you were looking for")
-	ErrWordExists = errors.New("cannot add word because it already exists")
+    ErrNotFound   = errors.New("could not find the word you were looking for")
+    ErrWordExists = errors.New("cannot add word because it already exists")
 )
 
 type Dictionary map[string]string
 
 func (d Dictionary) Search(word string) (string, error) {
-	definition, ok := d[word]
-	if !ok {
-		return "", ErrNotFound
-	}
+    definition, ok := d[word]
+    if !ok {
+        return "", ErrNotFound
+    }
 
-	return definition, nil
+    return definition, nil
 }
 
 func (d Dictionary) Add(word, definition string) error {
-	_, err := d.Search(word)
+    _, err := d.Search(word)
 
-	switch err {
-	case ErrNotFound:
-		d[word] = definition
-	case nil:
-		return ErrWordExists
-	default:
-		return err
-	}
+    switch err {
+    case ErrNotFound:
+        d[word] = definition
+    case nil:
+        return ErrWordExists
+    default:
+        return err
+    }
 
-	return nil
+    return nil
 }
 
 func TestAdd(t *testing.T) {
-	t.Run("new word", func(t *testing.T) {
-		dictionary := Dictionary{}
-		word := "test"
-		definition := "this is just a test"
+    t.Run("new word", func(t *testing.T) {
+        dictionary := Dictionary{}
+        word := "test"
+        definition := "this is just a test"
 
-		err := dictionary.Add(word, definition)
+        err := dictionary.Add(word, definition)
 
-		assertError(t, err, nil)
-		assertDefinition(t, dictionary, word, definition)
-	})
+        assertError(t, err, nil)
+        assertDefinition(t, dictionary, word, definition)
+    })
 
-	t.Run("existing word", func(t *testing.T) {
-		word := "test"
-		definition := "this is just a test"
-		dictionary := Dictionary{word: definition}
-		err := dictionary.Add(word, "new test")
+    t.Run("existing word", func(t *testing.T) {
+        word := "test"
+        definition := "this is just a test"
+        dictionary := Dictionary{word: definition}
+        err := dictionary.Add(word, "new test")
 
-		assertError(t, err, ErrWordExists)
-		assertDefinition(t, dictionary, word, definition)
-	})
+        assertError(t, err, ErrWordExists)
+        assertDefinition(t, dictionary, word, definition)
+    })
 }
 
 func assertError(t testing.TB, got, want error) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got error %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got error %q want %q", got, want)
+    }
 }
 
 func assertDefinition(t testing.TB, dictionary Dictionary, word, definition string) {
-	t.Helper()
+    t.Helper()
 
-	got, err := dictionary.Search(word)
-	if err != nil {
-		t.Fatal("should find added word:", err)
-	}
-	assertStrings(t, got, definition)
+    got, err := dictionary.Search(word)
+    if err != nil {
+        t.Fatal("should find added word:", err)
+    }
+    assertStrings(t, got, definition)
 }
 
 func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got %q want %q", got, want)
+    }
 }
 ```
 
@@ -1466,14 +1462,14 @@ No tenemos mucho que refactorizar, pero a medida que nuestro uso de errores crec
 
 ```diff
 + const (
-+		ErrNotFound   = DictionaryErr("could not find the word you were looking for")
-+		ErrWordExists = DictionaryErr("cannot add word because it already exists")
++        ErrNotFound   = DictionaryErr("could not find the word you were looking for")
++        ErrWordExists = DictionaryErr("cannot add word because it already exists")
 + )
 +
 + type DictionaryErr string
 +
 + func (e DictionaryErr) Error() string {
-+		return string(e)
++        return string(e)
 + }
 ```
 
@@ -1483,93 +1479,93 @@ Hicimos que los errores fueran constantes, para esto necesitamos crear nuestro p
 package main
 
 import (
-	"testing"
+    "testing"
 )
 
 const (
-	ErrNotFound   = DictionaryErr("could not find the word you were looking for")
-	ErrWordExists = DictionaryErr("cannot add word because it already exists")
+    ErrNotFound   = DictionaryErr("could not find the word you were looking for")
+    ErrWordExists = DictionaryErr("cannot add word because it already exists")
 )
 
 type DictionaryErr string
 
 func (e DictionaryErr) Error() string {
-	return string(e)
+    return string(e)
 }
 
 type Dictionary map[string]string
 
 func (d Dictionary) Search(word string) (string, error) {
-	definition, ok := d[word]
-	if !ok {
-		return "", ErrNotFound
-	}
+    definition, ok := d[word]
+    if !ok {
+        return "", ErrNotFound
+    }
 
-	return definition, nil
+    return definition, nil
 }
 
 func (d Dictionary) Add(word, definition string) error {
-	_, err := d.Search(word)
+    _, err := d.Search(word)
 
-	switch err {
-	case ErrNotFound:
-		d[word] = definition
-	case nil:
-		return ErrWordExists
-	default:
-		return err
-	}
+    switch err {
+    case ErrNotFound:
+        d[word] = definition
+    case nil:
+        return ErrWordExists
+    default:
+        return err
+    }
 
-	return nil
+    return nil
 }
 
 func TestAdd(t *testing.T) {
-	t.Run("new word", func(t *testing.T) {
-		dictionary := Dictionary{}
-		word := "test"
-		definition := "this is just a test"
+    t.Run("new word", func(t *testing.T) {
+        dictionary := Dictionary{}
+        word := "test"
+        definition := "this is just a test"
 
-		err := dictionary.Add(word, definition)
+        err := dictionary.Add(word, definition)
 
-		assertError(t, err, nil)
-		assertDefinition(t, dictionary, word, definition)
-	})
+        assertError(t, err, nil)
+        assertDefinition(t, dictionary, word, definition)
+    })
 
-	t.Run("existing word", func(t *testing.T) {
-		word := "test"
-		definition := "this is just a test"
-		dictionary := Dictionary{word: definition}
-		err := dictionary.Add(word, "new test")
+    t.Run("existing word", func(t *testing.T) {
+        word := "test"
+        definition := "this is just a test"
+        dictionary := Dictionary{word: definition}
+        err := dictionary.Add(word, "new test")
 
-		assertError(t, err, ErrWordExists)
-		assertDefinition(t, dictionary, word, definition)
-	})
+        assertError(t, err, ErrWordExists)
+        assertDefinition(t, dictionary, word, definition)
+    })
 }
 
 func assertError(t testing.TB, got, want error) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got error %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got error %q want %q", got, want)
+    }
 }
 
 func assertDefinition(t testing.TB, dictionary Dictionary, word, definition string) {
-	t.Helper()
+    t.Helper()
 
-	got, err := dictionary.Search(word)
-	if err != nil {
-		t.Fatal("should find added word:", err)
-	}
-	assertStrings(t, got, definition)
+    got, err := dictionary.Search(word)
+    if err != nil {
+        t.Fatal("should find added word:", err)
+    }
+    assertStrings(t, got, definition)
 }
 
 func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got %q want %q", got, want)
+    }
 }
 ```
 
@@ -1579,14 +1575,14 @@ func assertStrings(t testing.TB, got, want string) {
 
 ```diff
 + func TestUpdate(t *testing.T) {
-+		word := "test"
-+		definition := "this is just a test"
-+		dictionary := Dictionary{word: definition}
-+		newDefinition := "new definition"
++        word := "test"
++        definition := "this is just a test"
++        dictionary := Dictionary{word: definition}
++        newDefinition := "new definition"
 +
-+		dictionary.Update(word, newDefinition)
++        dictionary.Update(word, newDefinition)
 +
-+		assertDefinition(t, dictionary, word, newDefinition)
++        assertDefinition(t, dictionary, word, newDefinition)
 + }
 ```
 
@@ -1594,58 +1590,58 @@ func assertStrings(t testing.TB, got, want string) {
 package main
 
 import (
-	"testing"
+    "testing"
 )
 
 const (
-	ErrNotFound   = DictionaryErr("could not find the word you were looking for")
-	ErrWordExists = DictionaryErr("cannot add word because it already exists")
+    ErrNotFound   = DictionaryErr("could not find the word you were looking for")
+    ErrWordExists = DictionaryErr("cannot add word because it already exists")
 )
 
 type DictionaryErr string
 
 func (e DictionaryErr) Error() string {
-	return string(e)
+    return string(e)
 }
 
 type Dictionary map[string]string
 
 func (d Dictionary) Search(word string) (string, error) {
-	definition, ok := d[word]
-	if !ok {
-		return "", ErrNotFound
-	}
+    definition, ok := d[word]
+    if !ok {
+        return "", ErrNotFound
+    }
 
-	return definition, nil
+    return definition, nil
 }
 
 func TestUpdate(t *testing.T) {
-	word := "test"
-	definition := "this is just a test"
-	dictionary := Dictionary{word: definition}
-	newDefinition := "new definition"
+    word := "test"
+    definition := "this is just a test"
+    dictionary := Dictionary{word: definition}
+    newDefinition := "new definition"
 
-	dictionary.Update(word, newDefinition)
+    dictionary.Update(word, newDefinition)
 
-	assertDefinition(t, dictionary, word, newDefinition)
+    assertDefinition(t, dictionary, word, newDefinition)
 }
 
 func assertDefinition(t testing.TB, dictionary Dictionary, word, definition string) {
-	t.Helper()
+    t.Helper()
 
-	got, err := dictionary.Search(word)
-	if err != nil {
-		t.Fatal("should find added word:", err)
-	}
-	assertStrings(t, got, definition)
+    got, err := dictionary.Search(word)
+    if err != nil {
+        t.Fatal("should find added word:", err)
+    }
+    assertStrings(t, got, definition)
 }
 
 func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got %q want %q", got, want)
+    }
 }
 ```
 
@@ -1694,25 +1690,25 @@ No es necesario refactorizar esto, es cambio simple. Sin embargo, ahora tenemos 
 
 ```diff
 + t.Run("existing word", func(t *testing.T) {
-+		word := "test"
-+		definition := "this is just a test"
-+		dictionary := Dictionary{word: definition}
-+		newDefinition := "new definition"
++        word := "test"
++        definition := "this is just a test"
++        dictionary := Dictionary{word: definition}
++        newDefinition := "new definition"
 +
-+ 	err := dictionary.Update(word, newDefinition)
++     err := dictionary.Update(word, newDefinition)
 +
-+		assertError(t, err, nil)
-+		assertDefinition(t, dictionary, word, newDefinition)
++        assertError(t, err, nil)
++        assertDefinition(t, dictionary, word, newDefinition)
 + })
 +
 + t.Run("new word", func(t *testing.T) {
-+ 	word := "test"
-+		definition := "this is just a test"
-+		dictionary := Dictionary{}
++     word := "test"
++        definition := "this is just a test"
++        dictionary := Dictionary{}
 +
-+		err := dictionary.Update(word, definition)
++        err := dictionary.Update(word, definition)
 +
-+		assertError(t, err, ErrWordDoesNotExist)
++        assertError(t, err, ErrWordDoesNotExist)
 + })
 ```
 
@@ -1720,79 +1716,79 @@ No es necesario refactorizar esto, es cambio simple. Sin embargo, ahora tenemos 
 package main
 
 import (
-	"testing"
+    "testing"
 )
 
 const (
-	ErrNotFound   = DictionaryErr("could not find the word you were looking for")
-	ErrWordExists = DictionaryErr("cannot add word because it already exists")
+    ErrNotFound   = DictionaryErr("could not find the word you were looking for")
+    ErrWordExists = DictionaryErr("cannot add word because it already exists")
 )
 
 type DictionaryErr string
 
 func (e DictionaryErr) Error() string {
-	return string(e)
+    return string(e)
 }
 
 type Dictionary map[string]string
 
 func (d Dictionary) Search(word string) (string, error) {
-	definition, ok := d[word]
-	if !ok {
-		return "", ErrNotFound
-	}
+    definition, ok := d[word]
+    if !ok {
+        return "", ErrNotFound
+    }
 
-	return definition, nil
+    return definition, nil
 }
 
 func (d Dictionary) Update(word, definition string) {}
 
 func TestUpdate(t *testing.T) {
-	t.Run("existing word", func(t *testing.T) {
-		word := "test"
-		definition := "this is just a test"
-		dictionary := Dictionary{word: definition}
-		newDefinition := "new definition"
+    t.Run("existing word", func(t *testing.T) {
+        word := "test"
+        definition := "this is just a test"
+        dictionary := Dictionary{word: definition}
+        newDefinition := "new definition"
 
-		err := dictionary.Update(word, newDefinition)
+        err := dictionary.Update(word, newDefinition)
 
-		assertError(t, err, nil)
-		assertDefinition(t, dictionary, word, newDefinition)
-	})
+        assertError(t, err, nil)
+        assertDefinition(t, dictionary, word, newDefinition)
+    })
 
-	t.Run("new word", func(t *testing.T) {
-		word := "test"
-		definition := "this is just a test"
-		dictionary := Dictionary{}
+    t.Run("new word", func(t *testing.T) {
+        word := "test"
+        definition := "this is just a test"
+        dictionary := Dictionary{}
 
-		err := dictionary.Update(word, definition)
+        err := dictionary.Update(word, definition)
 
-		assertError(t, err, ErrWordDoesNotExist)
-	})
+        assertError(t, err, ErrWordDoesNotExist)
+    })
 }
 
 func assertError(t testing.TB, got, want error) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got error %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got error %q want %q", got, want)
+    }
 }
 
 func assertDefinition(t testing.TB, dictionary Dictionary, word, definition string) {
-	t.Helper()
+    t.Helper()
 
-	got, err := dictionary.Search(word)
-	if err != nil {
-		t.Fatal("should find added word:", err)ings(t, got, definition)
+    got, err := dictionary.Search(word)
+    if err != nil {
+        t.Fatal("should find added word:", err)ings(t, got, definition)
 }
 
 func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got %q want %q", got, want)
+    }
 }
 ```
 
@@ -1814,13 +1810,13 @@ Obtenemos 3 errores pero ya sabemos como resolverlos.
 
 ```diff
 const (
-	ErrNotFound         = DictionaryErr("could not find the word you were looking for")
-	ErrWordExists       = DictionaryErr("cannot add word because it already exists")
+    ErrNotFound         = DictionaryErr("could not find the word you were looking for")
+    ErrWordExists       = DictionaryErr("cannot add word because it already exists")
 + ErrWordDoesNotExist = DictionaryErr("cannot update word because it does not exist")
 )
 
 + func (d Dictionary) Update(word, definition string) error {
-		d[word] = definition
+        d[word] = definition
 + return nil
 }
 ```
@@ -1833,85 +1829,85 @@ Con estos cambios ahora deberíamos ver un error más claro.
 package main
 
 import (
-	"testing"
+    "testing"
 )
 
 const (
-	ErrNotFound         = DictionaryErr("could not find the word you were looking for")
-	ErrWordExists       = DictionaryErr("cannot add word because it already exists")
-	ErrWordDoesNotExist = DictionaryErr("cannot update word because it does not exist")
+    ErrNotFound         = DictionaryErr("could not find the word you were looking for")
+    ErrWordExists       = DictionaryErr("cannot add word because it already exists")
+    ErrWordDoesNotExist = DictionaryErr("cannot update word because it does not exist")
 )
 
 type DictionaryErr string
 
 func (e DictionaryErr) Error() string {
-	return string(e)
+    return string(e)
 }
 
 type Dictionary map[string]string
 
 func (d Dictionary) Search(word string) (string, error) {
-	definition, ok := d[word]
-	if !ok {
-		return "", ErrNotFound
-	}
+    definition, ok := d[word]
+    if !ok {
+        return "", ErrNotFound
+    }
 
-	return definition, nil
+    return definition, nil
 }
 
 func (d Dictionary) Update(word, definition string) error {
-	d[word] = definition
-	return nil
+    d[word] = definition
+    return nil
 }
 
 func TestUpdate(t *testing.T) {
-	t.Run("existing word", func(t *testing.T) {
-		word := "test"
-		definition := "this is just a test"
-		dictionary := Dictionary{word: definition}
-		newDefinition := "new definition"
+    t.Run("existing word", func(t *testing.T) {
+        word := "test"
+        definition := "this is just a test"
+        dictionary := Dictionary{word: definition}
+        newDefinition := "new definition"
 
-		err := dictionary.Update(word, newDefinition)
+        err := dictionary.Update(word, newDefinition)
 
-		assertError(t, err, nil)
-		assertDefinition(t, dictionary, word, newDefinition)
-	})
+        assertError(t, err, nil)
+        assertDefinition(t, dictionary, word, newDefinition)
+    })
 
-	t.Run("new word", func(t *testing.T) {
-		word := "test"
-		definition := "this is just a test"
-		dictionary := Dictionary{}
+    t.Run("new word", func(t *testing.T) {
+        word := "test"
+        definition := "this is just a test"
+        dictionary := Dictionary{}
 
-		err := dictionary.Update(word, definition)
+        err := dictionary.Update(word, definition)
 
-		assertError(t, err, ErrWordDoesNotExist)
-	})
+        assertError(t, err, ErrWordDoesNotExist)
+    })
 }
 
 func assertError(t testing.TB, got, want error) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got error %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got error %q want %q", got, want)
+    }
 }
 
 func assertDefinition(t testing.TB, dictionary Dictionary, word, definition string) {
-	t.Helper()
+    t.Helper()
 
-	got, err := dictionary.Search(word)
-	if err != nil {
-		t.Fatal("should find added word:", err)
-	}
-	assertStrings(t, got, definition)
+    got, err := dictionary.Search(word)
+    if err != nil {
+        t.Fatal("should find added word:", err)
+    }
+    assertStrings(t, got, definition)
 }
 
 func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got %q want %q", got, want)
+    }
 }
 ```
 
@@ -1932,19 +1928,19 @@ FAIL
 
 ```diff
 func (d Dictionary) Update(word, definition string) error {
--	d[word] = definition
-+	_, err := d.Search(word)
+-    d[word] = definition
++    _, err := d.Search(word)
 +
-+	switch err {
-+		case ErrNotFound:
-+		return ErrWordDoesNotExist
-+	case nil:
-+		d[word] = definition
-+	default:
-+		return err
-+	}
++    switch err {
++        case ErrNotFound:
++        return ErrWordDoesNotExist
++    case nil:
++        d[word] = definition
++    default:
++        return err
++    }
 +
-	return nil
+    return nil
 }
 ```
 
@@ -1954,95 +1950,95 @@ Esta función parece casi idéntica a `Add` excepto que cambiamos cuando actuali
 package main
 
 import (
-	"testing"
+    "testing"
 )
 
 const (
-	ErrNotFound         = DictionaryErr("could not find the word you were looking for")
-	ErrWordExists       = DictionaryErr("cannot add word because it already exists")
-	ErrWordDoesNotExist = DictionaryErr("cannot update word because it does not exist")
+    ErrNotFound         = DictionaryErr("could not find the word you were looking for")
+    ErrWordExists       = DictionaryErr("cannot add word because it already exists")
+    ErrWordDoesNotExist = DictionaryErr("cannot update word because it does not exist")
 )
 
 type DictionaryErr string
 
 func (e DictionaryErr) Error() string {
-	return string(e)
+    return string(e)
 }
 
 type Dictionary map[string]string
 
 func (d Dictionary) Search(word string) (string, error) {
-	definition, ok := d[word]
-	if !ok {
-		return "", ErrNotFound
-	}
+    definition, ok := d[word]
+    if !ok {
+        return "", ErrNotFound
+    }
 
-	return definition, nil
+    return definition, nil
 }
 
 func (d Dictionary) Update(word, definition string) error {
-	_, err := d.Search(word)
+    _, err := d.Search(word)
 
-	switch err {
-	case ErrNotFound:
-		return ErrWordDoesNotExist
-	case nil:
-		d[word] = definition
-	default:
-		return err
-	}
+    switch err {
+    case ErrNotFound:
+        return ErrWordDoesNotExist
+    case nil:
+        d[word] = definition
+    default:
+        return err
+    }
 
-	return nil
+    return nil
 }
 
 func TestUpdate(t *testing.T) {
-	t.Run("existing word", func(t *testing.T) {
-		word := "test"
-		definition := "this is just a test"
-		dictionary := Dictionary{word: definition}
-		newDefinition := "new definition"
+    t.Run("existing word", func(t *testing.T) {
+        word := "test"
+        definition := "this is just a test"
+        dictionary := Dictionary{word: definition}
+        newDefinition := "new definition"
 
-		err := dictionary.Update(word, newDefinition)
+        err := dictionary.Update(word, newDefinition)
 
-		assertError(t, err, nil)
-		assertDefinition(t, dictionary, word, newDefinition)
-	})
+        assertError(t, err, nil)
+        assertDefinition(t, dictionary, word, newDefinition)
+    })
 
-	t.Run("new word", func(t *testing.T) {
-		word := "test"
-		definition := "this is just a test"
-		dictionary := Dictionary{}
+    t.Run("new word", func(t *testing.T) {
+        word := "test"
+        definition := "this is just a test"
+        dictionary := Dictionary{}
 
-		err := dictionary.Update(word, definition)
+        err := dictionary.Update(word, definition)
 
-		assertError(t, err, ErrWordDoesNotExist)
-	})
+        assertError(t, err, ErrWordDoesNotExist)
+    })
 }
 
 func assertError(t testing.TB, got, want error) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got error %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got error %q want %q", got, want)
+    }
 }
 
 func assertDefinition(t testing.TB, dictionary Dictionary, word, definition string) {
-	t.Helper()
+    t.Helper()
 
-	got, err := dictionary.Search(word)
-	if err != nil {
-		t.Fatal("should find added word:", err)
-	}
-	assertStrings(t, got, definition)
+    got, err := dictionary.Search(word)
+    if err != nil {
+        t.Fatal("should find added word:", err)
+    }
+    assertStrings(t, got, definition)
 }
 
 func assertStrings(t testing.TB, got, want string) {
-	t.Helper()
+    t.Helper()
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
-	}
+    if got != want {
+        t.Errorf("got %q want %q", got, want)
+    }
 }
 ```
 
@@ -2072,15 +2068,15 @@ Tener errores específicos te brinda más información sobre lo que salió mal. 
 
 ```diff
 + func TestDelete(t *testing.T) {
-+		word := "test"
-+		dictionary := Dictionary{word: "test definition"}
++        word := "test"
++        dictionary := Dictionary{word: "test definition"}
 +
-+		dictionary.Delete(word)
++        dictionary.Delete(word)
 +
-+		_, err := dictionary.Search(word)
-+		if err != ErrNotFound {
-+			t.Errorf("Expected %q to be deleted", word)
-+		}
++        _, err := dictionary.Search(word)
++        if err != ErrNotFound {
++            t.Errorf("Expected %q to be deleted", word)
++        }
 + }
 ```
 
@@ -2090,57 +2086,57 @@ Nuestro test creara un `dictionary` con una `word` y luego borrara la `word` y l
 package main
 
 import (
-	"testing"
+    "testing"
 )
 
 const (
-	ErrNotFound         = DictionaryErr("could not find the word you were looking for")
-	ErrWordExists       = DictionaryErr("cannot add word because it already exists")
-	ErrWordDoesNotExist = DictionaryErr("cannot update word because it does not exist")
+    ErrNotFound         = DictionaryErr("could not find the word you were looking for")
+    ErrWordExists       = DictionaryErr("cannot add word because it already exists")
+    ErrWordDoesNotExist = DictionaryErr("cannot update word because it does not exist")
 )
 
 type DictionaryErr string
 
 func (e DictionaryErr) Error() string {
-	return string(e)
+    return string(e)
 }
 
 type Dictionary map[string]string
 
 func (d Dictionary) Search(word string) (string, error) {
-	definition, ok := d[word]
-	if !ok {
-		return "", ErrNotFound
-	}
+    definition, ok := d[word]
+    if !ok {
+        return "", ErrNotFound
+    }
 
-	return definition, nil
+    return definition, nil
 }
 
 func (d Dictionary) Update(word, definition string) error {
-	_, err := d.Search(word)
+    _, err := d.Search(word)
 
-	switch err {
-	case ErrNotFound:
-		return ErrWordDoesNotExist
-	case nil:
-		d[word] = definition
-	default:
-		return err
-	}
+    switch err {
+    case ErrNotFound:
+        return ErrWordDoesNotExist
+    case nil:
+        d[word] = definition
+    default:
+        return err
+    }
 
-	return nil
+    return nil
 }
 
 func TestDelete(t *testing.T) {
-	word := "test"
-	dictionary := Dictionary{word: "test definition"}
+    word := "test"
+    dictionary := Dictionary{word: "test definition"}
 
-	dictionary.Delete(word)
+    dictionary.Delete(word)
 
-	_, err := dictionary.Search(word)
-	if err != ErrNotFound {
-		t.Errorf("Expected %q to be deleted", word)
-	}
+    _, err := dictionary.Search(word)
+    if err != ErrNotFound {
+        t.Errorf("Expected %q to be deleted", word)
+    }
 }
 ```
 
